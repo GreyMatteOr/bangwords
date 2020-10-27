@@ -1,0 +1,19 @@
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-select {
+  flex-direction: row;
+  padding: 10vh;
+}
+
+.character-select button {
+  height: 3em;
+  width: 8em;
+  margin: 25px;
+}
