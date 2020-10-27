@@ -4,18 +4,36 @@ export class WordSelector extends Component {
   constructor(props) {
     super(props) 
     
-    this.state = {}
+    this.state = {
+      guessWord: ''
+    }
   }
+
+  updateChange = (e) => {
+    e.preventDefault();
+    this.setState({guessWord: e.target.value})
+  }
+
+  verifyCredentials = (e) => {
+    e.preventDefault();
+    console.log(this.state)
+  }
+
   render() {
     return (
       <div className="selection-page">
         <h2>Type a word for your opponent to guess!</h2>
         <form>
           <label>
-            Name:
-            <input type="text" name="name" />
+            <input type="text" name="name" onChange={this.updateChange} />
           </label>
-          <input type="submit" value="Submit" />
+          <input 
+            type="submit" 
+            value="Submit" 
+            onClick={(e) => {
+              this.verifyCredentials(e)
+              }}
+          />
         </form>
       </div>
     )

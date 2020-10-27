@@ -23,13 +23,13 @@ export class App extends Component{
         </header>
         <Switch>
          <Route
-            path='/'
+            exact path='/'
             render={() => {
             return  <Homepage/>
             }}
           />
          <Route
-            path='/word-selector'
+            exact path='/word-selector'
             render={() => {
             return  <WordSelector/>
             }}
