@@ -1,4 +1,4 @@
-export default class Game {
+class Game {
     constructor(wordToGuess, maxWrongAttempts) {
         // this.alive = true;
         this.player1;
@@ -39,3 +39,7 @@ export default class Game {
         location.reload();
     }
 }
+
+if (typeof module !== "undefined") {
+    module.exports = Game;
+};
