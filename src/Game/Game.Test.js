@@ -89,6 +89,17 @@ describe('Game', () => {
     
                 expect(a.correctGuesses.length).to.equal(0);
             })
+
+            it("11. a correct guess should increase the length of `this.correctGuesses`", () => {
+    
+                const a = new Game('game', 3);
+    
+                a.reviewAttempt('g');
+    
+                expect(a.correctGuesses.length).to.equal(1);
+            })
+
+            
         })
         
     })
