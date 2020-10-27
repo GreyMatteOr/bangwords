@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import  { Homepage }  from '../src/Homepage/Homepage.js';
+import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import './App.css';
 
 export class App extends Component{
@@ -25,6 +26,12 @@ export class App extends Component{
             path='/'
             render={() => {
             return  <Homepage/>
+            }}
+          />
+         <Route
+            path='/word-selector'
+            render={() => {
+            return  <WordSelector/>
             }}
           />
 
