@@ -1,6 +1,6 @@
 export default class Game {
     constructor() {
-        this.alive = true;
+        // this.alive = true;
         this.player1;
         this.player2;
         this.wordToGuess = '';
@@ -25,5 +25,17 @@ export default class Game {
             location.reload();
         }
     }
-    
+    correctAttempt() {
+        let theWordSplit = this.wordToGuess.split('');
+        if (this.correctGuesses(-1) == this.wordToGuess) {
+            winGame();
+        }
+        if (this.correctGuesses.includes(theWordSplit)) {
+            winGame();
+        }
+    }
+    winGame() {
+        alert('The man has survived');
+        location.reload();
+    }
 }
