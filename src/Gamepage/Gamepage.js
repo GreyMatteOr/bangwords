@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Gamepage.css';
+// import './Gamepage.css';
 
 export class Gamepage extends Component {
   constructor(props) {
