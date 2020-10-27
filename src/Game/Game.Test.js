@@ -59,7 +59,7 @@ describe('Game', () => {
 
     describe('Methods', () => {
         
-        describe('Review Attempt (this.wrongGuesses)', () => {
+        describe('reviewAttempt() method (this.wrongGuesses)', () => {
             it("8. a wrong guess should increase `this.wrongGuesses`", () => {
 
                 const a = new Game('game', 3);
@@ -80,7 +80,7 @@ describe('Game', () => {
             })
         })
 
-        describe('Review Attempt (this.correctGuesses)', () => {
+        describe('reviewAttempt() method (this.correctGuesses)', () => {
             it("10. a bad guess should not increase the length of `this.correctGuesses`", () => {
     
                 const a = new Game('game', 3);
@@ -106,8 +106,7 @@ describe('Game', () => {
                 a.reviewAttempt('e');
                 a.reviewAttempt('g');
     
-                let last = a.correctGuesses.slice(-1);
-                expect(last[0]).to.equal('g');
+                expect(a.correctGuesses.slice(-1)[0]).to.equal('g');
             })
         })
         
