@@ -4,8 +4,8 @@ class Game {
         this.player1;
         this.player2;
         this.wordToGuess = wordToGuess;
-        this.attemptedGuesses = []; // All of these will be displayed as guesses
         this.maxWrongAttempts = maxWrongAttempts;
+        this.attemptedGuesses = []; // All of these will be displayed as guesses
         this.wrongGuesses = 0;
         this.correctGuesses = []; // These will be displayed as correct guesses only
     }
