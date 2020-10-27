@@ -27,7 +27,7 @@ class Game {
     }
     correctAttempt() {
         let theWordSplit = this.wordToGuess.split('');
-        if (this.correctGuesses.slice[-1] == this.wordToGuess) {
+        if (this.correctGuesses.slice(-1) == this.wordToGuess) {
             winGame();
         }
         if (this.correctGuesses.includes(theWordSplit)) {

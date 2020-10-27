@@ -99,7 +99,16 @@ describe('Game', () => {
                 expect(a.correctGuesses.length).to.equal(1);
             })
 
-            
+            it("12. a correct guess should be the last index of `this.correctGuesses`", () => {
+    
+                const a = new Game('game', 3);
+    
+                a.reviewAttempt('e');
+                a.reviewAttempt('g');
+    
+                let last = a.correctGuesses.slice(-1);
+                expect(last[0]).to.equal('g');
+            })
         })
         
     })
