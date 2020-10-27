@@ -1,1 +1,1 @@
-(API Repo Linke)[https://github.com/GreyMatteOr/bangwords-api]
+[API Repo Linke](https://github.com/GreyMatteOr/bangwords-api)
