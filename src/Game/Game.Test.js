@@ -48,6 +48,13 @@ describe('Game', () => {
     
             expect(a.wrongGuesses).to.equal(0);
         })
+
+        it("7. correctGuesses should start as an empty array", () => {
+    
+            const a = new Game('game', 3);
+    
+            expect(a.correctGuesses).to.deep.equal([]);
+        })
     
         // /**/it("should have a strideLength", () => {
     
