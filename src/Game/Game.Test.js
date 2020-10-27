@@ -1,6 +1,5 @@
 // To test this run --> ./node_modules/.bin/mocha --require babel-register ./src/Game/Game.Test.js
 
-
 const chai = require("chai");
 const expect = chai.expect;
 
@@ -55,35 +54,17 @@ describe('Game', () => {
     
             expect(a.correctGuesses).to.deep.equal([]);
         })
-    
-        // /**/it("should have a strideLength", () => {
-    
-        //     const a = new Game('game', 3);
-    
-        //     expect(a.strideLength).to.equal(userData.strideLength);
-        // })
-    
-        // /**/it("should have a dailyStepGoal", () => {
-    
-        //     const a = new Game('game', 3);
-    
-        //     expect(a.dailyStepGoal).to.equal(userData.dailyStepGoal);
-        // })
-    
-        // /**/it("should have friends", () => {
-    
-        //     const a = new Game('game', 3);
-    
-        //     expect(a.friends).to.equal(userData.friends);
-        // })
     })
 
-    // describe('Methods', () => {
-    //     it("should return the user's first name only", () => {
+    describe('Methods', () => {
+        it("8. a wrong guess should increase `this.wrongGuesses`", () => {
 
-    //         const a = new Game('game', 3);
-    
-    //         expect(a.returnFirstName()).to.equal("Luisa");
-    //     })
-    // })
+            const a = new Game('game', 3);
+
+            a.reviewAttempt('c');
+            a.reviewAttempt('c');
+
+            expect(a.wrongGuesses).to.equal(2);
+        })
+    })
 })
