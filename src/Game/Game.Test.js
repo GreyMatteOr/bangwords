@@ -28,7 +28,7 @@ describe('Game', () => {
             expect(a.wordToGuess).to.equal('game');
         })
     
-        it("6. should have a `maxWrongAttempts` property", () => {
+        it("4. should have a `maxWrongAttempts` property", () => {
     
             const a = new Game('game', 3);
     
@@ -42,12 +42,12 @@ describe('Game', () => {
             expect(a.attemptedGuesses).to.deep.equal([]);
         })
     
-        // /**/it("should have an email", () => {
+        it("6. wrongGuesses should start at 0", () => {
     
-        //     const a = new Game('game', 3);
+            const a = new Game('game', 3);
     
-        //     expect(a.email).to.equal(userData.email);
-        // })
+            expect(a.wrongGuesses).to.equal(0);
+        })
     
         // /**/it("should have a strideLength", () => {
     
