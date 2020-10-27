@@ -19,5 +19,11 @@ export default class Game {
             this.correctAttempt();
         }
     }
+    wrongAttempt() {
+        if (this.wrongGuesses >= this.maxWrongAttempts) {
+            alert('The man is dead');
+            location.reload();
+        }
+    }
     
 }
