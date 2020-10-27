@@ -58,23 +58,38 @@ describe('Game', () => {
     })
 
     describe('Methods', () => {
-        it("8. a wrong guess should increase `this.wrongGuesses`", () => {
+        
+        describe('Review Attempt (this.wrongGuesses)', () => {
+            it("8. a wrong guess should increase `this.wrongGuesses`", () => {
 
-            const a = new Game('game', 3);
-
-            a.reviewAttempt('c');
-            a.reviewAttempt('c');
-
-            expect(a.wrongGuesses).to.equal(2);
+                const a = new Game('game', 3);
+    
+                a.reviewAttempt('c');
+                a.reviewAttempt('c');
+    
+                expect(a.wrongGuesses).to.equal(2);
+            })
+    
+            it("9. a correct guess should not increase `this.wrongGuesses`", () => {
+    
+                const a = new Game('game', 3);
+    
+                a.reviewAttempt('g');
+    
+                expect(a.wrongGuesses).to.equal(0);
+            })
         })
 
-        it("9. a correct guess should not increase `this.wrongGuesses`", () => {
-
-            const a = new Game('game', 3);
-
-            a.reviewAttempt('g');
-
-            expect(a.wrongGuesses).to.equal(0);
+        describe('Review Attempt (this.correctGuesses)', () => {
+            it("10. a bad guess should not increase the length of `this.correctGuesses`", () => {
+    
+                const a = new Game('game', 3);
+    
+                a.reviewAttempt('c');
+    
+                expect(a.correctGuesses.length).to.equal(0);
+            })
         })
+        
     })
 })
