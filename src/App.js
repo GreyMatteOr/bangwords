@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import  { Homepage }  from '../src/Homepage/Homepage.js';
 import './App.css';
 
 export class App extends Component{
@@ -18,12 +20,15 @@ export class App extends Component{
         <header className="BangWords-header">
           BangWords
         </header>
-        <div className="character-select">
-          <button className="generator">Generator</button>
-          <button className="Guesser">Guesser</button>
-        </div>
-        <h1>Score: </h1>
+        <Switch>
+         <Route
+            path='/'
+            render={() => {
+            return  <Homepage/>
+            }}
+          />
 
+        </Switch>
       </div>
     );
   }
