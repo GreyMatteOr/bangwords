@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import './Gamepage.css';
+import './Gamepage.css';
 
 export class Gamepage extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ export class Gamepage extends Component {
   render() {
     return (
       <div className="game-page">
-        <div className="hints">
+        <div className="hints">Hints
 
         </div>
         <div className="board">
@@ -31,7 +31,7 @@ export class Gamepage extends Component {
           <input type="submit" value="Submit" />
         </form>
         </div>
-        <div className="attempts">
+        <div className="attempts">Attempts
 
         </div>
       </div>
