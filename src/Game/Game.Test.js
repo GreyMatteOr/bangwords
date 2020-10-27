@@ -1,4 +1,4 @@
-// ./node_modules/.bin/mocha --require babel-register ./src/Game/Game.Test.js
+// To test this run --> ./node_modules/.bin/mocha --require babel-register ./src/Game/Game.Test.js
 
 
 const chai = require("chai");
@@ -21,26 +21,26 @@ describe('Game', () => {
     })
     
     describe('Properties', () => {
-        /**/it("3. should have a word to guess", () => {
+        it("3. should have a word to guess", () => {
     
             const a = new Game('game', 3);
     
             expect(a.wordToGuess).to.equal('game');
         })
     
-        // /**/it("should have a name", () => {
+        it("6. should have a `maxWrongAttempts` property", () => {
     
-        //     const a = new Game('game', 3);
+            const a = new Game('game', 3);
     
-        //     expect(a.name).to.equal(userData.name);
-        // })
+            expect(a.maxWrongAttempts).to.equal(3);
+        })
     
-        // /**/it("should have an address", () => {
+        it("5. attemptedGuesses should start as an empty array", () => {
     
-        //     const a = new Game('game', 3);
+            const a = new Game('game', 3);
     
-        //     expect(a.address).to.equal(userData.address);
-        // })
+            expect(a.attemptedGuesses).to.deep.equal([]);
+        })
     
         // /**/it("should have an email", () => {
     
