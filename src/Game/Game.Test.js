@@ -1,4 +1,5 @@
 // To test this run --> ./node_modules/.bin/mocha --require babel-register ./src/Game/Game.Test.js
+// https://www.pluralsight.com/guides/unit-test-react-component-mocha
 
 const chai = require("chai");
 const expect = chai.expect;
@@ -65,6 +66,15 @@ describe('Game', () => {
             a.reviewAttempt('c');
 
             expect(a.wrongGuesses).to.equal(2);
+        })
+
+        it("9. a correct guess should not increase `this.wrongGuesses`", () => {
+
+            const a = new Game('game', 3);
+
+            a.reviewAttempt('g');
+
+            expect(a.wrongGuesses).to.equal(0);
         })
     })
 })

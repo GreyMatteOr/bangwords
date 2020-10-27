@@ -11,7 +11,7 @@ class Game {
     }
     reviewAttempt(guess) {
         this.attemptedGuesses.push(guess);
-        if (this.wordToGuess != guess || !this.wordToGuess.includes(guess)) {
+        if (this.wordToGuess != guess && !this.wordToGuess.includes(guess)) {
             this.wrongGuesses += 1;
             this.wrongAttempt();
         } else {
