@@ -18,3 +18,36 @@
   width: 250px;
   border: solid 2px black;
 }
+
+.board {
+  width: 55%;
+}
+
+.draw-board {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: solid 2px black;
+  min-height: 350px;
+  width: 100%;
+}
+
+.board form label {
+  margin: 10px
+}
+
+.draw-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.display-word {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3em
+}
+
+.display-word p {
+  margin: 5px
+}

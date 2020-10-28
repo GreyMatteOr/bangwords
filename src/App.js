@@ -3,38 +3,51 @@ import { Switch, Route } from 'react-router-dom';
 import  { Homepage }  from '../src/Homepage/Homepage.js';
 import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
-import theCalls from '../src/APICalls/APICalls'
+import apiCalls from '../src/APICalls/APICalls'
+import History from './History.js';
 import './App.css';
 
 export class App extends Component{
   constructor() {
     super()
     this.state = {
-      isGuesser: null,
+      isGenerator: null,
+      numPlayers: 0,
       word: '',
-      guess: ''
+      guess: '',
+      // attempts: [],
+      attempts: ['cuts', 'butts', 'coconuts'],
+      // hints: [],
+      display: ['d', '_', '_', 'o', '_', 'a', 'u', 'r']
     }
   }
   designateRole = async (role) => {
-    // const isGuesser = await theCalls.joinGame(role)
-    // this.setState({isGuesser})
-    console.log('designateRole')
+    // const isGenerator = await apiCalls.joinGame(role)
+    // this.setState({isGenerator})
+    console.log('role', role)
   }
   makeWordToGuess = async (createdWord) => {
-    // const word = await theCalls.createWord(createdWord, 1)
+    // const word = await apiCalls.createWord(createdWord, 1)
     // this.setState({word})
-    console.log("makeWordToGuess")
+    console.log("createdWord", createdWord)
   }
   makeGuess = async (newGuess) => {
-    // const guess = await theCalls.makeGuess(newGuess)
+    // const guess = await apiCalls.makeGuess(newGuess)
     // this.setState({guess})
-    console.log('makeGuess')
+    console.log('newGuess', newGuess)
   }
   render() {
+    if (this.state.numPlayers > 1 && !this.state.word && History[History.length -1] !=='/word-selector') {
+      History.push('/word-selector');
+    } else if (this.state.numPlayers > 1 && this.state.word && History[History.length -1] !=='/gamepage') {
+      History.push('/gamepage');
+    } else if (History[History.length -1] !=='/') {
+      History.push('/');
+    }
     return (
       <div className="BangWords">
         <header className="BangWords-header">
-          BangWords
+          <h1>BangWords</h1>
         </header>
         <Switch>
           <Route
@@ -46,13 +59,13 @@ export class App extends Component{
           <Route
             exact path='/word-selector'
             render={() => {
-            return  <WordSelector makeWordToGuess={this.makeWordToGuess}/>
+            return  <WordSelector makeWordToGuess={this.makeWordToGuess} isGenerator={this.state.isGenerator}/>
             }}
           />
           <Route
             exact path='/gamepage'
             render={() => {
-            return  <Gamepage makeGuess={this.makeGuess}/>
+            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts} display={this.state.display}  isGenerator={this.state.isGenerator}/>
             }}
           />
         </Switch>
