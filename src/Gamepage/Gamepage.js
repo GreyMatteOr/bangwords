@@ -26,14 +26,18 @@ export class Gamepage extends Component {
   }
 
   mapAttempts = () => {
+    let theKey = 0;
     return this.props.attempts.map(attempt => {
-      return <p>{attempt}</p>
+      theKey += 1;
+      return <p key={theKey}>{attempt}</p>
     })
   }
 
   splitDisplay = () => {
+    let theKey = 0;
     return this.props.display.map(tile => {
-      return <p>{tile}</p>
+      theKey += 1;
+      return <p data-testid='splitDisplay' key={theKey}>{tile}</p>
     })
   }
 

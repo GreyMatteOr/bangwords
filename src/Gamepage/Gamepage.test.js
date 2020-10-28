@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { Gamepage } from './Gamepage.js';
-import { screen, render, waitFor } from '@testing-library/react';
+import { screen, render, waitFor, getAllByTestId } from '@testing-library/react';
 
 describe('Gamepage', () => {
 
@@ -50,7 +50,6 @@ describe('Gamepage', () => {
       />);
       expect(screen.getByText('Hints')).toBeInTheDocument();
     })
-
     it('4. should render the `Draw Board` header', () => {
 
       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
@@ -64,7 +63,6 @@ describe('Gamepage', () => {
       />);
       expect(screen.getByText('Draw Board')).toBeInTheDocument();
     })
-
     it('5. should render the `Attempts` header', () => {
 
       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
@@ -77,6 +75,22 @@ describe('Gamepage', () => {
       }
       />);
       expect(screen.getByText('Attempts')).toBeInTheDocument();
+    })
+  })
+
+  describe('splitDisplay()', () => {
+    it('6. should render the `display` prop as one word', () => {
+
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      makeGuess={
+        async (newGuess) => {
+          // const guess = await apiCalls.makeGuess(newGuess)
+          // this.setState({guess})
+          console.log('newGuess', newGuess)
+        }
+      }
+      />);
+      expect(screen.getAllByTestId('splitDisplay').toBeInTheDocument)
     })
   })
 })
