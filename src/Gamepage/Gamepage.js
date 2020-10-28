@@ -19,6 +19,7 @@ export class Gamepage extends Component {
 
         </div>
         <div className="board">
+          <div className="draw-board">x</div>
         <form>
           <label>
             Letter:
