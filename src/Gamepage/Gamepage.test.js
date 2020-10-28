@@ -36,8 +36,8 @@ describe('Gamepage', () => {
   // expect(screen.getByText('Attempts')).toBeInTheDocument();
   })
 
-  describe('Render method', () => {
-    it('3. should render the `Hints` title', () => {
+  describe('Render method / Headers', () => {
+    it('3. should render the `Hints` header', () => {
 
       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
       makeGuess={
@@ -51,7 +51,7 @@ describe('Gamepage', () => {
       expect(screen.getByText('Hints')).toBeInTheDocument();
     })
 
-    it('4. should render the `Draw Board` title', () => {
+    it('4. should render the `Draw Board` header', () => {
 
       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
       makeGuess={
@@ -63,6 +63,20 @@ describe('Gamepage', () => {
       }
       />);
       expect(screen.getByText('Draw Board')).toBeInTheDocument();
+    })
+
+    it('5. should render the `Attempts` header', () => {
+
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      makeGuess={
+        async (newGuess) => {
+          // const guess = await apiCalls.makeGuess(newGuess)
+          // this.setState({guess})
+          console.log('newGuess', newGuess)
+        }
+      }
+      />);
+      expect(screen.getByText('Attempts')).toBeInTheDocument();
     })
   })
 })
