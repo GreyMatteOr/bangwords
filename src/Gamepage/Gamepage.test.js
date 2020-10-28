@@ -50,5 +50,19 @@ describe('Gamepage', () => {
       />);
       expect(screen.getByText('Hints')).toBeInTheDocument();
     })
+
+    it('4. should render the `Draw Board` title', () => {
+
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      makeGuess={
+        async (newGuess) => {
+          // const guess = await apiCalls.makeGuess(newGuess)
+          // this.setState({guess})
+          console.log('newGuess', newGuess)
+        }
+      }
+      />);
+      expect(screen.getByText('Draw Board')).toBeInTheDocument();
+    })
   })
 })
