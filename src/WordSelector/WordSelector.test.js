@@ -4,10 +4,19 @@ import { screen, render, waitFor } from '@testing-library/react';
 
 describe('WordSelector', () => {
 
-  it('should render the default layout', () => {
+  describe('Testing the Heading', () => {
+    it('should render the default heading if the `isGenerator` prop is true', () => {
 
-    render(<WordSelector />);
+      render(<WordSelector isGenerator={true}/>);
+  
+      expect(screen.getByText('Type a word for your opponent to guess!')).toBeInTheDocument();
+    })
 
-    expect(screen.getByText('Type a word for your opponent to guess!')).toBeInTheDocument();
+    it('should not render the default heading if the `isGenerator` prop is true', () => {
+
+      render(<WordSelector />);
+  
+      expect(screen.getByText('Your opponent is thinking of a word...')).toBeInTheDocument();
+    })
   })
 })
