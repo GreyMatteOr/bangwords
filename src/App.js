@@ -16,16 +16,19 @@ export class App extends Component{
     }
   }
   designateRole = async (role) => {
-    const isGuesser = await theCalls.joinGame(role)
-    this.setState({isGuesser})
+    // const isGuesser = await theCalls.joinGame(role)
+    // this.setState({isGuesser})
+    console.log('designateRole')
   }
   makeWordToGuess = async (createdWord) => {
-    const word = await theCalls.createWord(createdWord, 1)
-    this.setState({word})
+    // const word = await theCalls.createWord(createdWord, 1)
+    // this.setState({word})
+    console.log("makeWordToGuess")
   }
   makeGuess = async (newGuess) => {
-    const guess = await theCalls.makeGuess(newGuess)
-    this.setState({guess})
+    // const guess = await theCalls.makeGuess(newGuess)
+    // this.setState({guess})
+    console.log('makeGuess')
   }
   render() {
     return (
