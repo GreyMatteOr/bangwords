@@ -4,13 +4,51 @@ import { screen, render, waitFor } from '@testing-library/react';
 
 describe('Gamepage', () => {
 
-  it('should render the default layout', () => {
+  describe('isGenDisplay method', () => {
+    it('1. should render the `word-input` if `isGenerator is not true`', () => {
 
-    render(<Gamepage />);
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      makeGuess={
+        async (newGuess) => {
+          // const guess = await apiCalls.makeGuess(newGuess)
+          // this.setState({guess})
+          console.log('newGuess', newGuess)
+        }
+      }
+      />);
 
-    expect(screen.getByText('Letter:')).toBeInTheDocument();
-    expect(screen.getByText('Word:')).toBeInTheDocument();
-    expect(screen.getByTestId('word-submit-button')).toBeInTheDocument();
-    expect(screen.getByText('Attempts')).toBeInTheDocument();
+      expect(screen.getByPlaceholderText('Letter or Word')).toBeInTheDocument();
+    })
+    it('2. should render the `Guess` button if `isGenerator is not true`', () => {
+
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      makeGuess={
+        async (newGuess) => {
+          // const guess = await apiCalls.makeGuess(newGuess)
+          // this.setState({guess})
+          console.log('newGuess', newGuess)
+        }
+      }
+      />);
+      expect(screen.getByTestId('word-submit-button')).toBeInTheDocument();
+    })
+  
+  // expect(screen.getByText('Attempts')).toBeInTheDocument();
+  })
+
+  describe('Render method', () => {
+    it('3. should render the `Hints` title', () => {
+
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      makeGuess={
+        async (newGuess) => {
+          // const guess = await apiCalls.makeGuess(newGuess)
+          // this.setState({guess})
+          console.log('newGuess', newGuess)
+        }
+      }
+      />);
+      expect(screen.getByText('Hints')).toBeInTheDocument();
+    })
   })
 })

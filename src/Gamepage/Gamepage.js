@@ -42,7 +42,7 @@ export class Gamepage extends Component {
       return (
         <form>
         <label> 
-          <input type="text" name="word" className="word-input" placeholder="letter/word" onChange={this.updateChange} />
+          <input type="text" name="word" className="word-input" placeholder="Letter or Word" onChange={this.updateChange} />
         </label>
         <input 
         type="submit" 
@@ -66,7 +66,7 @@ export class Gamepage extends Component {
         </div>
         <div className="board">
           <div className="draw-board">
-            <h2>draw board</h2>
+            <h2>Draw Board</h2>
           <div className="display-word">{this.splitDisplay()}</div>
           </div>
           {this.isGenDisplay()}
