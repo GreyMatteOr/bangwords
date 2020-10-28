@@ -22,27 +22,30 @@ export class WordSelector extends Component {
   }
 
   render() {
-    return (
-      <div className="selection-page" data-testid="word-selector">
-        <h2>Type a word for your opponent to guess!</h2>
-        <form>
-          <label>
-            <input type="text" name="name" onChange={this.updateChange} />
-          </label>
-          <input
-            type="submit"
-            value="Submit"
-            onClick={(e) => {
-              this.makeWordToGuess(e)
-              }}
-          />
-        </form>
-      </div>
-    )
-    // return (
-    //   <div className="selection-page">
-    //     <h2>Your opponent is thinking of a word...</h2>
-    //   </div>
-    // )
+    if (this.props.isGenerator) {
+      return (
+        <div className="selection-page" data-testid="word-selector">
+          <h2>Type a word for your opponent to guess!</h2>
+          <form>
+            <label>
+              <input type="text" name="name" onChange={this.updateChange} />
+            </label>
+            <input
+              type="submit"
+              value="Submit"
+              onClick={(e) => {
+                this.makeWordToGuess(e)
+                }}
+            />
+          </form>
+        </div>
+      )
+    } else {
+      return (
+        <div className="selection-page">
+          <h2>Your opponent is thinking of a word...</h2>
+        </div>
+      )
+    }
   }
 }

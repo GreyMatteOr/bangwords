@@ -39,35 +39,10 @@ export class App extends Component{
   render() {
     if (this.state.numPlayers > 1 && !this.state.word && History[History.length -1] !=='/word-selector') {
       History.push('/word-selector');
-    
-    //   return (
-    //     <Route
-    //     path='/word-selector'
-    //     render={() => {
-    //     return  <WordSelector makeWordToGuess={this.makeWordToGuess}/>
-    //     }}
-    //   />
-    //   )
     } else if (this.state.numPlayers > 1 && this.state.word && History[History.length -1] !=='/gamepage') {
       History.push('/gamepage');
-    //   return (
-    //     <Route
-    //     path='/gamepage'
-    //     render={() => {
-    //     return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts} display={this.state.display}/>
-    //     }}
-    //   />
-    //   )
     } else if (History[History.length -1] !=='/') {
       History.push('/');
-    //   return (
-    //     <Route
-    //     path='/'
-    //     render={() => {
-    //     return  <Homepage designateRole={this.designateRole}/>
-    //     }}
-    //   />
-    //   )
     }
     return (
       <div className="BangWords">
@@ -84,13 +59,13 @@ export class App extends Component{
           <Route
             exact path='/word-selector'
             render={() => {
-            return  <WordSelector makeWordToGuess={this.makeWordToGuess}/>
+            return  <WordSelector makeWordToGuess={this.makeWordToGuess} isGenerator={this.state.isGenerator}/>
             }}
           />
           <Route
             exact path='/gamepage'
             render={() => {
-            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts} display={this.state.display}/>
+            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts} display={this.state.display}  isGenerator={this.state.isGenerator}/>
             }}
           />
         </Switch>
