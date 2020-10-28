@@ -8,9 +8,9 @@ import { Router } from "react-router-dom";
 
 describe('App', () => {
 
-  it('should load a `Homepage` by default', () => {
+  let mockHistory = createMemoryHistory();
 
-    let mockHistory = createMemoryHistory();
+  it('should load a `Homepage` by default', () => {
 
     render(
       <Router history={mockHistory}>
@@ -29,7 +29,6 @@ describe('App', () => {
 
   it('should load a `WordSelector` when the url is appropriate', () => {
 
-    let mockHistory = createMemoryHistory();
     mockHistory.push('/word-selector');
 
     render(
@@ -47,9 +46,8 @@ describe('App', () => {
     expect(gamepage).toEqual(null);
   })
 
-  it('should load a `WordSelector` when the url is appropriate', () => {
+  it('should load a `Gamepage` when url is navigated to', () => {
 
-    let mockHistory = createMemoryHistory();
     mockHistory.push('/gamepage');
 
     render(

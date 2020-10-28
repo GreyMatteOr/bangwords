@@ -8,6 +8,6 @@ describe('WordSelector', () => {
 
     render(<WordSelector />);
 
-    expect(screen.getByText('Your opponent is thinking of a word...')).toBeInTheDocument();
+    expect(screen.getByText('Type a word for your opponent to guess!')).toBeInTheDocument();
   })
 })
