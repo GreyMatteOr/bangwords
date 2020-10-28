@@ -1,25 +1,51 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import  { Homepage }  from '../src/Homepage/Homepage.js';
+import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
+import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends Component{
+  constructor() {
+    super()
+    this.state = {}
+  }
+
+  componentDidMount() {
+
+  }
+
+
+  render() {
+    return (
+      <div className="BangWords">
+        <header className="BangWords-header">
+          BangWords
+        </header>
+        <Switch>
+         <Route
+            exact path='/'
+            render={() => {
+            return  <Homepage/>
+            }}
+          />
+         <Route
+            exact path='/word-selector'
+            render={() => {
+            return  <WordSelector/>
+            }}
+          />
+         <Route
+            exact path='/gamepage'
+            render={() => {
+            return  <Gamepage/>
+            }}
+          />
+
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;

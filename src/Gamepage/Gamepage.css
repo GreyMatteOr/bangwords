@@ -1,0 +1,20 @@
+.game-page {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-between;
+  height: 85vh;
+  color: white
+}
+
+.hints {
+  margin: 15px;
+  width: 250px;
+  border: solid 2px black;
+}
+
+.attempts {
+  margin: 15px;
+  width: 250px;
+  border: solid 2px black;
+}
