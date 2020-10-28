@@ -1,14 +1,14 @@
 const theEndpoint = `https://bangwords-api.herokuapp.com/`;
 
 const theCalls = {
-    joinGame(param) {
+    joinGame(role) {
         let theBody = {
             act: "join",
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(param)
+            body: JSON.stringify(role)
         }
         return fetch(`${theEndpoint}`, theBody)
             .then(res => res.json())
