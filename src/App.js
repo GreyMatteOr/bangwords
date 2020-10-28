@@ -4,6 +4,7 @@ import  { Homepage }  from '../src/Homepage/Homepage.js';
 import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
 import apiCalls from '../src/APICalls/APICalls'
+import History from './History.js';
 import './App.css';
 
 export class App extends Component{
@@ -11,6 +12,7 @@ export class App extends Component{
     super()
     this.state = {
       isGenerator: null,
+      numPlayers: 0,
       word: '',
       guess: '',
       // attempts: [],
@@ -35,6 +37,38 @@ export class App extends Component{
     console.log('newGuess', newGuess)
   }
   render() {
+    if (this.state.numPlayers > 1 && !this.state.word && History[History.length -1] !=='/word-selector') {
+      History.push('/word-selector');
+    
+    //   return (
+    //     <Route
+    //     path='/word-selector'
+    //     render={() => {
+    //     return  <WordSelector makeWordToGuess={this.makeWordToGuess}/>
+    //     }}
+    //   />
+    //   )
+    } else if (this.state.numPlayers > 1 && this.state.word && History[History.length -1] !=='/gamepage') {
+      History.push('/gamepage');
+    //   return (
+    //     <Route
+    //     path='/gamepage'
+    //     render={() => {
+    //     return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts} display={this.state.display}/>
+    //     }}
+    //   />
+    //   )
+    } else if (History[History.length -1] !=='/') {
+      History.push('/');
+    //   return (
+    //     <Route
+    //     path='/'
+    //     render={() => {
+    //     return  <Homepage designateRole={this.designateRole}/>
+    //     }}
+    //   />
+    //   )
+    }
     return (
       <div className="BangWords">
         <header className="BangWords-header">
