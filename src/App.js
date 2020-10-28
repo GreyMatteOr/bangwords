@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import  { Homepage }  from '../src/Homepage/Homepage.js';
 import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
-import theCalls from '../src/APICalls/APICalls'
+import apiCalls from '../src/APICalls/APICalls'
 import './App.css';
 
 export class App extends Component{
@@ -16,17 +16,17 @@ export class App extends Component{
     }
   }
   designateRole = async (role) => {
-    // const isGuesser = await theCalls.joinGame(role)
+    // const isGuesser = await apiCalls.joinGame(role)
     // this.setState({isGuesser})
     console.log('designateRole')
   }
   makeWordToGuess = async (createdWord) => {
-    // const word = await theCalls.createWord(createdWord, 1)
+    // const word = await apiCalls.createWord(createdWord, 1)
     // this.setState({word})
     console.log("makeWordToGuess")
   }
   makeGuess = async (newGuess) => {
-    // const guess = await theCalls.makeGuess(newGuess)
+    // const guess = await apiCalls.makeGuess(newGuess)
     // this.setState({guess})
     console.log('makeGuess')
   }
