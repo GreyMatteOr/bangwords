@@ -19,7 +19,7 @@ export class Gamepage extends Component {
   }
 
 
-  makeWordToGuess = (e) => {
+  makeGuess = (e) => {
     e.preventDefault();
     // console.log("WordSelector -> makeWordToGuess -> this.state.guessWord", this.state.guessWord)
     this.props.makeGuess(this.state.currentGuess)
@@ -31,14 +31,23 @@ export class Gamepage extends Component {
     })
   }
 
-  render() {
+  splitDisplay = () => {
+    return this.props.display.map(tile => {
+      return <p>{tile}</p>
+    })
+  }
+
+  render = () => {
     return (
       <div className="game-page" data-testid="game-page">
         <div className="hints">Hints
 
         </div>
         <div className="board">
-          <div className="draw-board">draw board</div>
+          <div className="draw-board">
+            <h1>draw board</h1>
+          <div className="display-word">{this.splitDisplay()}</div>
+          </div>
         <form>
           <label> 
             <input type="text" name="word" className="word-input" placeholder="letter/word" onChange={this.updateChange} />
@@ -48,7 +57,7 @@ export class Gamepage extends Component {
           value="Guess" 
           data-testid='word-submit-button' 
           onClick={(e) => {
-              this.makeWordToGuess(e)
+              this.makeGuess(e)
               }}
           />
         </form>

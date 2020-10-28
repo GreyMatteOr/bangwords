@@ -13,14 +13,16 @@ export class App extends Component{
       isGenerator: null,
       word: '',
       guess: '',
-      attempts: ['butts', 'cuts', 'coconuts'],
-      hints: []
+      // attempts: [],
+      attempts: ['cuts', 'butts', 'coconuts'],
+      // hints: [],
+      display: ['d', '_', '_', 'o', '_', 'a', 'u', 'r']
     }
   }
   designateRole = async (role) => {
     // const isGenerator = await apiCalls.joinGame(role)
     // this.setState({isGenerator})
-    console.log('designateRole')
+    console.log('role', role)
   }
   makeWordToGuess = async (createdWord) => {
     // const word = await apiCalls.createWord(createdWord, 1)
@@ -54,7 +56,7 @@ export class App extends Component{
           <Route
             exact path='/gamepage'
             render={() => {
-            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts}/>
+            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts} display={this.state.display}/>
             }}
           />
         </Switch>

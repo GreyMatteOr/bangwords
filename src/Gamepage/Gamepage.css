@@ -34,3 +34,20 @@
 .board form label {
   margin: 10px
 }
+
+.draw-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.display-word {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3em
+}
+
+.display-word p {
+  margin: 5px
+}
