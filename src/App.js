@@ -10,25 +10,25 @@ export class App extends Component{
   constructor() {
     super()
     this.state = {
-      isGuesser: null,
+      isGenerator: null,
       word: '',
       guess: ''
     }
   }
   designateRole = async (role) => {
-    // const isGuesser = await apiCalls.joinGame(role)
-    // this.setState({isGuesser})
+    // const isGenerator = await apiCalls.joinGame(role)
+    // this.setState({isGenerator})
     console.log('designateRole')
   }
   makeWordToGuess = async (createdWord) => {
     // const word = await apiCalls.createWord(createdWord, 1)
     // this.setState({word})
-    console.log("makeWordToGuess")
+    console.log("createdWord", createdWord)
   }
   makeGuess = async (newGuess) => {
     // const guess = await apiCalls.makeGuess(newGuess)
     // this.setState({guess})
-    console.log('makeGuess')
+    console.log('newGuess', newGuess)
   }
   render() {
     return (

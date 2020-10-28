@@ -19,10 +19,18 @@
   border: solid 2px black;
 }
 
+.board {
+  width: 55%;
+}
+
 .draw-board {
   margin-top: 15px;
   margin-bottom: 15px;
   border: solid 2px black;
-  Height: 350px;
+  min-height: 350px;
   width: 100%;
+}
+
+.board form label {
+  margin: 10px
 }
