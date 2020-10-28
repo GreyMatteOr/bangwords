@@ -38,7 +38,7 @@ export class App extends Component{
     return (
       <div className="BangWords">
         <header className="BangWords-header">
-          BangWords
+          <h1>BangWords</h1>
         </header>
         <Switch>
           <Route

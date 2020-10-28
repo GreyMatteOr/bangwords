@@ -40,12 +40,13 @@ export class Gamepage extends Component {
   render = () => {
     return (
       <div className="game-page" data-testid="game-page">
-        <div className="hints">Hints
+        <div className="hints">
+          <h2>Hints</h2>
 
         </div>
         <div className="board">
           <div className="draw-board">
-            <h1>draw board</h1>
+            <h2>draw board</h2>
           <div className="display-word">{this.splitDisplay()}</div>
           </div>
         <form>
@@ -62,7 +63,8 @@ export class Gamepage extends Component {
           />
         </form>
         </div>
-        <div className="attempts">Attempts
+        <div className="attempts">
+          <h2>Attempts</h2>
         <div>{this.mapAttempts()}</div>
         </div>
       </div>
