@@ -37,6 +37,26 @@ export class Gamepage extends Component {
     })
   }
 
+  isGenDisplay = () => {
+    if (!this.props.isGenerator) {
+      return (
+        <form>
+        <label> 
+          <input type="text" name="word" className="word-input" placeholder="letter/word" onChange={this.updateChange} />
+        </label>
+        <input 
+        type="submit" 
+        value="Guess" 
+        data-testid='word-submit-button' 
+        onClick={(e) => {
+            this.makeGuess(e)
+            }}
+        />
+      </form>
+      )
+    }
+  }
+
   render = () => {
     return (
       <div className="game-page" data-testid="game-page">
@@ -49,19 +69,7 @@ export class Gamepage extends Component {
             <h2>draw board</h2>
           <div className="display-word">{this.splitDisplay()}</div>
           </div>
-        <form>
-          <label> 
-            <input type="text" name="word" className="word-input" placeholder="letter/word" onChange={this.updateChange} />
-          </label>
-          <input 
-          type="submit" 
-          value="Guess" 
-          data-testid='word-submit-button' 
-          onClick={(e) => {
-              this.makeGuess(e)
-              }}
-          />
-        </form>
+          {this.isGenDisplay()}
         </div>
         <div className="attempts">
           <h2>Attempts</h2>
