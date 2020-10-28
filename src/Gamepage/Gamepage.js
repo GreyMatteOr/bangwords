@@ -25,6 +25,12 @@ export class Gamepage extends Component {
     this.props.makeGuess(this.state.currentGuess)
   }
 
+  mapAttempts = () => {
+    return this.props.attempts.map(attempt => {
+      return <p>{attempt}</p>
+    })
+  }
+
   render() {
     return (
       <div className="game-page" data-testid="game-page">
@@ -47,7 +53,9 @@ export class Gamepage extends Component {
           />
         </form>
         </div>
-        <div className="attempts">Attempts</div>
+        <div className="attempts">Attempts
+        <div>{this.mapAttempts()}</div>
+        </div>
       </div>
     )
   }

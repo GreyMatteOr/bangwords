@@ -12,7 +12,9 @@ export class App extends Component{
     this.state = {
       isGenerator: null,
       word: '',
-      guess: ''
+      guess: '',
+      attempts: ['butts', 'cuts', 'coconuts'],
+      hints: []
     }
   }
   designateRole = async (role) => {
@@ -52,7 +54,7 @@ export class App extends Component{
           <Route
             exact path='/gamepage'
             render={() => {
-            return  <Gamepage makeGuess={this.makeGuess}/>
+            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts}/>
             }}
           />
         </Switch>
