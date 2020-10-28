@@ -3,8 +3,8 @@ import './Gamepage.css';
 
 export class Gamepage extends Component {
   constructor(props) {
-    super(props) 
-    
+    super(props)
+
     this.state = {
       hints: [],
       correctGuesses: [],
@@ -14,7 +14,7 @@ export class Gamepage extends Component {
 
   render() {
     return (
-      <div className="game-page">
+      <div className="game-page" data-testid="game-page">
         <div className="hints">Hints
 
         </div>
@@ -28,12 +28,10 @@ export class Gamepage extends Component {
             Word:
             <input type="text" name="word" />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" data-testid='word-submit-button'/>
         </form>
         </div>
-        <div className="attempts">Attempts
-
-        </div>
+        <div className="attempts">Attempts</div>
       </div>
     )
   }

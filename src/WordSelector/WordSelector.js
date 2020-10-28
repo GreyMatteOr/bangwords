@@ -3,8 +3,8 @@ import './WordSelector.css';
 
 export class WordSelector extends Component {
   constructor(props) {
-    super(props) 
-    
+    super(props)
+
     this.state = {
       guessWord: ''
     }
@@ -23,15 +23,15 @@ export class WordSelector extends Component {
 
   render() {
     return (
-      <div className="selection-page">
+      <div className="selection-page" data-testid="word-selector">
         <h2>Type a word for your opponent to guess!</h2>
         <form>
           <label>
             <input type="text" name="name" onChange={this.updateChange} />
           </label>
-          <input 
-            type="submit" 
-            value="Submit" 
+          <input
+            type="submit"
+            value="Submit"
             onClick={(e) => {
               this.makeWordToGuess(e)
               }}
