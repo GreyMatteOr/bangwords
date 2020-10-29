@@ -16,26 +16,29 @@ const apiCalls = {
         return fetch(endpoint, init)
             .then(res => res.json())
             .then(promise => promise)
+            // Later, lets remove .catch() here, and put it into a try{} block where this method gets called in App
             .catch(err => console.log(err))
     },
 
     createWord(word, userID) {
         let init = {
-            act: "word",
-            word: `${word}`,
-            id: `${userID}`,
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(word)
+            body: JSON.stringify({
+                act: "word",
+                word: word,
+                id: userID
+            })
         }
-        return fetch(`${endpoint}`, init)
+        return fetch(endpoint, init)
             .then(res => res.json())
             .then(res => console.log(res))
+            // same with .catch() as above
             .catch(err => console.log(err))
     },
-    
+
     makeGuess(guess, userID) {
         // {act: "guess", guess: "", id:}	{ display: '_ _ _ _', guesses: 6, isOver: "true/false"}
         let init = {
