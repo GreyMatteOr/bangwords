@@ -78,6 +78,14 @@ const apiCalls = {
             .then(res => res)
             // same here as well
             // .catch(err => console.log(err))
+    },
+
+    checkStatus() {
+        return fetch(endpoint)
+            .then(res => res.json())
+            .then(res => res)
+            // same here as well
+            // .catch(err => console.log(err))
     }
 
 

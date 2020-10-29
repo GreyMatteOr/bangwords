@@ -16,11 +16,12 @@ export class App extends Component{
       numPlayers: 0,
       word: '',
       // guess: '',
-      guesses: [],
-      // attempts: ['cuts', 'butts', 'coconuts'],
+      remainingGuesses: 0,
+      attempts: ['cuts', 'butts', 'coconuts'],
       // hints: [],
       isOver: false,
-      display: []
+      display: [],
+      ready: false
       // display: ['d', '_', '_', 'o', '_', 'a', 'u', 'r']
     }
   }
@@ -28,10 +29,10 @@ export class App extends Component{
   designateRole = async (role) => {
     try {
       const joinGame = await apiCalls.joinGame(role)
-      console.log(joinGame)
+      console.log("joinGame", joinGame)
       // dont need numPlayers, instead need boolean "ready"
       // the below line will get cleaned so we can just setState({joinGame})
-      this.setState({ isGenerator: joinGame.isGen, numPlayers: joinGame.numPlayers, id: joinGame.id })
+      this.setState( joinGame )
     } catch(error) {
       console.log('error', error)
     }
@@ -40,8 +41,9 @@ export class App extends Component{
 
   makeWordToGuess = async (createdWord) => {
     try {
-      const word = await apiCalls.createWord(createdWord, this.state.id)
-      this.setState({ word })
+      const data = await apiCalls.createWord(createdWord, this.state.id)
+      data.word = createdWord;
+      this.setState( data )
     } catch(error) {
       console.log("error2", error)
     }
@@ -49,8 +51,9 @@ export class App extends Component{
 
   makeGuess = async (newGuess) => {
     try {
-      const guess = await apiCalls.createWord(newGuess, this.state.id)
-      this.setState({ guess })
+      const data = await apiCalls.makeGuess(newGuess, this.state.id)
+      console.log( data )
+      this.setState( data )
     } catch(error) {
       console.log("error3", error)
     }
@@ -59,16 +62,27 @@ export class App extends Component{
   resetGame = async () => {
     try {
       const reset = await apiCalls.clearGame();
-      this.setState({ reset })
+      this.setState( reset )
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  check = async() => {
+    try {
+      const checkGame = await apiCalls.checkStatus();
+      console.log(checkGame)
+      this.setState( checkGame )
     } catch (error) {
       console.log(error)
     }
   }
 
   render() {
-    if (this.state.numPlayers > 1 && !this.state.word && History[History.length -1] !== '/word-selector') {
+    console.log("this.state", this.state)
+    if (this.state.numPlayers > 1 && !this.state.ready && History[History.length -1] !== '/word-selector') {
       window.setTimeout(() => History.push('/word-selector'), 1);
-    } else if (this.state.numPlayers > 1 && this.state.word && History[History.length -1] !== '/gamepage') {
+    } else if (this.state.ready && History[History.length -1] !== '/gamepage') {
       
       window.setTimeout(() => History.push('/gamepage'), 1);
     } else if (History[History.length -1] !== '/') {
@@ -79,6 +93,7 @@ export class App extends Component{
         <header className="BangWords-header">
           <h1>BangWords</h1>
           <button onClick={this.resetGame}>Reset Game</button>
+          <button onClick={this.check}>Check Status</button>
         </header>
         <Switch>
           <Route
@@ -96,7 +111,7 @@ export class App extends Component{
           <Route
             exact path='/gamepage'
             render={() => {
-            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.guesses} display={this.state.display}  isGenerator={this.state.isGenerator}/>
+            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.attempts} display={this.state.display}  isGenerator={this.state.isGenerator}/>
             }}
           />
         </Switch>
