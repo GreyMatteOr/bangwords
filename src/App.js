@@ -7,6 +7,8 @@ import apiCalls from '../src/APICalls/APICalls'
 import History from './History.js';
 import './App.css';
 
+import ioc from 'socket.io-client';
+
 export class App extends Component{
   constructor() {
     super()
@@ -20,10 +22,24 @@ export class App extends Component{
       // attempts: ['cuts', 'butts', 'coconuts'],
       // hints: [],
       isOver: false,
-      display: []
+      display: [],
+      isLoading: true
       // display: ['d', '_', '_', 'o', '_', 'a', 'u', 'r']
     }
+    this.client;
   }
+
+  componentDidMount() {
+    this.client = ioc.connect( "http://localhost:" + 3001 );
+    this.client.once( "connect", function () {
+        console.log( 'Client: Connected to port ' + 3001 );
+        this.client.emit( "echo", "Hello World", function ( message ) {
+            console.log( 'Echo received: ', message );
+        } );
+    } );
+    this.setState({isLoading: false});
+  }
+
 
   designateRole = async (role) => {
     try {
@@ -66,10 +82,13 @@ export class App extends Component{
   }
 
   render() {
+    if (this.state.isLoading) {
+      return (<h3>Loading...</h3>);
+    }
     if (this.state.numPlayers > 1 && !this.state.word && History[History.length -1] !== '/word-selector') {
       window.setTimeout(() => History.push('/word-selector'), 1);
     } else if (this.state.numPlayers > 1 && this.state.word && History[History.length -1] !== '/gamepage') {
-      
+
       window.setTimeout(() => History.push('/gamepage'), 1);
     } else if (History[History.length -1] !== '/') {
       window.setTimeout(() => History.push('/'), 1);
