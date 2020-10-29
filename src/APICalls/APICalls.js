@@ -1,20 +1,24 @@
 const endpoint = `https://bangwords-api.herokuapp.com/`;
 
 const apiCalls = {
-    joinGame(role) {
+
+    joinGame(isGenerator) {
         let init = {
-            act: "join",
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(role)
+            body: JSON.stringify({
+                act: "join",
+                isGenerator
+            })
         }
-        return fetch(`${endpoint}`, init)
+        return fetch(endpoint, init)
             .then(res => res.json())
-            .then(res => console.log(res))
+            .then(promise => promise)
             .catch(err => console.log(err))
     },
+
     createWord(word, userID) {
         let init = {
             act: "word",
@@ -31,6 +35,7 @@ const apiCalls = {
             .then(res => console.log(res))
             .catch(err => console.log(err))
     },
+    
     makeGuess(guess, userID) {
         // {act: "guess", guess: "", id:}	{ display: '_ _ _ _', guesses: 6, isOver: "true/false"}
         let init = {
