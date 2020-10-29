@@ -42,18 +42,20 @@ const apiCalls = {
     makeGuess(guess, userID) {
         // {act: "guess", guess: "", id:}	{ display: '_ _ _ _', guesses: 6, isOver: "true/false"}
         let init = {
-            act: "guess",
-            guess: `${guess}`,
-            id: `${userID}`,
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(guess)
+            body: JSON.stringify({
+                act: "guess",
+                guess: guess,
+                id: userID,
+            })
         }
-        return fetch(`${endpoint}`, init)
+        return fetch(endpoint, init)
             .then(res => res.json())
             .then(res => console.log(res))
+            // same here as well
             .catch(err => console.log(err))
     }
 }
