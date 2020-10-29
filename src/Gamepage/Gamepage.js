@@ -26,14 +26,20 @@ export class Gamepage extends Component {
   }
 
   mapAttempts = () => {
+    let theKey = 0;
     return this.props.attempts.map(attempt => {
-      return <p>{attempt}</p>
+      theKey += 1;
+      return <p key={theKey}>{attempt}</p>
     })
   }
 
   splitDisplay = () => {
+    let theKey = 0;
+    let theTestId = 0;
     return this.props.display.map(tile => {
-      return <p>{tile}</p>
+      theKey += 1;
+      theTestId += 1;
+      return <p data-testid={`${theTestId}`} key={theKey}>{tile}</p>
     })
   }
 
@@ -42,7 +48,7 @@ export class Gamepage extends Component {
       return (
         <form>
         <label> 
-          <input type="text" name="word" className="word-input" placeholder="letter/word" onChange={this.updateChange} />
+          <input type="text" name="word" className="word-input" placeholder="Letter or Word" onChange={this.updateChange} />
         </label>
         <input 
         type="submit" 
@@ -66,7 +72,7 @@ export class Gamepage extends Component {
         </div>
         <div className="board">
           <div className="draw-board">
-            <h2>draw board</h2>
+            <h2>Draw Board</h2>
           <div className="display-word">{this.splitDisplay()}</div>
           </div>
           {this.isGenDisplay()}

@@ -28,11 +28,12 @@ export class WordSelector extends Component {
           <h2>Type a word for your opponent to guess!</h2>
           <form>
             <label>
-              <input type="text" name="name" onChange={this.updateChange} />
+              <input type="text" name="name" onChange={this.updateChange} placeholder="Name"/>
             </label>
             <input
               type="submit"
               value="Submit"
+              placeholder="Submit"
               onClick={(e) => {
                 this.makeWordToGuess(e)
                 }}
