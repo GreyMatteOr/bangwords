@@ -19,7 +19,7 @@ export class App extends Component{
       guesses: [],
       // attempts: ['cuts', 'butts', 'coconuts'],
       // hints: [],
-      isOver: '',
+      isOver: false,
       display: []
       // display: ['d', '_', '_', 'o', '_', 'a', 'u', 'r']
     }
@@ -31,7 +31,7 @@ export class App extends Component{
       console.log(joinGame)
       // dont need numPlayers, instead need boolean "ready"
       // the below line will get cleaned so we can just setState({joinGame})
-      this.setState({isGenerator: joinGame.isGen, numPlayers: joinGame.numPlayers, id: joinGame.id })
+      this.setState({ isGenerator: joinGame.isGen, numPlayers: joinGame.numPlayers, id: joinGame.id })
     } catch(error) {
       console.log('error', error)
     }
@@ -41,7 +41,7 @@ export class App extends Component{
   makeWordToGuess = async (createdWord) => {
     try {
       const word = await apiCalls.createWord(createdWord, this.state.id)
-      this.setState({word})
+      this.setState({ word })
     } catch(error) {
       console.log("error2", error)
     }
@@ -49,18 +49,21 @@ export class App extends Component{
 
   makeGuess = async (newGuess) => {
     try {
-      const word = await apiCalls.createWord(newGuess, this.state.id)
-      this.setState({word})
+      const guess = await apiCalls.createWord(newGuess, this.state.id)
+      this.setState({ guess })
     } catch(error) {
       console.log("error3", error)
     }
-    console.log('newGuess', newGuess)
   }
 
-  // resetGame = async () => {
-  //   const reset = await apiCalls.clearGame();
-
-  // }
+  resetGame = async () => {
+    try {
+      const reset = await apiCalls.clearGame();
+      this.setState({ reset })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   render() {
     if (this.state.numPlayers > 1 && !this.state.word && History[History.length -1] !== '/word-selector') {
@@ -75,7 +78,7 @@ export class App extends Component{
       <div className="BangWords">
         <header className="BangWords-header">
           <h1>BangWords</h1>
-          {/* <button onClick={this.resetGame}>Reset Game</button> */}
+          <button onClick={this.resetGame}>Reset Game</button>
         </header>
         <Switch>
           <Route

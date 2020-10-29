@@ -63,22 +63,22 @@ const apiCalls = {
             // .catch(err => console.log(err))
     },
 
-    // clearGame() {
-    //     let init = {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             act: "clear"
-    //         })
-    //     }
-    //     return fetch(endpoint, init)
-    //         .then(res => res.json())
-    //         .then(res => res)
-    //         // same here as well
-    //         .catch(err => console.log(err))
-    // }
+    clearGame() {
+        let init = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                act: "clear"
+            })
+        }
+        return fetch(endpoint, init)
+            .then(res => res.json())
+            .then(res => res)
+            // same here as well
+            // .catch(err => console.log(err))
+    }
 
 
 }
