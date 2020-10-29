@@ -14,7 +14,7 @@ describe('WordSelector', () => {
 
     it('2. should not render the default heading if the `isGenerator` prop is not true', () => {
 
-      render(<WordSelector />);
+      render(<WordSelector isGenerator={false}/>);
   
       expect(screen.getByText('Your opponent is thinking of a word...')).toBeInTheDocument();
     })
