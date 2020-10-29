@@ -35,9 +35,11 @@ export class Gamepage extends Component {
 
   splitDisplay = () => {
     let theKey = 0;
+    let theTestId = 0;
     return this.props.display.map(tile => {
       theKey += 1;
-      return <p data-testid='splitDisplay' key={theKey}>{tile}</p>
+      theTestId += 1;
+      return <p data-testid={`${theTestId}`} key={theKey}>{tile}</p>
     })
   }
 

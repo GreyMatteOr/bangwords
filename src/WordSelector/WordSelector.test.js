@@ -12,7 +12,7 @@ describe('WordSelector', () => {
       expect(screen.getByText('Type a word for your opponent to guess!')).toBeInTheDocument();
     })
 
-    it('2. should not render the default heading if the `isGenerator` prop is true', () => {
+    it('2. should not render the default heading if the `isGenerator` prop is not true', () => {
 
       render(<WordSelector />);
   

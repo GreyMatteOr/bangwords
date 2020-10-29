@@ -79,7 +79,7 @@ describe('Gamepage', () => {
   })
 
   describe('splitDisplay()', () => {
-    it('6. should render the `display` prop as one word', () => {
+    it('6. should render the `display` prop', () => {
 
       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
       makeGuess={
@@ -90,7 +90,33 @@ describe('Gamepage', () => {
         }
       }
       />);
-      expect(screen.getAllByTestId('splitDisplay').toBeInTheDocument)
+      // expect(screen.getAllByTestId('splitDisplay').toBeInTheDocument)
+      expect(screen.getByTestId('1')).toBeInTheDocument()
+      expect(screen.getByTestId('2')).toBeInTheDocument()
+      expect(screen.getByTestId('3')).toBeInTheDocument()
+      expect(screen.getByTestId('4')).toBeInTheDocument()
+      expect(screen.getByTestId('5')).toBeInTheDocument()
+      expect(screen.getByTestId('6')).toBeInTheDocument()
+      expect(screen.getByTestId('7')).toBeInTheDocument()
+      expect(screen.getByTestId('8')).toBeInTheDocument()
+    })
+  })
+
+  describe('mapAttempts()', () => {
+    it('6. should display each attempt', () => {
+
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      makeGuess={
+        async (newGuess) => {
+          // const guess = await apiCalls.makeGuess(newGuess)
+          // this.setState({guess})
+          console.log('newGuess', newGuess)
+        }
+      }
+      />);
+      expect(screen.getByText('cuts')).toBeInTheDocument();
+      expect(screen.getByText('butts')).toBeInTheDocument();
+      expect(screen.getByText('coconuts')).toBeInTheDocument();
     })
   })
 })
