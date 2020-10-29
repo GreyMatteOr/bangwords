@@ -9,6 +9,8 @@ import './App.css';
 
 import ioc from 'socket.io-client';
 
+let client;
+
 export class App extends Component{
   constructor() {
     super()
@@ -26,42 +28,54 @@ export class App extends Component{
       isLoading: true
       // display: ['d', '_', '_', 'o', '_', 'a', 'u', 'r']
     }
-    this.client;
   }
 
-  componentDidMount() {
-    this.client = ioc.connect( "http://localhost:" + 3001 );
-    this.client.once( "connect", function () {
-        console.log( 'Client: Connected to port ' + 3001 );
-        this.client.emit( "echo", "Hello World", function ( message ) {
-            console.log( 'Echo received: ', message );
-        } );
-    } );
+  componentDidMount = () => {
+    client = ioc.connect( "http://localhost:" + 3001 );
+
+    client.on( 'gameJoined', (state) => {
+      this.setState(state);
+    });
+
+    client.on( 'newWordToGuess', (state) => {
+      this.setState(state);
+    });
+
     this.setState({isLoading: false});
   }
 
-
-  designateRole = async (role) => {
-    try {
-      const joinGame = await apiCalls.joinGame(role)
-      console.log(joinGame)
-      // dont need numPlayers, instead need boolean "ready"
-      // the below line will get cleaned so we can just setState({joinGame})
-      this.setState({ isGenerator: joinGame.isGen, numPlayers: joinGame.numPlayers, id: joinGame.id })
-    } catch(error) {
-      console.log('error', error)
-    }
-    // console.log('role', role)
+  joinGame = (role) => {
+    client.emit('joinGame', role);
   }
 
-  makeWordToGuess = async (createdWord) => {
-    try {
-      const word = await apiCalls.createWord(createdWord, this.state.id)
-      this.setState({ word })
-    } catch(error) {
-      console.log("error2", error)
-    }
+  sendWordToGuess = (word) => {
+    client.emit('setWord', word);
   }
+
+
+
+  //
+  // designateRole = async (role) => {
+  //   try {
+  //     const joinGame = await apiCalls.joinGame(role)
+  //     console.log(joinGame)
+  //     dont need numPlayers, instead need boolean "ready"
+  //     the below line will get cleaned so we can just setState({joinGame})
+  //     this.setState({ isGenerator: joinGame.isGen, numPlayers: joinGame.numPlayers, id: joinGame.id })
+  //   } catch(error) {
+  //     console.log('error', error)
+  //   }
+  //   console.log('role', role)
+  // }
+
+  // makeWordToGuess = async (createdWord) => {
+  //   try {
+  //     const word = await apiCalls.createWord(createdWord, this.state.id)
+  //     this.setState({ word })
+  //   } catch(error) {
+  //     console.log("error2", error)
+  //   }
+  // }
 
   makeGuess = async (newGuess) => {
     try {
@@ -103,13 +117,13 @@ export class App extends Component{
           <Route
             exact path='/'
             render={() => {
-            return  <Homepage designateRole={this.designateRole}/>
+            return  <Homepage designateRole={this.joinGame}/>
             }}
           />
           <Route
             exact path='/word-selector'
             render={() => {
-            return  <WordSelector makeWordToGuess={this.makeWordToGuess} isGenerator={this.state.isGenerator}/>
+            return  <WordSelector makeWordToGuess={this.sendWordToGuess} isGenerator={this.state.isGenerator}/>
             }}
           />
           <Route
