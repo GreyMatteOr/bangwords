@@ -90,15 +90,9 @@ describe('Gamepage', () => {
         }
       }
       />);
-      // expect(screen.getAllByTestId('splitDisplay').toBeInTheDocument)
-      expect(screen.getByTestId('1')).toBeInTheDocument()
-      expect(screen.getByTestId('2')).toBeInTheDocument()
-      expect(screen.getByTestId('3')).toBeInTheDocument()
-      expect(screen.getByTestId('4')).toBeInTheDocument()
-      expect(screen.getByTestId('5')).toBeInTheDocument()
-      expect(screen.getByTestId('6')).toBeInTheDocument()
-      expect(screen.getByTestId('7')).toBeInTheDocument()
-      expect(screen.getByTestId('8')).toBeInTheDocument()
+      for (let id = 1; id < 9; id++) {
+        expect(screen.getByTestId(`${id}`)).toBeInTheDocument();
+      }
     })
   })
 
