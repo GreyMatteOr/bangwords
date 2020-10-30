@@ -4,6 +4,7 @@ import './Homepage.css';
 export const Homepage = (props) => {
   return (
     <div className="homepage" data-testid="homepage">
+      <h1><em>Choose a role</em></h1>
       <div className="character-select">
         <button
           className="generator"
