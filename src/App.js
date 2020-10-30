@@ -82,8 +82,8 @@ export class App extends Component{
     return (
       <div className="BangWords">
         <header className="BangWords-header">
-          <h1>BangWords</h1>
-          <button onClick={this.resetGame}>Reset Game</button>
+          <h1 id='bangHeader'><em>BangWords</em></h1>
+          <button id='theButton' onClick={this.resetGame}>Reset Game</button>
         </header>
         <Switch>
           <Route
