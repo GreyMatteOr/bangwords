@@ -52,6 +52,7 @@ export class Gamepage extends Component {
           <input type="text" name="word" className="word-input" placeholder="Letter or Word" onChange={this.updateChange} />
         </label>
         <input
+        id='guess-button'
         type="submit"
         value="Guess"
         data-testid='word-submit-button'

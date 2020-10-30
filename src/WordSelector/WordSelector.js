@@ -45,7 +45,7 @@ export class WordSelector extends Component {
     } else {
       return (
         <div className="selection-page">
-          <h2>Your opponent is thinking of a word...</h2>
+          <h2><em>Your opponent is thinking of a word...</em></h2>
         </div>
       )
     }
