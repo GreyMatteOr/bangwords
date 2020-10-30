@@ -21,6 +21,14 @@
   cursor: pointer;
 }
 
+.generator:hover{
+  background-color: #BF8620
+}
+
 .guesser {
   cursor: pointer;
+}
+
+.guesser:hover{
+  background-color: #BF8620
 }

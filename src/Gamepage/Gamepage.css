@@ -31,7 +31,7 @@
   border: solid 2px black;
   min-height: 350px;
   width: 100%;
-  border-radius: 15%;
+  border-radius: 5%;
 }
 
 .board form label {
@@ -57,6 +57,9 @@
 
 #guess-button {
   cursor: pointer;
+}
+#guess-button:hover {
+  background-color: #BF8620;
 }
 
 /*https://mycolor.space/?hex=%23282D33&sub=1*/

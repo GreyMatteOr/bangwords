@@ -1,6 +1,5 @@
 import './Homepage.css';
 
-
 export const Homepage = (props) => {
   return (
     <div className="homepage" data-testid="homepage">
@@ -10,8 +9,7 @@ export const Homepage = (props) => {
           className="generator"
           onClick={() => {
             props.designateRole(true)
-          }
-        }>
+          }}>
           Generator
         </button>
         <button
@@ -26,5 +24,4 @@ export const Homepage = (props) => {
       <h1><em>Score: </em></h1>
     </div>
   )
-
 }

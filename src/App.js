@@ -19,7 +19,7 @@ export class App extends Component{
       isOver: false,
       display: [],
       isLoading: true,
-      isGameReady: false
+      isGameReady: false,
     }
   }
 
@@ -90,7 +90,11 @@ export class App extends Component{
           <Route
             exact path='/'
             render={() => {
-            return  <Homepage designateRole={this.joinGame}/>
+            return  <Homepage 
+            designateRole={this.joinGame}
+            addGenerator={this.addGenerator}
+            generatorExists={this.state.generatorExists}
+            />
             }}
           />
           <Route
