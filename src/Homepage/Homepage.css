@@ -16,3 +16,11 @@
   width: 8em;
   margin: 25px;
 }
+
+.generator {
+  cursor: pointer;
+}
+
+.guesser {
+  cursor: pointer;
+}

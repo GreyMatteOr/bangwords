@@ -1,4 +1,8 @@
 .selection-page {
   margin-top: 10vh;
-  color: white;
+  color: #282c34;
+}
+
+#wordSubmit {
+  cursor: pointer;
 }
