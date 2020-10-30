@@ -25,12 +25,13 @@ export class WordSelector extends Component {
     if (this.props.isGenerator) {
       return (
         <div className="selection-page" data-testid="word-selector">
-          <h2>Type a word for your opponent to guess!</h2>
+          <h2><em>Type a word for your opponent to guess!</em></h2>
           <form>
             <label>
               <input type="text" name="name" onChange={this.updateChange} placeholder="Name"/>
             </label>
             <input
+              id='wordSubmit'
               type="submit"
               value="Submit"
               placeholder="Submit"
@@ -44,7 +45,7 @@ export class WordSelector extends Component {
     } else {
       return (
         <div className="selection-page">
-          <h2>Your opponent is thinking of a word...</h2>
+          <h2><em>Your opponent is thinking of a word...</em></h2>
         </div>
       )
     }

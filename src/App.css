@@ -1,18 +1,39 @@
 .BangWords {
   text-align: center;
-  background-color: #454d5e;
+  background-color: #C0C6CE;
   min-height: 100vh;
 }
 
 .BangWords-header {
   background-color: #282c34;
-  min-height: 15vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  max-height: 11vh;
+  align-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #BF8620;
+  display: grid;
+  grid-template-columns: 3;
+}
+
+#bangHeader {
+  justify-self: left;
+  margin-left: 20px;
+}
+
+#theButton {
+  justify-self: right;
+  align-self: center;
+  margin-right: 20px;
+  grid-column: 3;
+  width: 100px;
+  height: 35px;
+  background-color: whitesmoke;
+  cursor: pointer;
+  border-radius: 15%;
+  border-width: 1px;
+}
+
+#theButton:hover {
+  background-color: #C0C6CE;
 }
 
 /* .App-logo {
