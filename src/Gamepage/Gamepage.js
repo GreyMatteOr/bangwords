@@ -26,8 +26,9 @@ export class Gamepage extends Component {
   }
 
   mapAttempts = () => {
+    console.log(this.state.attempts)
     let theKey = 0;
-    return this.props.attempts.map(attempt => {
+    return this.state.attempts.map(attempt => {
       theKey += 1;
       return <p key={theKey}>{attempt}</p>
     })
@@ -47,13 +48,13 @@ export class Gamepage extends Component {
     if (!this.props.isGenerator) {
       return (
         <form>
-        <label> 
+        <label>
           <input type="text" name="word" className="word-input" placeholder="Letter or Word" onChange={this.updateChange} />
         </label>
-        <input 
-        type="submit" 
-        value="Guess" 
-        data-testid='word-submit-button' 
+        <input
+        type="submit"
+        value="Guess"
+        data-testid='word-submit-button'
         onClick={(e) => {
             this.makeGuess(e)
             }}
