@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import  { Homepage }  from '../src/Homepage/Homepage.js';
 import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
-import apiCalls from '../src/APICalls/APICalls'
 import History from './History.js';
 import './App.css';
 
