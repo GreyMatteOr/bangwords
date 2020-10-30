@@ -82,7 +82,8 @@ export class App extends Component{
     return (
       <div className="BangWords">
         <header className="BangWords-header">
-          <h1 id='bangHeader'><em>BangWords</em></h1>
+          {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
+          <h1 id='bangHeader'>BangWords</h1>
           <button id='theButton' onClick={this.resetGame}><em>Reset Game</em></button>
         </header>
         <Switch>

@@ -9,6 +9,7 @@
   max-height: 11vh;
   align-content: center;
   font-size: calc(10px + 2vmin);
+  font-family: 'Bangers', cursive;
   color: #BF8620;
   display: grid;
   grid-template-columns: 3;
