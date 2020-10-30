@@ -15,18 +15,12 @@ export class App extends Component{
   constructor() {
     super()
     this.state = {
-      id: 0,
       isGenerator: null,
-      numPlayers: 0,
-      word: '',
-      // guess: '',
-      guesses: [],
-      // attempts: ['cuts', 'butts', 'coconuts'],
-      // hints: [],
+      attempts: [],
       isOver: false,
       display: [],
-      isLoading: true
-      // display: ['d', '_', '_', 'o', '_', 'a', 'u', 'r']
+      isLoading: true,
+      isGameReady: false
     }
   }
 
@@ -41,72 +35,51 @@ export class App extends Component{
       this.setState(state);
     });
 
+    client.on( 'result', (state) => {
+      this.setState(state);
+    });
+
+
     this.setState({isLoading: false});
   }
 
   joinGame = (role) => {
     client.emit('joinGame', role);
+    this.setState({isGenerator: role});
   }
 
   sendWordToGuess = (word) => {
     client.emit('setWord', word);
   }
 
-
-
-  //
-  // designateRole = async (role) => {
-  //   try {
-  //     const joinGame = await apiCalls.joinGame(role)
-  //     console.log(joinGame)
-  //     dont need numPlayers, instead need boolean "ready"
-  //     the below line will get cleaned so we can just setState({joinGame})
-  //     this.setState({ isGenerator: joinGame.isGen, numPlayers: joinGame.numPlayers, id: joinGame.id })
-  //   } catch(error) {
-  //     console.log('error', error)
-  //   }
-  //   console.log('role', role)
-  // }
-
-  // makeWordToGuess = async (createdWord) => {
-  //   try {
-  //     const word = await apiCalls.createWord(createdWord, this.state.id)
-  //     this.setState({ word })
-  //   } catch(error) {
-  //     console.log("error2", error)
-  //   }
-  // }
-
-  makeGuess = async (newGuess) => {
-    try {
-      const guess = await apiCalls.createWord(newGuess, this.state.id)
-      this.setState({ guess })
-    } catch(error) {
-      console.log("error3", error)
-    }
+  makeGuess = (newGuess) => {
+    client.emit('makeGuess', newGuess)
   }
 
-  resetGame = async () => {
-    try {
-      const reset = await apiCalls.clearGame();
-      this.setState({ reset })
-    } catch (error) {
-      console.log(error)
+  resetGame = () => {
+    client.emit('clear')
+  }
+
+  setHistory() {
+    if (this.state.isGameReady && History[History.length -1] !== '/gamepage') {
+      window.setTimeout(() => History.push('/gamepage'), 1);
+    }
+
+    else if ( this.state.isGenerator !== null && History[History.length -1] !== '/word-selector' ) {
+      window.setTimeout(() => History.push('/word-selector'), 1);
+    }
+
+    else if ( History[History.length -1] !== '/' ) {
+      window.setTimeout(() => History.push('/'), 1);
     }
   }
 
   render() {
+    console.log(this.state)
     if (this.state.isLoading) {
       return (<h3>Loading...</h3>);
     }
-    if (this.state.numPlayers > 1 && !this.state.word && History[History.length -1] !== '/word-selector') {
-      window.setTimeout(() => History.push('/word-selector'), 1);
-    } else if (this.state.numPlayers > 1 && this.state.word && History[History.length -1] !== '/gamepage') {
-
-      window.setTimeout(() => History.push('/gamepage'), 1);
-    } else if (History[History.length -1] !== '/') {
-      window.setTimeout(() => History.push('/'), 1);
-    }
+    this.setHistory()
     return (
       <div className="BangWords">
         <header className="BangWords-header">
