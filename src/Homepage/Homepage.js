@@ -22,7 +22,7 @@ export const Homepage = (props) => {
           Guesser
         </button>
       </div>
-      <h1>Score: </h1>
+      <h1><em>Score: </em></h1>
     </div>
   )
 

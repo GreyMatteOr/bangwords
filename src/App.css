@@ -6,7 +6,7 @@
 
 .BangWords-header {
   background-color: #282c34;
-  max-height: 10vh;
+  max-height: 11vh;
   align-content: center;
   font-size: calc(10px + 2vmin);
   color: #BF8620;
@@ -26,10 +26,14 @@
   grid-column: 3;
   width: 100px;
   height: 35px;
-  background-color: #C0C6CE;
+  background-color: whitesmoke;
   cursor: pointer;
   border-radius: 15%;
   border-width: 1px;
+}
+
+#theButton:hover {
+  background-color: #C0C6CE;
 }
 
 /* .App-logo {
