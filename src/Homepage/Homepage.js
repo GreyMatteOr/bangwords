@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './Homepage.css';
 
 export const Homepage = (props) => {
@@ -24,4 +25,9 @@ export const Homepage = (props) => {
       <h1><em>Score: </em></h1>
     </div>
   )
+}
+
+
+Homepage.propType = {
+  designateRole: PropTypes.func,
 }
