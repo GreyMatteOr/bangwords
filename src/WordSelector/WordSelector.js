@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import loading from '../assets/loading.png';
+import PropTypes from 'prop-types';
 import './WordSelector.css';
-import loading from '../assets/loading.png'
 
 export class WordSelector extends Component {
   constructor(props) {
@@ -18,7 +19,6 @@ export class WordSelector extends Component {
 
   makeWordToGuess = (e) => {
     e.preventDefault();
-    // console.log("WordSelector -> makeWordToGuess -> this.state.guessWord", this.state.guessWord)
     this.props.makeWordToGuess(this.state.guessWord)
   }
 
@@ -52,4 +52,10 @@ export class WordSelector extends Component {
       )
     }
   }
+}
+
+
+WordSelector.propType = {
+  makeWordToGuess: PropTypes.func,
+  isGenerator: PropTypes.bool
 }

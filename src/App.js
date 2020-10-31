@@ -74,7 +74,6 @@ export class App extends Component{
   }
 
   render() {
-    console.log(this.state)
     if (this.state.isLoading) {
       return (<h3>Loading...</h3>);
     }
@@ -92,21 +91,29 @@ export class App extends Component{
             render={() => {
             return  <Homepage 
             designateRole={this.joinGame}
-            addGenerator={this.addGenerator}
-            generatorExists={this.state.generatorExists}
+            // addGenerator={this.addGenerator}
+            // generatorExists={this.state.generatorExists}
             />
             }}
           />
           <Route
             exact path='/word-selector'
             render={() => {
-            return  <WordSelector makeWordToGuess={this.sendWordToGuess} isGenerator={this.state.isGenerator}/>
+            return  <WordSelector 
+            makeWordToGuess={this.sendWordToGuess} 
+            isGenerator={this.state.isGenerator}
+            />
             }}
           />
           <Route
             exact path='/gamepage'
             render={() => {
-            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.guesses} display={this.state.display}  isGenerator={this.state.isGenerator}/>
+            return  <Gamepage 
+            makeGuess={this.makeGuess} 
+            attempts={this.state.guesses} 
+            display={this.state.display}  
+            isGenerator={this.state.isGenerator}
+            />
             }}
           />
         </Switch>
