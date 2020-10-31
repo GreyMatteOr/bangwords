@@ -90,7 +90,7 @@ export class Gamepage extends Component {
 }
 
 Gamepage.propType = {
-  makeGuess: PropTypes.string,
+  makeGuess: PropTypes.func,
   attempts: PropTypes.array,
   display: PropTypes.array,
   isGenerator: PropTypes.bool,
