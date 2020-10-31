@@ -74,7 +74,6 @@ export class App extends Component{
   }
 
   render() {
-    console.log(this.state)
     if (this.state.isLoading) {
       return (<h3>Loading...</h3>);
     }
@@ -92,8 +91,8 @@ export class App extends Component{
             render={() => {
             return  <Homepage 
             designateRole={this.joinGame}
-            addGenerator={this.addGenerator}
-            generatorExists={this.state.generatorExists}
+            // addGenerator={this.addGenerator}
+            // generatorExists={this.state.generatorExists}
             />
             }}
           />

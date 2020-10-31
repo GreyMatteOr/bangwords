@@ -22,12 +22,10 @@ export class Gamepage extends Component {
 
   makeGuess = (e) => {
     e.preventDefault();
-    // console.log("WordSelector -> makeWordToGuess -> this.state.guessWord", this.state.guessWord)
     this.props.makeGuess(this.state.currentGuess)
   }
 
   mapAttempts = () => {
-    console.log(this.state.attempts)
     let theKey = 0;
     return this.state.attempts.map(attempt => {
       theKey += 1;

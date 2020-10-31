@@ -19,7 +19,6 @@ export class WordSelector extends Component {
 
   makeWordToGuess = (e) => {
     e.preventDefault();
-    // console.log("WordSelector -> makeWordToGuess -> this.state.guessWord", this.state.guessWord)
     this.props.makeWordToGuess(this.state.guessWord)
   }
 
