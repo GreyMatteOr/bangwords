@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './WordSelector.css';
+import loading from '../assets/loading.png'
 
 export class WordSelector extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ export class WordSelector extends Component {
       return (
         <div className="selection-page">
           <h2><em>Your opponent is thinking of a word...</em></h2>
+          <img src={loading} alt="Loading image" className='Loading'/>
         </div>
       )
     }

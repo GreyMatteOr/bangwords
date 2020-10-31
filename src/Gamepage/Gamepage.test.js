@@ -102,8 +102,8 @@ describe('Gamepage', () => {
       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
       makeGuess={
         async (newGuess) => {
-          // const guess = await apiCalls.makeGuess(newGuess)
-          // this.setState({guess})
+          const guess = await apiCalls.makeGuess(newGuess)
+          this.setState({guess})
           console.log('newGuess', newGuess)
         }
       }

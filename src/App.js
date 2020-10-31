@@ -19,7 +19,7 @@ export class App extends Component{
       isOver: false,
       display: [],
       isLoading: true,
-      isGameReady: false
+      isGameReady: false,
     }
   }
 
@@ -82,14 +82,19 @@ export class App extends Component{
     return (
       <div className="BangWords">
         <header className="BangWords-header">
-          <h1 id='bangHeader'><em>BangWords</em></h1>
+          {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
+          <h1 id='bangHeader'>BangWords</h1>
           <button id='theButton' onClick={this.resetGame}><em>Reset Game</em></button>
         </header>
         <Switch>
           <Route
             exact path='/'
             render={() => {
-            return  <Homepage designateRole={this.joinGame}/>
+            return  <Homepage 
+            designateRole={this.joinGame}
+            addGenerator={this.addGenerator}
+            generatorExists={this.state.generatorExists}
+            />
             }}
           />
           <Route
