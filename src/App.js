@@ -100,13 +100,21 @@ export class App extends Component{
           <Route
             exact path='/word-selector'
             render={() => {
-            return  <WordSelector makeWordToGuess={this.sendWordToGuess} isGenerator={this.state.isGenerator}/>
+            return  <WordSelector 
+            makeWordToGuess={this.sendWordToGuess} 
+            isGenerator={this.state.isGenerator}
+            />
             }}
           />
           <Route
             exact path='/gamepage'
             render={() => {
-            return  <Gamepage makeGuess={this.makeGuess} attempts={this.state.guesses} display={this.state.display}  isGenerator={this.state.isGenerator}/>
+            return  <Gamepage 
+            makeGuess={this.makeGuess} 
+            attempts={this.state.guesses} 
+            display={this.state.display}  
+            isGenerator={this.state.isGenerator}
+            />
             }}
           />
         </Switch>

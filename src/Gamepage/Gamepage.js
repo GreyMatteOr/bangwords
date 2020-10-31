@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import './Gamepage.css';
 
 export class Gamepage extends Component {
@@ -86,4 +87,11 @@ export class Gamepage extends Component {
       </div>
     )
   }
+}
+
+Gamepage.propType = {
+  makeGuess: PropTypes.string,
+  attempts: PropTypes.array,
+  display: PropTypes.array,
+  isGenerator: PropTypes.bool,
 }
