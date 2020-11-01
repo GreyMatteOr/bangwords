@@ -59,7 +59,10 @@ We origionally wanted to make an interactive puzzle solving page, but upon revie
 ### Our Rough Draft
 ---
 
-`<!-- do we want to link images or straight to excalidraw? -->`
+<img src='src/assets/wireframe.png' alt='wireframe'/>
+<img src='src/assets/hints.png' alt='hints section'/>
+<img src='src/assets/flowchart.png' alt='flowchart'/>
+<img src='src/assets/socket-path.png' alt='socket-path'/>
 
 <br><br>
 
@@ -105,6 +108,10 @@ Express
 
 
 
+<br><br>
+<br><br>
+<br><br>
+<br><br>
 <br><br>
 
 
