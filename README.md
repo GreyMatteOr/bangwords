@@ -3,7 +3,7 @@
 [![Issues][issues-shield]](https://github.com/GreyMatteOr/bangwords/issues)
 [![Stars][stars-shield]](https://github.com/GreyMatteOr/bangwords)
 
-## BangWords (a shameless ripoff)
+## BangWords
 
 
 <br><br>
