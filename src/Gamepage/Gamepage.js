@@ -9,7 +9,6 @@ export class Gamepage extends Component {
     this.state = {
       hints: [],
       correctGuesses: [],
-      attempts: [],
       currentGuess: ''
     }
   }
@@ -27,7 +26,7 @@ export class Gamepage extends Component {
 
   mapAttempts = () => {
     let theKey = 0;
-    return this.state.attempts.map(attempt => {
+    return this.props.attempts.map(attempt => {
       theKey += 1;
       return <p key={theKey}>{attempt}</p>
     })
