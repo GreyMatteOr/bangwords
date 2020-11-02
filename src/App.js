@@ -48,7 +48,7 @@ export class App extends Component{
   }
 
   setRole = (role) => {
-    client.emit('setRole', role);
+    client.emit('setRole', role, this.state.userName);
     this.setState({isGenerator: role});
   }
 
@@ -125,6 +125,7 @@ export class App extends Component{
                 attempts={this.state.attempts}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
+                playerNames={this.state.playerNames}
               />
             )
           }}

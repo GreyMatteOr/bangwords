@@ -18,7 +18,6 @@ export class Gamepage extends Component {
     this.setState({currentGuess: e.target.value})
   }
 
-
   makeGuess = (e) => {
     e.preventDefault();
     this.props.makeGuess(this.state.currentGuess)
@@ -67,20 +66,38 @@ export class Gamepage extends Component {
   render = () => {
     return (
       <div className="game-page" data-testid="game-page">
-        <div className="hints">
-          <h2><em>Hints</em></h2>
-
+        <div className="chat">
+          <h2>
+            <em>Chat</em>
+          </h2>
         </div>
         <div className="board">
           <div className="draw-board">
-            <h2><em>Draw Board</em></h2>
-          <div className="display-word">{this.splitDisplay()}</div>
+            <h2>
+              <em>Draw Board</em>
+            </h2>
+            <div className="display-word">
+              {this.splitDisplay()}
+            </div>
           </div>
           {this.isGenDisplay()}
         </div>
         <div className="attempts">
-          <h2><em>Attempts</em></h2>
-        <div>{this.mapAttempts()}</div>
+          <h2>
+            <em>Attempts</em>
+          </h2>
+          <div>
+            {this.mapAttempts()}
+          </div>
+          <div className="players">
+            <h2>
+              <em>Current Players</em>
+            </h2>
+            {this.props.playerNames}
+          </div>
+          <div>
+            {this.mapAttempts()}
+          </div>
         </div>
       </div>
     )
