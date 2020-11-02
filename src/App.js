@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import  { Homepage }  from '../src/Homepage/Homepage.js';
 import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
+import  { Lobby }  from '../src/Lobby/Lobby.js';
 import History from './History.js';
 import './App.css';
 
@@ -14,35 +15,40 @@ export class App extends Component{
   constructor() {
     super()
     this.state = {
-      isGenerator: null,
       attempts: [],
-      isOver: false,
       display: [],
-      isLoading: true,
+      inGame: false,
       isGameReady: false,
+      isGenerator: null,
+      isLoading: true,
+      isOver: false,
+      hasGenerator: null,
+      rooms: []
     }
   }
 
   componentDidMount = () => {
     client = ioc.connect( "http://localhost:" + 3001 );
 
-    client.on( 'gameJoined', (state) => {
-      this.setState(state);
-    });
-
-    client.on( 'newWordToGuess', (state) => {
-      this.setState(state);
-    });
-
     client.on( 'result', (state) => {
+      console.log(state)
       this.setState(state);
     });
-
-    this.setState({isLoading: false});
   }
 
-  joinGame = (role) => {
-    client.emit('joinGame', role);
+
+    this.setState({isLoading: false});
+  createRoom = ( id ) => {
+    client.emit('createRoom', id)
+  }
+
+  joinRoom = ( id ) => {
+    client.emit('joinRoom', id)
+
+  }
+
+  setRole = (role) => {
+    client.emit('setRole', role);
     this.setState({isGenerator: role});
   }
 
@@ -59,7 +65,11 @@ export class App extends Component{
   }
 
   setHistory() {
-    if (this.state.isGameReady && History[History.length -1] !== '/gamepage') {
+    if (!this.state.inGame && History[History.length -1] !== '/lobby') {
+      window.setTimeout(() => History.push('/lobby'), 1);
+    }
+
+    else if (this.state.isGameReady && History[History.length -1] !== '/gamepage') {
       window.setTimeout(() => History.push('/gamepage'), 1);
     }
 
@@ -73,6 +83,7 @@ export class App extends Component{
   }
 
   render() {
+    console.log(this.state)
     if (this.state.isLoading) {
       return (<h3>Loading...</h3>);
     }
@@ -84,38 +95,60 @@ export class App extends Component{
           <h1 id='bangHeader'>BangWords</h1>
           <button id='theButton' onClick={this.resetGame}><em>Reset Game</em></button>
         </header>
-        <Switch>
-          <Route
-            exact path='/'
-            render={() => {
-            return  <Homepage 
-            designateRole={this.joinGame}
+
+        <Route
+          exact path='/'
+          render={() => {
+            return (
+              <Homepage
+                designateRole={this.setRole}
+                hasGenerator={this.state.hasGenerator}
             // addGenerator={this.addGenerator}
             // generatorExists={this.state.generatorExists}
-            />
-            }}
-          />
-          <Route
-            exact path='/word-selector'
-            render={() => {
-            return  <WordSelector 
-            makeWordToGuess={this.sendWordToGuess} 
-            isGenerator={this.state.isGenerator}
-            />
-            }}
-          />
-          <Route
-            exact path='/gamepage'
-            render={() => {
-            return  <Gamepage 
-            makeGuess={this.makeGuess} 
-            attempts={this.state.guesses} 
-            display={this.state.display}  
-            isGenerator={this.state.isGenerator}
-            />
-            }}
-          />
-        </Switch>
+              />
+            )
+          }}
+        />
+
+        <Route
+          exact path='/gamepage'
+          render={() => {
+            return (
+              <Gamepage
+                makeGuess={this.makeGuess}
+                attempts={this.state.attempts}
+                display={this.state.display}
+                isGenerator={this.state.isGenerator}
+              />
+            )
+          }}
+        />
+
+        <Route
+          exact path='/lobby'
+          render={() => {
+            return (
+              <Lobby
+                createRoom={this.createRoom}
+                joinRoom={this.joinRoom}
+                rooms={this.state.rooms}
+              />
+            )
+          }}
+        />
+
+        <Route
+          exact path='/word-selector'
+          render={() => {
+            return (
+              <WordSelector
+                makeWordToGuess={this.sendWordToGuess}
+                isGenerator={this.state.isGenerator}
+              />
+            )
+          }}
+        />
+
       </div>
     );
   }

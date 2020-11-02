@@ -9,7 +9,6 @@ export class Gamepage extends Component {
     this.state = {
       hints: [],
       correctGuesses: [],
-      attempts: [],
       currentGuess: ''
     }
   }
@@ -22,11 +21,12 @@ export class Gamepage extends Component {
   makeGuess = (e) => {
     e.preventDefault();
     this.props.makeGuess(this.state.currentGuess)
+    document.querySelector('.word-input').value = '';
   }
 
   mapAttempts = () => {
-      let theKey = 0;
-      return this.props.attempts.map(attempt => {
+    let theKey = 0;
+    return this.props.attempts.map(attempt => {
       theKey += 1;
       return <p key={theKey}>{attempt}</p>
     })
