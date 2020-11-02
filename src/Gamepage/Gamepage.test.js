@@ -7,7 +7,7 @@ describe('Gamepage', () => {
   describe('isGenDisplay method', () => {
     it('1. should render the `word-input` if `isGenerator is not true`', () => {
 
-      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
       makeGuess={
         async (newGuess) => {
           // const guess = await apiCalls.makeGuess(newGuess)
@@ -21,7 +21,7 @@ describe('Gamepage', () => {
     })
     it('2. should render the `Guess` button if `isGenerator is not true`', () => {
 
-      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
       makeGuess={
         async (newGuess) => {
           // const guess = await apiCalls.makeGuess(newGuess)
@@ -39,7 +39,7 @@ describe('Gamepage', () => {
   describe('Render method / Headers', () => {
     it('3. should render the `Hints` header', () => {
 
-      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
       makeGuess={
         async (newGuess) => {
           // const guess = await apiCalls.makeGuess(newGuess)
@@ -52,7 +52,7 @@ describe('Gamepage', () => {
     })
     it('4. should render the `Draw Board` header', () => {
 
-      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
       makeGuess={
         async (newGuess) => {
           // const guess = await apiCalls.makeGuess(newGuess)
@@ -65,7 +65,7 @@ describe('Gamepage', () => {
     })
     it('5. should render the `Attempts` header', () => {
 
-      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
       makeGuess={
         async (newGuess) => {
           // const guess = await apiCalls.makeGuess(newGuess)
@@ -81,7 +81,7 @@ describe('Gamepage', () => {
   describe('splitDisplay()', () => {
     it('6. should render the `display` prop', () => {
 
-      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
+      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
       makeGuess={
         async (newGuess) => {
           // const guess = await apiCalls.makeGuess(newGuess)
@@ -99,18 +99,20 @@ describe('Gamepage', () => {
   describe('mapAttempts()', () => {
     it('6. should display each attempt', () => {
 
-      render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['cuts', 'butts', 'coconuts']} isGenerator={null}
-      makeGuess={
-        async (newGuess) => {
+      render(<Gamepage 
+        display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} 
+        isGenerator={null}
+        makeGuess={
+          async (newGuess) => {
           const guess = await apiCalls.makeGuess(newGuess)
           this.setState({guess})
           console.log('newGuess', newGuess)
+          }
         }
-      }
       />);
-      expect(screen.getByText('cuts')).toBeInTheDocument();
-      expect(screen.getByText('butts')).toBeInTheDocument();
-      expect(screen.getByText('coconuts')).toBeInTheDocument();
+      expect(screen.getByText('one')).toBeInTheDocument();
+      expect(screen.getByText('two')).toBeInTheDocument();
+      expect(screen.getByText('three')).toBeInTheDocument();
     })
   })
 })

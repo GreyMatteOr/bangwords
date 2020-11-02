@@ -19,15 +19,14 @@ export class Gamepage extends Component {
     this.setState({currentGuess: e.target.value})
   }
 
-
   makeGuess = (e) => {
     e.preventDefault();
     this.props.makeGuess(this.state.currentGuess)
   }
 
   mapAttempts = () => {
-    let theKey = 0;
-    return this.state.attempts.map(attempt => {
+      let theKey = 0;
+      return this.props.attempts.map(attempt => {
       theKey += 1;
       return <p key={theKey}>{attempt}</p>
     })

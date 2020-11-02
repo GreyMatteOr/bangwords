@@ -38,7 +38,6 @@ export class App extends Component{
       this.setState(state);
     });
 
-
     this.setState({isLoading: false});
   }
 
