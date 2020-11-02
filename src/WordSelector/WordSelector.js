@@ -38,7 +38,7 @@ export class WordSelector extends Component {
               placeholder="Submit"
               onClick={(e) => {
                 this.makeWordToGuess(e)
-                }}
+              }}
             />
           </form>
         </div>
