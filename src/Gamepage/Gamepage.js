@@ -22,6 +22,7 @@ export class Gamepage extends Component {
   makeGuess = (e) => {
     e.preventDefault();
     this.props.makeGuess(this.state.currentGuess)
+    document.querySelector('.word-input').value = '';
   }
 
   mapAttempts = () => {
