@@ -24,7 +24,8 @@ export class App extends Component{
       isOver: false,
       hasGenerator: null,
       userName: 'guest',
-      rooms: []
+      rooms: [],
+      numOnline: 'calculating the number of'
     }
   }
 
@@ -97,6 +98,7 @@ export class App extends Component{
           {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
           <h1 id='bangHeader'>BangWords</h1>
           <h3>Logged in as: {this.state.userName}!</h3>
+          <h4>{this.state.numOnline} players online right now</h4>
           <button id='theButton' onClick={this.resetGame}><em>Reset Game</em></button>
         </header>
 
