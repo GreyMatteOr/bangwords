@@ -82,19 +82,16 @@ export class Gamepage extends Component {
           </div>
           {this.isGenDisplay()}
         </div>
+        <div className="players">
+          <h2>
+            <em>Current Players</em>
+          </h2>
+          {this.props.playerNames.map(name => <h3>{name}</h3>)}
+        </div>
         <div className="attempts">
           <h2>
             <em>Attempts</em>
           </h2>
-          <div>
-            {this.mapAttempts()}
-          </div>
-          <div className="players">
-            <h2>
-              <em>Current Players</em>
-            </h2>
-            {this.props.playerNames}
-          </div>
           <div>
             {this.mapAttempts()}
           </div>

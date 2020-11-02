@@ -73,7 +73,7 @@ export class App extends Component{
       window.setTimeout(() => History.push('/lobby'), 1);
     }
 
-    else if (this.state.isGameReady && History[History.length -1] !== '/gamepage') {
+    else if (this.state.isGameReady && this.state.isGenerator !== null && History[History.length -1] !== '/gamepage') {
       window.setTimeout(() => History.push('/gamepage'), 1);
     }
 
