@@ -8,6 +8,7 @@ export const Homepage = (props) => {
       <div className="character-select">
         <button
           className="generator"
+          disabled={props.hasGenerator}
           onClick={() => {
             props.designateRole(true)
           }}>
