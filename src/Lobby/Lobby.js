@@ -7,7 +7,8 @@ export class Lobby extends Component {
     super(props);
     this.state = {
       roomID: null,
-      newRoomName: ''
+      newRoomName: '',
+      newUserName: ''
     }
   }
 
@@ -38,6 +39,25 @@ export class Lobby extends Component {
 
     return (
       <div className="lobby" data-testid="lobby">
+        <h1><em>Please select a user name</em></h1>
+        <form>
+          <label>
+            <input
+              type="text"
+              onChange={(e) => this.setState({newUserName: e.target.value})}
+              placeholder="user name"
+            />
+          </label>
+          <input
+            type="submit"
+            value="Submit"
+            placeholder="Select User Name"
+            onClick={(e) => {
+              e.preventDefault();
+              this.props.setUserName(this.state.newUserName)
+            }}
+          />
+        </form>
         <h1><em>Available Rooms</em></h1>
         {rooms}
         <form>
