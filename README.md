@@ -13,7 +13,9 @@
 ---
 
 Matthew Lane [@GreyMatteOr](https://github.com/GreyMatteOr)
+
 Chris Castanuela [@Chriscastanuela](https://github.com/Chriscastanuela)
+
 Ian Holladay [@holladayian](https://github.com/holladayian)
 
 <br><br>
@@ -104,6 +106,7 @@ Express
 ---
 
 [Khalid Williams](Probably should ask first)
+
 [Leta Keane](Maybe link their linkedin too?)
 
 
