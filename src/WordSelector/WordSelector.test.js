@@ -27,7 +27,7 @@ describe('WordSelector', () => {
 
         render(<WordSelector isGenerator={true}/>);
     
-        expect(screen.getByPlaceholderText('Name')).toBeInTheDocument();
+        expect(screen.getByPlaceholderText('Set Word or Phrase')).toBeInTheDocument();
       })
 
       it('4. should render the `Submit` input if the `isGenerator` prop is true', () => {

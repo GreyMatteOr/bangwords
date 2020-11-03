@@ -18,7 +18,6 @@ export class Gamepage extends Component {
     this.setState({currentGuess: e.target.value})
   }
 
-
   makeGuess = (e) => {
     e.preventDefault();
     this.props.makeGuess(this.state.currentGuess)
