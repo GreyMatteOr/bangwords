@@ -45,6 +45,7 @@ export class Lobby extends Component {
         <form>
           <label>
             <input
+              className="username-input"
               type="text"
               onChange={(e) => this.setState({newUserName: e.target.value})}
               placeholder="user name"
@@ -66,6 +67,7 @@ export class Lobby extends Component {
         <form>
           <label>
             <input
+              className="new-room-input"
               type="text"
               onChange={(e) => this.setState({newRoomName: e.target.value})}
               placeholder="Room ID"
