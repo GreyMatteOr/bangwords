@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Lobby.css';
+// import './Lobby.css';
 
 export class Lobby extends Component {
   constructor( props ) {
@@ -11,8 +11,6 @@ export class Lobby extends Component {
       newUserName: ''
     }
   }
-
-
 
   render() {
     let rooms;

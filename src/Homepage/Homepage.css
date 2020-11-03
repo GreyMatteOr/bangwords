@@ -22,7 +22,12 @@
 }
 
 .generator:hover{
-  background-color: #BF8620
+  background-color: #BF8620;
+}
+
+.generator:disabled {
+  background-color: #7b4200;
+  color: #404040;
 }
 
 .guesser {
