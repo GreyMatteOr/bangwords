@@ -29,6 +29,7 @@ export class Lobby extends Component {
             </select>
             <button
               className="join-room-btn"
+              data-testid="join-room-btn"
               onClick={() => this.props.joinRoom(this.state.roomID)}
             >Join room!</button>
           </div>
@@ -54,6 +55,7 @@ export class Lobby extends Component {
             type="submit"
             value="Submit"
             placeholder="Select User Name"
+            data-testid='test-username-btn'
             onClick={(e) => {
               e.preventDefault();
               this.props.setUserName(this.state.newUserName)
@@ -76,6 +78,7 @@ export class Lobby extends Component {
             type="submit"
             value="Submit"
             placeholder="Create"
+            data-testid='create-room-btn'
             onClick={(e) => {
               e.preventDefault();
               this.props.createRoom(this.state.newRoomName)

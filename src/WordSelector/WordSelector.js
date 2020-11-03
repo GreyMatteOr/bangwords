@@ -25,7 +25,7 @@ export class WordSelector extends Component {
   render() {
     if (this.props.isGenerator) {
       return (
-        <div className="selection-page" data-testid="word-selector">
+        <div className="selection-page" data-testid="word-generator">
           <h2><em>Type a word for your opponent to guess!</em></h2>
           <form>
             <label>
@@ -50,7 +50,7 @@ export class WordSelector extends Component {
       )
     } else {
       return (
-        <div className="selection-page">
+        <div className="selection-page" data-testid="word-guesser">
           <h2><em>Your opponent is thinking of a word...</em></h2>
           <img src={loading} alt="Loading image" className='Loading'/>
         </div>

@@ -12,20 +12,20 @@ import ioc from 'socket.io-client';
 let client;
 
 export class App extends Component{
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       attempts: [],
       chat: [],
       display: [],
-      inGame: false,
-      isGameReady: false,
-      isGenerator: null,
+      inGame: this.props.inGame || false,
+      isGameReady: this.props.isGameReady || false,
+      isGenerator: this.props.isGenerator || null,
       isLoading: true,
       isOver: false,
       hasGenerator: null,
-      userName: 'guest',
-      rooms: [],
+      userName: this.props.userName || 'guest',
+      rooms: this.props.rooms || [],
       numOnline: 'calculating the number of',
       remainingGuesses: 0
     }
@@ -41,7 +41,6 @@ export class App extends Component{
       this.setState({ chat })
     })
     client.on( 'result', (state) => {
-      console.log(state)
       this.setState(state);
     });
     this.setState({isLoading: false});
@@ -104,7 +103,6 @@ export class App extends Component{
   }
 
   render() {
-    console.log(this.state)
     if (this.state.isLoading) {
       return (<h3>Loading...</h3>);
     }
@@ -118,7 +116,9 @@ export class App extends Component{
           <h4>{this.state.numOnline} players online right now</h4>
           <button
             id='theButton'
-            onClick={this.resetGame}>
+            onClick={this.props.resetMock || this.resetGame}
+            data-testid="reset-test"
+          >
             <em>Reset Game</em>
           </button>
           <button
@@ -133,7 +133,7 @@ export class App extends Component{
           render={() => {
             return (
               <Homepage
-                designateRole={this.setRole}
+                designateRole={this.props.mockRole || this.setRole}
                 hasGenerator={this.state.hasGenerator}
             // addGenerator={this.addGenerator}
             // generatorExists={this.state.generatorExists}
@@ -151,7 +151,7 @@ export class App extends Component{
                 chat={this.state.chat}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
-                makeGuess={this.makeGuess}
+                makeGuess={this.props.fakeAGuess || this.makeGuess}
                 playerNames={this.state.playerNames}
                 sendMessage={this.sendMessage}
                 remainingGuesses={this.state.remainingGuesses}
@@ -165,10 +165,10 @@ export class App extends Component{
           render={() => {
             return (
               <Lobby
-                createRoom={this.createRoom}
-                joinRoom={this.joinRoom}
+                createRoom={this.props.mockCreateRoom || this.createRoom}
+                joinRoom={this.props.mockJoinRoom || this.joinRoom}
                 rooms={this.state.rooms}
-                setUserName={this.setUserName}
+                setUserName={this.props.mockSetName || this.setUserName}
               />
             )
           }}
