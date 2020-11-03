@@ -47,14 +47,13 @@ export class Lobby extends Component {
               className="username-input"
               type="text"
               onChange={(e) => this.setState({newUserName: e.target.value})}
-              placeholder="user name"
+              placeholder="Username"
             />
           </label>
           <input
             className="username-btn"
             type="submit"
             value="Submit"
-            placeholder="Select User Name"
             data-testid='test-username-btn'
             onClick={(e) => {
               e.preventDefault();
