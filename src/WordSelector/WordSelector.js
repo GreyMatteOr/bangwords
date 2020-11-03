@@ -29,7 +29,12 @@ export class WordSelector extends Component {
           <h2><em>Type a word for your opponent to guess!</em></h2>
           <form>
             <label>
-              <input type="text" name="name" onChange={this.updateChange} placeholder="Set Word or Phrase"/>
+              <input 
+                type="text" 
+                className="set-word" 
+                onChange={this.updateChange} 
+                placeholder="Set Word or Phrase"
+              />
             </label>
             <input
               id='wordSubmit'

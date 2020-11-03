@@ -23,12 +23,15 @@ export class App extends Component{
       isLoading: true,
       isOver: false,
       hasGenerator: null,
+      userName: 'guest',
+      remainingGuesses: 0,
       rooms: []
     }
   }
 
   componentDidMount = () => {
-    client = ioc.connect( "http://localhost:" + 3001 );
+    // client = ioc.connect( "https://bangwords-api.herokuapp.com/");
+    client = ioc.connect( "localhost:3001");
 
     client.on( 'result', (state) => {
       console.log(state)
@@ -54,6 +57,10 @@ export class App extends Component{
     client.emit('setWord', word);
   }
 
+  setUserName = (userName) => {
+    this.setState({ userName })
+  }
+
   makeGuess = (newGuess) => {
     client.emit('makeGuess', newGuess)
   }
@@ -75,8 +82,8 @@ export class App extends Component{
       window.setTimeout(() => History.push('/word-selector'), 1);
     }
 
-    else if ( History[History.length -1] !== '/' ) {
-      window.setTimeout(() => History.push('/'), 1);
+    else if ( History[History.length -1] !== '/bangwords' ) {
+      window.setTimeout(() => History.push('/bangwords'), 1);
     }
   }
 
@@ -91,11 +98,12 @@ export class App extends Component{
         <header className="BangWords-header">
           {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
           <h1 id='bangHeader'>BangWords</h1>
+          <h3>Logged in as: {this.state.userName}!</h3>
           <button id='theButton' onClick={this.resetGame}><em>Reset Game</em></button>
         </header>
 
         <Route
-          exact path='/'
+          exact path='/bangwords'
           render={() => {
             return (
               <Homepage
@@ -117,6 +125,7 @@ export class App extends Component{
                 attempts={this.state.attempts}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
+                remainingGuesses={this.state.remainingGuesses}
               />
             )
           }}
@@ -130,6 +139,7 @@ export class App extends Component{
                 createRoom={this.createRoom}
                 joinRoom={this.joinRoom}
                 rooms={this.state.rooms}
+                setUserName={this.setUserName}
               />
             )
           }}

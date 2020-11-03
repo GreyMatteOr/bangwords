@@ -3,9 +3,15 @@
   color: #282c34;
 }
 
+.set-word {
+  font-size: large;
+}
+
 #wordSubmit {
+  font-size: large;
   cursor: pointer;
 }
+
 #wordSubmit:hover {
   background-color: #BF8620;
 }
