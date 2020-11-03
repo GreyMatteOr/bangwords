@@ -12,14 +12,14 @@ import ioc from 'socket.io-client';
 let client;
 
 export class App extends Component{
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       attempts: [],
       display: [],
-      inGame: false,
-      isGameReady: false,
-      isGenerator: null,
+      inGame: this.props.inGame || false,
+      isGameReady: this.props.isGameReady || false,
+      isGenerator: this.props.isGenerator || null,
       isLoading: true,
       isOver: false,
       hasGenerator: null,
