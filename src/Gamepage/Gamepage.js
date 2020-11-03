@@ -47,12 +47,12 @@ export class Gamepage extends Component {
       return (
         <form>
         <label>
-          <input 
-            type="text" 
-            name="word" 
-            className="word-input" 
-            placeholder="Letter or Word" 
-            onChange={this.updateChange} 
+          <input
+            type="text"
+            name="word"
+            className="word-input"
+            placeholder="Letter or Word"
+            onChange={this.updateChange}
           />
         </label>
         <input
@@ -72,9 +72,10 @@ export class Gamepage extends Component {
   render = () => {
     return (
       <div className="game-page" data-testid="game-page">
-        <div className="hints">
-          <h2><em>Hints</em></h2>
-
+        <div className="chat">
+          <h2>
+            <em>Chat</em>
+          </h2>
         </div>
         <div className="board">
           <div className="draw-board">
@@ -84,9 +85,19 @@ export class Gamepage extends Component {
           </div>
           {this.isGenDisplay()}
         </div>
+        <div className="players">
+          <h2>
+            <em>Current Players</em>
+          </h2>
+          {this.props.playerNames.map(name => <h3>{name}</h3>)}
+        </div>
         <div className="attempts">
-          <h2><em>Attempts</em></h2>
-        <div>{this.mapAttempts()}</div>
+          <h2>
+            <em>Attempts</em>
+          </h2>
+          <div>
+            {this.mapAttempts()}
+          </div>
         </div>
       </div>
     )

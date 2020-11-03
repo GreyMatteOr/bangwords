@@ -24,8 +24,9 @@ export class App extends Component{
       isOver: false,
       hasGenerator: null,
       userName: 'guest',
-      remainingGuesses: 0,
-      rooms: []
+      rooms: [],
+      numOnline: 'calculating the number of',
+      remainingGuesses: 0
     }
   }
 
@@ -41,15 +42,20 @@ export class App extends Component{
   }
 
   createRoom = ( id ) => {
-    client.emit('createRoom', id)
+    client.emit('createRoom', id);
   }
 
   joinRoom = ( id ) => {
-    client.emit('joinRoom', id)
+    client.emit('joinRoom', id);
+  }
+
+  leaveRoom = () => {
+    console.log('hello')
+    client.emit('leaveRoom');
   }
 
   setRole = (role) => {
-    client.emit('setRole', role);
+    client.emit('setRole', role, this.state.userName);
     this.setState({isGenerator: role});
   }
 
@@ -74,7 +80,7 @@ export class App extends Component{
       window.setTimeout(() => History.push('/lobby'), 1);
     }
 
-    else if (this.state.isGameReady && History[History.length -1] !== '/gamepage') {
+    else if (this.state.isGameReady && this.state.isGenerator !== null && History[History.length -1] !== '/gamepage') {
       window.setTimeout(() => History.push('/gamepage'), 1);
     }
 
@@ -99,7 +105,17 @@ export class App extends Component{
           {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
           <h1 id='bangHeader'>BangWords</h1>
           <h3>Logged in as: {this.state.userName}!</h3>
-          <button id='theButton' onClick={this.resetGame}><em>Reset Game</em></button>
+          <h4>{this.state.numOnline} players online right now</h4>
+          <button
+            id='theButton'
+            onClick={this.resetGame}>
+            <em>Reset Game</em>
+          </button>
+          <button
+            className={!this.state.inGame ? 'hidden' : ''}
+            onClick={this.leaveRoom}>
+            <em>Leave Game</em>
+          </button>
         </header>
 
         <Route
@@ -125,6 +141,7 @@ export class App extends Component{
                 attempts={this.state.attempts}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
+                playerNames={this.state.playerNames}
                 remainingGuesses={this.state.remainingGuesses}
               />
             )

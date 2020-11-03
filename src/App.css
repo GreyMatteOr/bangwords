@@ -35,3 +35,7 @@
 #theButton:hover {
   background-color: #BF8620;
 }
+
+.hidden {
+  display: none;
+}
