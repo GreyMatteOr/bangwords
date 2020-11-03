@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { Gamepage } from './Gamepage.js';
 import { screen, render, waitFor, getAllByTestId } from '@testing-library/react';
 
-describe('Gamepage', () => {
+describe.skip('Gamepage', () => {
 
   describe('isGenDisplay method', () => {
     it('1. should render the `word-input` if `isGenerator is not true`', () => {

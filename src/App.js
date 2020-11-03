@@ -34,7 +34,6 @@ export class App extends Component{
     client = ioc.connect( "localhost:3001");
 
     client.on( 'result', (state) => {
-      console.log(state)
       this.setState(state);
     });
     this.setState({isLoading: false});
@@ -88,7 +87,6 @@ export class App extends Component{
   }
 
   render() {
-    console.log(this.state)
     if (this.state.isLoading) {
       return (<h3>Loading...</h3>);
     }
