@@ -110,10 +110,13 @@ export class App extends Component{
     return (
       <div className="BangWords">
         <header className="BangWords-header">
-          {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
           <h1 id='bangHeader'>BangWords</h1>
-          <h3 className='loggedInAs'>Logged in as: {this.state.userName}!</h3>
-          <h4>{this.state.numOnline} players online right now</h4>
+          <div className='headerCenter'>
+            <h3 className='loggedInAs'>Logged in as: {this.state.userName}!
+            </h3>
+            <h4 className='playersOnline'>{this.state.numOnline} players online right now
+            </h4>
+          </div>
           <button
             id='theButton'
             onClick={this.props.resetMock || this.resetGame}
@@ -135,8 +138,6 @@ export class App extends Component{
               <Homepage
                 designateRole={this.props.mockRole || this.setRole}
                 hasGenerator={this.state.hasGenerator}
-            // addGenerator={this.addGenerator}
-            // generatorExists={this.state.generatorExists}
               />
             )
           }}

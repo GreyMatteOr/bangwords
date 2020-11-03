@@ -20,9 +20,17 @@
   margin-left: 20px;
 }
 
+.headerCenter {
+  place-self: center;
+}
+
 .loggedInAs {
   margin: 0;
   place-self: center;
+}
+
+.playersOnline {
+  margin: 0
 }
 
 #theButton {
