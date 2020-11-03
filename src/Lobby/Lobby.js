@@ -40,7 +40,7 @@ export class Lobby extends Component {
 
     return (
       <div className="lobby" data-testid="lobby">
-        <h1><em>Please select a user name</em></h1>
+        <h1><em>Create a username</em></h1>
         <form>
           <label>
             <input
