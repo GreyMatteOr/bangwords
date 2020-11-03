@@ -10,10 +10,6 @@ export class Chat extends Component {
       newMessage: ''
     }
     this.messagesEnd = React.createRef()
-    if (typeof(module) != 'undefined') {
-      this.messagesEnd.current = {}
-      this.messagesEnd.current.scrollIntoView = () => {}
-    }
   }
 
   scrollToBottom = () => {
