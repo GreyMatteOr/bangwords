@@ -47,16 +47,22 @@ export class Gamepage extends Component {
       return (
         <form>
         <label>
-          <input type="text" name="word" className="word-input" placeholder="Letter or Word" onChange={this.updateChange} />
+          <input 
+            type="text" 
+            name="word" 
+            className="word-input" 
+            placeholder="Letter or Word" 
+            onChange={this.updateChange} 
+          />
         </label>
         <input
-        id='guess-button'
-        type="submit"
-        value="Guess"
-        data-testid='word-submit-button'
-        onClick={(e) => {
-            this.makeGuess(e)
-            }}
+          id='guess-button'
+          type="submit"
+          value="Guess"
+          data-testid='word-submit-button'
+          onClick={(e) => {
+              this.makeGuess(e)
+              }}
         />
       </form>
       )
@@ -73,6 +79,7 @@ export class Gamepage extends Component {
         <div className="board">
           <div className="draw-board">
             <h2><em>Draw Board</em></h2>
+            <h3><em>Remaining Guesses: {this.props.remainingGuesses}</em></h3>
           <div className="display-word">{this.splitDisplay()}</div>
           </div>
           {this.isGenDisplay()}

@@ -24,6 +24,7 @@ export class App extends Component{
       isOver: false,
       hasGenerator: null,
       userName: 'guest',
+      remainingGuesses: 0,
       rooms: []
     }
   }
@@ -124,6 +125,7 @@ export class App extends Component{
                 attempts={this.state.attempts}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
+                remainingGuesses={this.state.remainingGuesses}
               />
             )
           }}
