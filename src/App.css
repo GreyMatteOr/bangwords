@@ -20,6 +20,11 @@
   margin-left: 20px;
 }
 
+.loggedInAs {
+  margin: 0;
+  place-self: center;
+}
+
 #theButton {
   justify-self: right;
   align-self: center;
