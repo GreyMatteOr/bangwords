@@ -10,14 +10,14 @@ export class Chat extends Component {
       newMessage: ''
     }
     this.messagesEnd = React.createRef()
+    if (typeof(module) != 'undefined') {
+      this.messagesEnd.current = {}
+      this.messagesEnd.current.scrollIntoView = () => {}
+    }
   }
 
   scrollToBottom = () => {
     this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
-  }
-
-  componentDidMount() {
-    this.scrollToBottom();
   }
 
   componentDidUpdate() {
@@ -36,7 +36,6 @@ export class Chat extends Component {
   }
 
   mapChat = () => {
-    console.log('Chat',this.props.chat)
     return this.props.chat.map((message, i) => <p key={i}>{message}</p>)
   }
 
@@ -52,16 +51,16 @@ export class Chat extends Component {
           <input
             id="chat-input"
             type="text"
+            placeholder='Chat'
             onChange={this.updateNewMessage}
           />
           <input
             type='submit'
             value='Send'
+            data-testid='Send'
             onClick={this.sendMessage}
           />
         </form>
-        {console.log('reached the end')}
-
       </div>
     )
   }
