@@ -30,6 +30,7 @@ export class Lobby extends Component {
             })}
             </select>
             <button
+              className="join-room-btn"
               onClick={() => this.props.joinRoom(this.state.roomID)}
             >Join room!</button>
           </div>
@@ -50,7 +51,7 @@ export class Lobby extends Component {
             />
           </label>
           <input
-            className="select-room-btn"
+            className="username-btn"
             type="submit"
             value="Submit"
             placeholder="Select User Name"
