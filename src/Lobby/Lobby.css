@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.username-btn {
+  cursor: pointer;
+}
+
 .room-list {
   display: flex;
   flex-direction: column;
