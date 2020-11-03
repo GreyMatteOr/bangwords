@@ -3,6 +3,9 @@ import { App } from './App.js';
 import { screen, render, waitFor } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { Router } from "react-router-dom";
+import userEvent from  '@testing-library/user-event';
+import { Socket } from 'socket.io-client';
+// jest.mock('socket.io-client');
 
 
 
@@ -34,6 +37,7 @@ describe('App', () => {
     expect(lobby).toBeInTheDocument();
     
 
+    // sad paths
     let wordSelector = screen.queryByTestId('word-selector');
     let gamepage = screen.queryByTestId('game-page');
     
@@ -62,37 +66,73 @@ describe('App', () => {
     expect(wordGuesser).toBeInTheDocument();
     
 
+    // sad paths
     let homepage = screen.queryByTestId('homepage');
     let gamepage = screen.queryByTestId('game-page');
-
+    
     expect(homepage).toEqual(null);
     expect(gamepage).toEqual(null);
-
+    
   })
-
+  
   it('should load a `Gamepage` when url is navigated to', () => {
-
+    
     mockHistory.push('/gamepage');
-
+    
+    render(
+      <Router history={mockHistory}>
+        <App />
+      </Router>
+    );
+    
+    let gamepage = screen.queryByTestId('game-page');
+    let attempts = screen.getByText('Attempts');
+    let remainingGuesses = screen.getByText('Remaining Guesses: 0');
+    
+    expect(gamepage).toBeInTheDocument();
+    expect(attempts).toBeInTheDocument();
+    expect(remainingGuesses).toBeInTheDocument();
+    
+    
+    // sad paths
+    let homepage = screen.queryByTestId('homepage');
+    let wordSelector = screen.queryByTestId('word-selector');
+    
+    expect(homepage).toEqual(null);
+    expect(wordSelector).toEqual(null);
+  })
+  
+  it('should load a role selecting page when url is navigated to', () => {
+    
+    mockHistory.push('/bangwords');
+    
     render(
       <Router history={mockHistory}>
         <App />
       </Router>
     );
 
-    let gamepage = screen.queryByTestId('game-page');
-    let attempts = screen.getByText('Attempts');
-    let remainingGuesses = screen.getByText('Remaining Guesses: 0');
-
-    expect(gamepage).toBeInTheDocument();
-    expect(attempts).toBeInTheDocument();
-    expect(remainingGuesses).toBeInTheDocument();
-
-
+    // client.on.mockResolvedValueOnce({})
+    
+    
+    screen.debug()
+    let roleChooser = screen.getByText('Choose a role');
+    let genRole = screen.getByText('Generator');
+    let guessRole = screen.getByText('Guesser');
     let homepage = screen.queryByTestId('homepage');
-    let wordSelector = screen.queryByTestId('word-selector');
 
-    expect(homepage).toEqual(null);
+    expect(roleChooser).toBeInTheDocument();
+    expect(genRole).toBeInTheDocument();
+    expect(guessRole).toBeInTheDocument();
+    expect(homepage).toBeInTheDocument();
+
+    // userEvent.click(genRole);
+    // expect(genRole).toHaveBeenCalled();
+    
+    // sad paths
+    let gamepage = screen.queryByTestId('game-page');
+    let wordSelector = screen.queryByTestId('word-selector');
+    expect(gamepage).toEqual(null);
     expect(wordSelector).toEqual(null);
   })
 })
