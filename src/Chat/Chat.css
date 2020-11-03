@@ -1,0 +1,72 @@
+.game-page {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-between;
+  height: 85vh;
+  color: #282c34
+}
+
+.hints {
+  margin: 15px;
+  width: 250px;
+  border: solid 2px black;
+  border-radius: 2%;
+}
+
+.attempts {
+  margin: 15px;
+  width: 250px;
+  border: solid 2px black;
+  border-radius: 2%;
+}
+
+.board {
+  width: 45%;
+}
+
+.draw-board {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: solid 2px black;
+  min-height: 350px;
+  width: 100%;
+  border-radius: 5%;
+}
+
+.board form label {
+  margin: 10px
+}
+
+.draw-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.display-word {
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3em
+}
+
+.display-word p {
+  margin: 5px
+}
+
+.word-input {
+  font-size: large;
+}
+
+#guess-button {
+  font-size: large;
+  cursor: pointer;
+}
+
+#guess-button:hover {
+  background-color: #BF8620;
+}
+
+/*https://mycolor.space/?hex=%23282D33&sub=1*/
