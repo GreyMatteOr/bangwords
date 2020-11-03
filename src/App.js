@@ -16,6 +16,7 @@ export class App extends Component{
     super()
     this.state = {
       attempts: [],
+      chat: [],
       display: [],
       inGame: false,
       isGameReady: false,
@@ -34,6 +35,11 @@ export class App extends Component{
     // client = ioc.connect( "https://bangwords-api.herokuapp.com/");
     client = ioc.connect( "localhost:3001");
 
+    client.on( 'chatMessage', (message) => {
+      let chat = this.state.chat.concat();
+      chat.push(message);
+      this.setState({ chat })
+    })
     client.on( 'result', (state) => {
       console.log(state)
       this.setState(state);
@@ -54,9 +60,17 @@ export class App extends Component{
     client.emit('leaveRoom');
   }
 
+  makeGuess = (newGuess) => {
+    client.emit('makeGuess', newGuess)
+  }
+
   setRole = (role) => {
     client.emit('setRole', role, this.state.userName);
     this.setState({isGenerator: role});
+  }
+
+  sendMessage = (message) => {
+    client.emit('sendMessage', message);
   }
 
   sendWordToGuess = (word) => {
@@ -65,10 +79,6 @@ export class App extends Component{
 
   setUserName = (userName) => {
     this.setState({ userName })
-  }
-
-  makeGuess = (newGuess) => {
-    client.emit('makeGuess', newGuess)
   }
 
   resetGame = () => {
@@ -137,11 +147,13 @@ export class App extends Component{
           render={() => {
             return (
               <Gamepage
-                makeGuess={this.makeGuess}
                 attempts={this.state.attempts}
+                chat={this.state.chat}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
+                makeGuess={this.makeGuess}
                 playerNames={this.state.playerNames}
+                sendMessage={this.sendMessage}
                 remainingGuesses={this.state.remainingGuesses}
               />
             )

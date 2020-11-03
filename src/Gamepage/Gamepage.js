@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { Chat } from '../Chat/Chat.js'
 import './Gamepage.css';
 
 export class Gamepage extends Component {
@@ -25,20 +26,14 @@ export class Gamepage extends Component {
   }
 
   mapAttempts = () => {
-    let theKey = 0;
-    return this.props.attempts.map(attempt => {
-      theKey += 1;
-      return <p key={theKey}>{attempt}</p>
+    return this.props.attempts.map((attempt, i) => {
+      return <p key={i}>{attempt}</p>
     })
   }
 
   splitDisplay = () => {
-    let theKey = 0;
-    let theTestId = 0;
-    return this.props.display.map(tile => {
-      theKey += 1;
-      theTestId += 1;
-      return <p data-testid={`${theTestId}`} key={theKey}>{tile}</p>
+    return this.props.display.map((tile, i) => {
+      return <p data-testid={i} key={i}>{tile}</p>
     })
   }
 
@@ -60,9 +55,7 @@ export class Gamepage extends Component {
           type="submit"
           value="Guess"
           data-testid='word-submit-button'
-          onClick={(e) => {
-              this.makeGuess(e)
-              }}
+          onClick={(e) => this.makeGuess(e)}
         />
       </form>
       )
@@ -73,9 +66,10 @@ export class Gamepage extends Component {
     return (
       <div className="game-page" data-testid="game-page">
         <div className="chat">
-          <h2>
-            <em>Chat</em>
-          </h2>
+          <Chat
+            chat={this.props.chat}
+            sendMessage={this.props.sendMessage}
+          />
         </div>
         <div className="board">
           <div className="draw-board">
