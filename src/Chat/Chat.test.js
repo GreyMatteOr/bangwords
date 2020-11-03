@@ -1,118 +1,47 @@
+import React from 'react'
 import '@testing-library/jest-dom';
-import { Gamepage } from './Gamepage.js';
-import { screen, render, waitFor, getAllByTestId } from '@testing-library/react';
+import { Chat } from './Chat.js';
+import { screen, render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event'
 
-// describe('Gamepage', () => {
-//
-//   describe('isGenDisplay method', () => {
-//     it('1. should render the `word-input` if `isGenerator is not true`', () => {
-//
-//       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
-//       makeGuess={
-//         async (newGuess) => {
-//           // const guess = await apiCalls.makeGuess(newGuess)
-//           // this.setState({guess})
-//           console.log('newGuess', newGuess)
-//         }
-//       }
-//       />);
-//
-//       expect(screen.getByPlaceholderText('Letter or Word')).toBeInTheDocument();
-//     })
-//     it('2. should render the `Guess` button if `isGenerator is not true`', () => {
-//
-//       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
-//       makeGuess={
-//         async (newGuess) => {
-//           // const guess = await apiCalls.makeGuess(newGuess)
-//           // this.setState({guess})
-//           console.log('newGuess', newGuess)
-//         }
-//       }
-//       />);
-//       expect(screen.getByTestId('word-submit-button')).toBeInTheDocument();
-//     })
-//
-//   // expect(screen.getByText('Attempts')).toBeInTheDocument();
-//   })
-//
-//   describe('Render method / Headers', () => {
-//     it('3. should render the `Hints` header', () => {
-//
-//       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
-//       makeGuess={
-//         async (newGuess) => {
-//           // const guess = await apiCalls.makeGuess(newGuess)
-//           // this.setState({guess})
-//           console.log('newGuess', newGuess)
-//         }
-//       }
-//       />);
-//       expect(screen.getByText('Hints')).toBeInTheDocument();
-//     })
-//     it('4. should render the `Draw Board` header', () => {
-//
-//       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
-//       makeGuess={
-//         async (newGuess) => {
-//           // const guess = await apiCalls.makeGuess(newGuess)
-//           // this.setState({guess})
-//           console.log('newGuess', newGuess)
-//         }
-//       }
-//       />);
-//       expect(screen.getByText('Draw Board')).toBeInTheDocument();
-//     })
-//     it('5. should render the `Attempts` header', () => {
-//
-//       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
-//       makeGuess={
-//         async (newGuess) => {
-//           // const guess = await apiCalls.makeGuess(newGuess)
-//           // this.setState({guess})
-//           console.log('newGuess', newGuess)
-//         }
-//       }
-//       />);
-//       expect(screen.getByText('Attempts')).toBeInTheDocument();
-//     })
-//   })
-//
-//   describe('splitDisplay()', () => {
-//     it('6. should render the `display` prop', () => {
-//
-//       render(<Gamepage display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']} isGenerator={null}
-//       makeGuess={
-//         async (newGuess) => {
-//           // const guess = await apiCalls.makeGuess(newGuess)
-//           // this.setState({guess})
-//           console.log('newGuess', newGuess)
-//         }
-//       }
-//       />);
-//       for (let id = 1; id < 9; id++) {
-//         expect(screen.getByTestId(`${id}`)).toBeInTheDocument();
-//       }
-//     })
-//   })
-//
-//   describe('mapAttempts()', () => {
-//     it('6. should display each attempt', () => {
-//
-//       render(<Gamepage
-//         display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} attempts={['one', 'two', 'three']}
-//         isGenerator={null}
-//         makeGuess={
-//           async (newGuess) => {
-//           const guess = await apiCalls.makeGuess(newGuess)
-//           this.setState({guess})
-//           console.log('newGuess', newGuess)
-//           }
-//         }
-//       />);
-//       expect(screen.getByText('one')).toBeInTheDocument();
-//       expect(screen.getByText('two')).toBeInTheDocument();
-//       expect(screen.getByText('three')).toBeInTheDocument();
-//     })
-//   })
-// })
+describe('Inputs exist', () => {
+
+  describe(' `Chat` input ', () => {
+    it('1. should render the `Chat` input`', () => {
+        let mockFn = jest.fn();
+        render(<Chat
+            chat={['chris, matt, ian']}
+            sendMessage={mockFn}
+        />);
+
+      expect(screen.getByPlaceholderText('Chat')).toBeInTheDocument();
+    })
+    it('2. should render `Send` button', () => {
+
+        let mockFn = jest.fn();
+        render(<Chat
+            chat={['chris, matt, ian']}
+            sendMessage={mockFn}
+        />);
+        expect(screen.getByText('Send')).toBeInTheDocument();
+    })
+  })
+
+  describe('Functionality', () => { 
+    it('3. should send chats', () => {
+
+            let mockFn = jest.fn();
+            render(<Chat
+                chat={['chris, matt, ian']}
+                sendMessage={mockFn}
+            />);
+            userEvent.type(screen.getByPlaceholderText('Chat'), 'Chris')
+            setTimeout(() => {
+                userEvent.click(screen.queryByTestId('Send'))
+                setTimeout(() => {
+                    expect(screen.getByText('Chris')).toHaveBeenCalledWith('Chris');
+                }, 0)
+            }, 0)
+        })
+    })
+})

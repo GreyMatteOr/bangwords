@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { Gamepage } from './Gamepage.js';
 import { screen, render, waitFor, getAllByTestId } from '@testing-library/react';
 
