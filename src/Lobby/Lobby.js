@@ -12,8 +12,6 @@ export class Lobby extends Component {
     }
   }
 
-
-
   render() {
     let rooms;
       if (this.props.rooms.length) {

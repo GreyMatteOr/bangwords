@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { Chat } from '../Chat/Chat.js'
 import './Gamepage.css';
 
 export class Gamepage extends Component {
@@ -25,20 +26,14 @@ export class Gamepage extends Component {
   }
 
   mapAttempts = () => {
-    let theKey = 0;
-    return this.props.attempts.map(attempt => {
-      theKey += 1;
-      return <p key={theKey}>{attempt}</p>
+    return this.props.attempts.map((attempt, i) => {
+      return <p key={i}>{attempt}</p>
     })
   }
 
   splitDisplay = () => {
-    let theKey = 0;
-    let theTestId = 0;
-    return this.props.display.map(tile => {
-      theKey += 1;
-      theTestId += 1;
-      return <p data-testid={`${theTestId}`} key={theKey}>{tile}</p>
+    return this.props.display.map((tile, i) => {
+      return <p data-testid={i} key={i}>{tile}</p>
     })
   }
 
@@ -47,12 +42,12 @@ export class Gamepage extends Component {
       return (
         <form>
         <label>
-          <input 
-            type="text" 
-            name="word" 
-            className="word-input" 
-            placeholder="Letter or Word" 
-            onChange={this.updateChange} 
+          <input
+            type="text"
+            name="word"
+            className="word-input"
+            placeholder="Letter or Word"
+            onChange={this.updateChange}
           />
         </label>
         <input
@@ -60,9 +55,7 @@ export class Gamepage extends Component {
           type="submit"
           value="Guess"
           data-testid='word-submit-button'
-          onClick={(e) => {
-              this.makeGuess(e)
-              }}
+          onClick={(e) => this.makeGuess(e)}
         />
       </form>
       )
@@ -72,9 +65,11 @@ export class Gamepage extends Component {
   render = () => {
     return (
       <div className="game-page" data-testid="game-page">
-        <div className="hints">
-          <h2><em>Hints</em></h2>
-
+        <div className="chat">
+          <Chat
+            chat={this.props.chat}
+            sendMessage={this.props.sendMessage}
+          />
         </div>
         <div className="board">
           <div className="draw-board">
@@ -84,9 +79,19 @@ export class Gamepage extends Component {
           </div>
           {this.isGenDisplay()}
         </div>
+        <div className="players">
+          <h2>
+            <em>Current Players</em>
+          </h2>
+          {this.props.playerNames.map(name => <h3>{name}</h3>)}
+        </div>
         <div className="attempts">
-          <h2><em>Attempts</em></h2>
-        <div>{this.mapAttempts()}</div>
+          <h2>
+            <em>Attempts</em>
+          </h2>
+          <div>
+            {this.mapAttempts()}
+          </div>
         </div>
       </div>
     )

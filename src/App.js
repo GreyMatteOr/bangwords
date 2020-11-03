@@ -16,6 +16,7 @@ export class App extends Component{
     super(props)
     this.state = {
       attempts: [],
+      chat: [],
       display: [],
       inGame: this.props.inGame || false,
       isGameReady: this.props.isGameReady || false,
@@ -24,8 +25,9 @@ export class App extends Component{
       isOver: false,
       hasGenerator: null,
       userName: this.props.userName || 'guest',
-      remainingGuesses: 0,
-      rooms: this.props.rooms || []
+      rooms: this.props.rooms || [],
+      numOnline: 'calculating the number of',
+      remainingGuesses: 0
     }
   }
 
@@ -33,6 +35,11 @@ export class App extends Component{
     // client = ioc.connect( "https://bangwords-api.herokuapp.com/");
     client = ioc.connect( "localhost:3001");
 
+    client.on( 'chatMessage', (message) => {
+      let chat = this.state.chat.concat();
+      chat.push(message);
+      this.setState({ chat })
+    })
     client.on( 'result', (state) => {
       this.setState(state);
     });
@@ -40,16 +47,29 @@ export class App extends Component{
   }
 
   createRoom = ( id ) => {
-    client.emit('createRoom', id)
+    client.emit('createRoom', id);
   }
 
   joinRoom = ( id ) => {
-    client.emit('joinRoom', id)
+    client.emit('joinRoom', id);
+  }
+
+  leaveRoom = () => {
+    console.log('hello')
+    client.emit('leaveRoom');
+  }
+
+  makeGuess = (newGuess) => {
+    client.emit('makeGuess', newGuess)
   }
 
   setRole = (role) => {
-    client.emit('setRole', role);
+    client.emit('setRole', role, this.state.userName);
     this.setState({isGenerator: role});
+  }
+
+  sendMessage = (message) => {
+    client.emit('sendMessage', message);
   }
 
   sendWordToGuess = (word) => {
@@ -58,10 +78,6 @@ export class App extends Component{
 
   setUserName = (userName) => {
     this.setState({ userName })
-  }
-
-  makeGuess = (newGuess) => {
-    client.emit('makeGuess', newGuess)
   }
 
   resetGame = () => {
@@ -73,7 +89,7 @@ export class App extends Component{
       window.setTimeout(() => History.push('/lobby'), 1);
     }
 
-    else if (this.state.isGameReady && History[History.length -1] !== '/gamepage') {
+    else if (this.state.isGameReady && this.state.isGenerator !== null && History[History.length -1] !== '/gamepage') {
       window.setTimeout(() => History.push('/gamepage'), 1);
     }
 
@@ -97,7 +113,19 @@ export class App extends Component{
           {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
           <h1 id='bangHeader'>BangWords</h1>
           <h3>Logged in as: {this.state.userName}!</h3>
-          <button id='theButton' onClick={this.props.resetMock || this.resetGame} data-testid="reset-test"><em>Reset Game</em></button>
+          <h4>{this.state.numOnline} players online right now</h4>
+          <button
+            id='theButton'
+            onClick={this.props.resetMock || this.resetGame}
+            data-testid="reset-test"
+          >
+            <em>Reset Game</em>
+          </button>
+          <button
+            className={!this.state.inGame ? 'hidden' : ''}
+            onClick={this.leaveRoom}>
+            <em>Leave Game</em>
+          </button>
         </header>
 
         <Route
@@ -119,10 +147,13 @@ export class App extends Component{
           render={() => {
             return (
               <Gamepage
-                makeGuess={this.props.fakeAGuess || this.makeGuess}
                 attempts={this.state.attempts}
+                chat={this.state.chat}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
+                makeGuess={this.props.fakeAGuess || this.makeGuess}
+                playerNames={this.state.playerNames}
+                sendMessage={this.sendMessage}
                 remainingGuesses={this.state.remainingGuesses}
               />
             )
