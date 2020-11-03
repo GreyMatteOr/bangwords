@@ -25,7 +25,8 @@ export class App extends Component{
       hasGenerator: null,
       userName: 'guest',
       rooms: [],
-      numOnline: 'calculating the number of'
+      numOnline: 'calculating the number of',
+      remainingGuesses: 0
     }
   }
 
@@ -37,6 +38,7 @@ export class App extends Component{
       console.log(state)
       this.setState(state);
     });
+    this.setState({isLoading: false});
   }
 
   createRoom = ( id ) => {
@@ -140,6 +142,7 @@ export class App extends Component{
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
                 playerNames={this.state.playerNames}
+                remainingGuesses={this.state.remainingGuesses}
               />
             )
           }}

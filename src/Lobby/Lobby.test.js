@@ -8,9 +8,12 @@ describe('Lobby', () => {
 
   it('should render the default layout', () => {
 
-    render(<Lobby designateRole={mockFn}/>);
+    render(<Lobby rooms={['chris', 'ian', 'matt']} designateRole={mockFn}/>);
 
-    expect(screen.getByText('Generator')).toBeInTheDocument();
-    expect(screen.getByText('Guesser')).toBeInTheDocument();
+    expect(screen.getByText('chris')).toBeInTheDocument();
+    expect(screen.getByText('ian')).toBeInTheDocument();
+    expect(screen.getByText('matt')).toBeInTheDocument();
+    expect(screen.getByText('Available Rooms')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Room ID')).toBeInTheDocument();
   })
 })

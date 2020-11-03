@@ -1,0 +1,30 @@
+.lobby {
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.room-list {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  width: 12.75em
+}
+
+.room-list-select {
+  margin-bottom: 1em
+}
+
+.join-room-btn, .username-btn, .new-room-btn {
+  font-size: large;
+  padding: 3px;
+  background-color: #282D33;
+  color: #ffb22d
+}
+
+.room-list-select, .username-input, .new-room-input {
+  padding: 3px;
+  font-size: large;
+}

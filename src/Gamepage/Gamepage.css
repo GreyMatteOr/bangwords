@@ -46,6 +46,7 @@
 }
 
 .display-word {
+  font-size: large;
   display: flex;
   flex-direction: row;
   margin-bottom: 3em
@@ -55,9 +56,15 @@
   margin: 5px
 }
 
+.word-input {
+  font-size: large;
+}
+
 #guess-button {
+  font-size: large;
   cursor: pointer;
 }
+
 #guess-button:hover {
   background-color: #BF8620;
 }
