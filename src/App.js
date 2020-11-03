@@ -27,7 +27,8 @@ export class App extends Component{
       userName: this.props.userName || 'guest',
       rooms: this.props.rooms || [],
       numOnline: 'calculating the number of',
-      remainingGuesses: 0
+      remainingGuesses: 0,
+      playerNames: []
     }
   }
 
