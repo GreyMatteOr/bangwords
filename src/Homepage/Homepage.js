@@ -9,6 +9,7 @@ export const Homepage = (props) => {
         <button
           className="generator"
           disabled={props.hasGenerator}
+          data-testid='generator-button'
           onClick={() => {
             props.designateRole(true)
           }}>
@@ -16,6 +17,7 @@ export const Homepage = (props) => {
         </button>
         <button
           className="guesser"
+          data-testid='guesser-button'
           onClick={() => {
             props.designateRole(false)
           }

@@ -5,11 +5,7 @@ import { createMemoryHistory } from 'history';
 import { Router } from "react-router-dom";
 import userEvent from  '@testing-library/user-event';
 import { Socket } from 'socket.io-client';
-// import mockserver from 'mockserver-node';
 // jest.mock('socket.ioa-client');
-
-
-
 
 describe('App', () => {
   
@@ -24,18 +20,12 @@ describe('App', () => {
       </Router>
     );
     
-    // remove unnecessary vars
     let banger = screen.getByText('BangWords');
     let guest = screen.getByText('Logged in as: guest!');
-    // let plea = screen.getByText('Please select a user name');
-    // let availableRooms = screen.getByText('Available Rooms');
-    // let defaultRooms = screen.getByText('Seems like there are no open rooms. Use the form below to open one!');
     let lobby = screen.getByTestId('lobby');
+    
     expect(banger).toBeInTheDocument();
     expect(guest).toBeInTheDocument();
-    // expect(plea).toBeInTheDocument();
-    // expect(availableRooms).toBeInTheDocument();
-    // expect(defaultRooms).toBeInTheDocument();
     expect(lobby).toBeInTheDocument();
     
     // sad paths
@@ -56,14 +46,8 @@ describe('App', () => {
       </Router>
     );
     
-    // let opponent = screen.getByText('Your opponent is thinking of a word...');
-    // let banger = screen.getByText('BangWords');
-    // let guest = screen.getByText('Logged in as: guest!');
     let wordGuesser = screen.getByTestId('word-guesser');
     
-    // expect(opponent).toBeInTheDocument();
-    // expect(banger).toBeInTheDocument();
-    // expect(guest).toBeInTheDocument();
     expect(wordGuesser).toBeInTheDocument(); 
     
     // sad paths
@@ -86,12 +70,8 @@ describe('App', () => {
     );
     
     let gamepage = screen.queryByTestId('game-page');
-    // let attempts = screen.getByText('Attempts');
-    // let remainingGuesses = screen.getByText('Remaining Guesses: 0');
     
     expect(gamepage).toBeInTheDocument();
-    // expect(attempts).toBeInTheDocument();
-    // expect(remainingGuesses).toBeInTheDocument();
     
     // sad paths
     let homepage = screen.queryByTestId('homepage');
@@ -111,19 +91,14 @@ describe('App', () => {
       </Router>
     );
     
-    // let roleChooser = screen.getByText('Choose a role');
-    // let genRole = screen.getByText('Generator');
-    // let guessRole = screen.getByText('Guesser');
     let homepage = screen.queryByTestId('homepage');
     
-    // expect(roleChooser).toBeInTheDocument();
-    // expect(genRole).toBeInTheDocument();
-    // expect(guessRole).toBeInTheDocument();
     expect(homepage).toBeInTheDocument();
     
     // sad paths
     let gamepage = screen.queryByTestId('game-page');
     let wordSelector = screen.queryByTestId('word-selector');
+    
     expect(gamepage).toEqual(null);
     expect(wordSelector).toEqual(null);
   })
@@ -131,90 +106,152 @@ describe('App', () => {
   it('should render the lobby if you\'re not in a room', () => {
     // change boolean from inGame to inRoom
     
-    // mockHistory.push('lobby');
-    
     render(
       <Router history={mockHistory}>
         <App inGame={false}/>
       </Router>
     );
-
-      setTimeout(() => {
-        let lobby = screen.queryByTestId('lobby');
-        expect(lobby).toBeInTheDocument();
-      }, 2)
     
-    
+    setTimeout(() => {
+      let lobby = screen.queryByTestId('lobby');
+      expect(lobby).toBeInTheDocument();
+    }, 2) 
   })
   
   it('should render the role selecting page after player enters a room', () => {
-    
-    // mockHistory.push('lobby');
     
     render(
       <Router history={mockHistory}>
         <App inGame={true} />
       </Router>
     );
-
-      setTimeout(() => {
-        let rolePage = screen.queryByTestId('homepage');
-        expect(rolePage).toBeInTheDocument();
-      }, 2)
     
-    
-  })
-  // throw in another test to text for generator button disable 
-  
-  it('should render the gamepage after a game is ready', () => {
-    
-    // mockHistory.push('lobby');
-    
-    render(
-      <Router history={mockHistory}>
-        <App inGame={true} isGameReady={true}/>
-      </Router>
-    );
-
-      setTimeout(() => {
-        let gamepage = screen.queryByTestId('game-page');
-        expect(gamepage).toBeInTheDocument();
-      }, 2)
+    setTimeout(() => {
+      let rolePage = screen.queryByTestId('homepage');
+      expect(rolePage).toBeInTheDocument();
+    }, 2) 
   })
   
-  it('should render a separate layout for the generator', () => {
-    
-    // mockHistory.push('lobby');
+  it('should disable the generator button, if a generator has already been selected', () => {
     
     render(
       <Router history={mockHistory}>
         <App inGame={true} isGenerator={true}/>
       </Router>
     );
-
-      setTimeout(() => {
-        let isGen = screen.queryByTestId('word-generator');
-        expect(isGen).toBeInTheDocument();
-      }, 2)
+    
+    setTimeout(() => {
+      let genBtn = screen.queryByText('generator');
+      expect(genBtn).toBeDisabled();
+    }, 2) 
   })
   
-  it('should render the guess-input field if a game is ready, and the player is the guesser', () => {
-    
-    // mockHistory.push('lobby');
+  it('should render the gamepage after a game is ready', () => {
     
     render(
       <Router history={mockHistory}>
-        <App inGame={true} isGameReady={true} isGenerator={false}/>
+        <App inGame={true} isGameReady={true}/>
       </Router>
     );
+    
+    setTimeout(() => {
+      let gamepage = screen.queryByTestId('game-page');
+      expect(gamepage).toBeInTheDocument();
+    }, 2)
+  })
+  
+  it('should render a separate layout for the generator', () => {
+    
+    let genSelect = jest.fn();
+    render(
+      <Router history={mockHistory}>
+        <App inGame={true} isGenerator={true} mockRole={genSelect}/>
+      </Router>
+    );
+    
+    setTimeout(() => {
+      let isGen = screen.queryByTestId('word-generator');
+      expect(isGen).toBeInTheDocument();
 
-      setTimeout(() => {
-        let guessInput = screen.queryByText('Letter or Word');
-        let guessButton = screen.queryByText('Guess');
-        expect(guessInput).toBeInTheDocument();
-        expect(guessButton).toBeInTheDocument();
-      }, 2)
+
+      let genSelectBtn = screen.queryByTestId('generator-button');
+      userEvent.click(genSelectBtn);
+      expect(genSelect).toHaveBeenCalled();
+    }, 2)
+  })
+  
+  it('should render the guess-input field if a game is ready, and the player is the guesser', () => {
+    let fakeAGuess = jest.fn();
+    render(
+      <Router history={mockHistory}>
+        <App inGame={true} isGameReady={true} isGenerator={false} fakeAGuess={fakeAGuess}/>
+      </Router>
+    );
+    
+    setTimeout(() => {
+      let guessInput = screen.queryByText('Letter or Word');
+      let guessButton = screen.queryByTestId('word-submit-button');
+
+      expect(guessInput).toBeInTheDocument();
+      expect(guessButton).toBeInTheDocument();
+
+      userEvent.click(guessButton);
+      expect(fakeAGuess).toHaveBeenCalled();
+    }, 2)
+  })
+  
+  it('should update the lobby when inputs are given', () => {
+    
+    mockHistory.push('/lobby');
+    render(
+      <Router history={mockHistory}>
+        <App userName={'Jeff Leopard'} rooms={['Big Cats', 'Hair Metal']}/>
+      </Router>
+    )
+        
+    let jeffyBoy = screen.queryByText('Logged in as: Jeff Leopard!');
+    let jeffRoom1 = screen.queryByText('Big Cats');
+    let jeffRoom2 = screen.queryByText('Hair Metal');
+    
+    expect(jeffyBoy).toBeInTheDocument();
+    expect(jeffRoom1).toBeInTheDocument();
+    expect(jeffRoom2).toBeInTheDocument();
+  })
+  
+  it('should make sure all lobby buttons are clickable', () => {
+    
+    mockHistory.push('/lobby');
+    let resetGame = jest.fn();
+    let mockSetName = jest.fn();
+    let mockJoinRoom = jest.fn();
+    let mockCreateRoom = jest.fn();
+
+    render(
+      <Router history={mockHistory}>
+        <App 
+          resetMock={resetGame} 
+          mockSetName={mockSetName} 
+          mockJoinRoom={mockJoinRoom} 
+          mockCreateRoom={mockCreateRoom}
+          rooms={['Big Cats', 'Hair Metal']}
+        />
+      </Router>
+    )
+
+    let submitUserName = screen.queryByTestId('test-username-btn');
+    userEvent.click(submitUserName);
+    expect(mockSetName).toHaveBeenCalled();
+
+    let createRoomBtn = screen.queryByTestId('create-room-btn');
+    userEvent.click(createRoomBtn);
+    expect(mockCreateRoom).toHaveBeenCalled();
+
+    let joinRoomBtn = screen.queryByTestId('join-room-btn');
+    userEvent.click(joinRoomBtn);
+    expect(mockJoinRoom).toHaveBeenCalled();
+    
+    let resetBtn = screen.queryByTestId('reset-test');
+    userEvent.click(resetBtn);
+    expect(resetGame).toHaveBeenCalled();
   })
 })
-
-// mock functions next

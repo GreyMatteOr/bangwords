@@ -23,9 +23,9 @@ export class App extends Component{
       isLoading: true,
       isOver: false,
       hasGenerator: null,
-      userName: 'guest',
+      userName: this.props.userName || 'guest',
       remainingGuesses: 0,
-      rooms: []
+      rooms: this.props.rooms || []
     }
   }
 
@@ -97,7 +97,7 @@ export class App extends Component{
           {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
           <h1 id='bangHeader'>BangWords</h1>
           <h3>Logged in as: {this.state.userName}!</h3>
-          <button id='theButton' onClick={this.resetGame}><em>Reset Game</em></button>
+          <button id='theButton' onClick={this.props.resetMock || this.resetGame} data-testid="reset-test"><em>Reset Game</em></button>
         </header>
 
         <Route
@@ -105,7 +105,7 @@ export class App extends Component{
           render={() => {
             return (
               <Homepage
-                designateRole={this.setRole}
+                designateRole={this.props.mockRole || this.setRole}
                 hasGenerator={this.state.hasGenerator}
             // addGenerator={this.addGenerator}
             // generatorExists={this.state.generatorExists}
@@ -119,7 +119,7 @@ export class App extends Component{
           render={() => {
             return (
               <Gamepage
-                makeGuess={this.makeGuess}
+                makeGuess={this.props.fakeAGuess || this.makeGuess}
                 attempts={this.state.attempts}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
@@ -134,10 +134,10 @@ export class App extends Component{
           render={() => {
             return (
               <Lobby
-                createRoom={this.createRoom}
-                joinRoom={this.joinRoom}
+                createRoom={this.props.mockCreateRoom || this.createRoom}
+                joinRoom={this.props.mockJoinRoom || this.joinRoom}
                 rooms={this.state.rooms}
-                setUserName={this.setUserName}
+                setUserName={this.props.mockSetName || this.setUserName}
               />
             )
           }}
