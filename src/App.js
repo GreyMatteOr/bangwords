@@ -36,6 +36,7 @@ export class App extends Component{
       console.log(state)
       this.setState(state);
     });
+    this.setState({isLoading: false});
   }
 
   createRoom = ( id ) => {
