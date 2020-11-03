@@ -35,6 +35,11 @@ export class App extends Component{
     // client = ioc.connect( "https://bangwords-api.herokuapp.com/");
     client = ioc.connect( "localhost:3001");
 
+    client.on( 'chatMessage', (message) => {
+      let chat = this.state.chat.concat();
+      chat.push(message);
+      this.setState({ chat })
+    })
     client.on( 'result', (state) => {
       console.log(state)
       this.setState(state);
