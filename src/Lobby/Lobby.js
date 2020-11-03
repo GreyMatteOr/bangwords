@@ -18,9 +18,10 @@ export class Lobby extends Component {
     let rooms;
       if (this.props.rooms.length) {
         rooms = (
-          <div>
+          <div className="room-list">
             <select
               size="8"
+              className="room-list-select"
               onChange={(e) => this.setState({roomID: e.target.value})}
             >{this.props.rooms.map((roomName, i) => {
               return (
@@ -49,6 +50,7 @@ export class Lobby extends Component {
             />
           </label>
           <input
+            className="select-room-btn"
             type="submit"
             value="Submit"
             placeholder="Select User Name"
@@ -69,6 +71,7 @@ export class Lobby extends Component {
             />
           </label>
           <input
+            className="new-room-btn"
             type="submit"
             value="Submit"
             placeholder="Create"

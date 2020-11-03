@@ -32,3 +32,13 @@
 .guesser:hover{
   background-color: #BF8620
 }
+
+.room-list {
+  display: flex;
+  flex-direction: column;
+  margin: 1em
+}
+
+.room-list-select {
+  margin-bottom: 1em
+}
