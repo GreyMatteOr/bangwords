@@ -24,7 +24,7 @@ Ian Holladay [@holladayian](https://github.com/holladayian)
 ---
 
 `<!-- did we launch this already? -->`
-[Link to our app](https://bangwords.herokuapp.com/)
+[Link to our app](greymatteor.github.io/bangwords)
 
 [API](https://bangwords-api.herokuapp.com/) 
 
