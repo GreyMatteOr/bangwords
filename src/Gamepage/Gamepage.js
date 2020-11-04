@@ -95,7 +95,7 @@ export class Gamepage extends Component {
       <div className="game-page" data-testid="game-page">
         <div className="draw-board">
           <h2><em>Draw Board</em></h2>
-          <h3><em>Remaining Guesses: {this.props.remainingGuesses}</em></h3>
+          <h3><em>Remaining Guesses: {this.props.attemptsLeft}</em></h3>
           <div className="display-word">{this.splitDisplay()}</div>
         </div>
           <Chat

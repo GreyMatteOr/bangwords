@@ -27,7 +27,7 @@ export class App extends Component{
       userName: this.props.userName || 'guest',
       rooms: this.props.rooms || [],
       numOnline: 'calculating the number of',
-      remainingGuesses: 0,
+      attemptsLeft: 0,
       playerNames: []
     }
   }
@@ -167,7 +167,7 @@ export class App extends Component{
                 playerNames={this.state.playerNames}
                 scores={this.state.scores}
                 sendMessage={this.sendMessage}
-                remainingGuesses={this.state.remainingGuesses}
+                attemptsLeft={this.state.attemptsLeft}
               />
             )
           }}
