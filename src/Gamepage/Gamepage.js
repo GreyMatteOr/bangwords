@@ -40,24 +40,26 @@ export class Gamepage extends Component {
   isGenDisplay = () => {
     if (!this.props.isGenerator) {
       return (
-        <form className='guessForm'>
-        <label>
+        <div className='guessForm'>
+          <form className="guess-input">
+          <label>
+            <input
+              type="text"
+              name="word"
+              className="word-input"
+              placeholder="Letter or Word"
+              onChange={this.updateChange}
+              />
+          </label>
           <input
-            type="text"
-            name="word"
-            className="word-input"
-            placeholder="Letter or Word"
-            onChange={this.updateChange}
-          />
-        </label>
-        <input
-          id='guess-button'
-          type="submit"
-          value="Guess"
-          data-testid='word-submit-button'
-          onClick={(e) => this.makeGuess(e)}
-        />
-      </form>
+            id='guess-button'
+            type="submit"
+            value="Guess"
+            data-testid='word-submit-button'
+            onClick={(e) => this.makeGuess(e)}
+            />
+        </form>
+      </div>
       )
     }
   }
