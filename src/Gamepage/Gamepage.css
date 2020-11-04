@@ -23,6 +23,7 @@
 .bottom {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  overflow-y: scroll;
 }
 
 .chat {
@@ -30,15 +31,18 @@
   grid-column-end: 1;
   margin-left: 15px;
   
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 90%;
   border: solid .25px black;
-  height: 100%;
   width: 15vw;
   width: 90%;
-  border-radius: 1%;
+  border-radius: 5%;
   background-color: whitesmoke;
   opacity: .8;
-  box-shadow: -1px 10px 20px 3px #888888;
+  box-shadow: 7px 0px 20px 1px #888888;
   place-self: center;
+  overflow-y: scroll;
 }
 
 .players {
@@ -46,14 +50,17 @@
   grid-column-end: 2;
   
   border: solid .25px black;
-  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 90%;
   width: 15vw;
   width: 90%;
-  border-radius: 1%;
+  border-radius: 5%;
   background-color: whitesmoke;
   opacity: .8;
-  box-shadow: -1px 10px 20px 3px #888888;
+  box-shadow: 7px 0px 20px 1px #888888;
   place-self: center;
+  overflow-y: scroll;
 }
 
 .attempts {
@@ -62,14 +69,17 @@
   margin: 0;
   
   border: solid .25px black;
-  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 90%;
   width: 15vw;
   width: 90%;
-  border-radius: 1%;
+  border-radius: 5%;
   background-color: whitesmoke;
   opacity: .8;
-  box-shadow: -1px 10px 20px 3px #888888;
+  box-shadow: 7px 0px 20px 1px #888888;
   place-self: center;
+  overflow-y: scroll;
 }
 
 .guessForm {
@@ -77,14 +87,17 @@
   grid-column-end: 4;
 
   border: solid .25px black;
-  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 90%;
   width: 15vw;
   width: 90%;
-  border-radius: 1%;
+  border-radius: 5%;
   background-color: whitesmoke;
   opacity: .8;
-  box-shadow: -1px 10px 20px 3px #888888;
+  box-shadow: 7px 0px 20px 1px #888888;
   place-self: center;
+  overflow-y: scroll;
 }
 
 .hints {
