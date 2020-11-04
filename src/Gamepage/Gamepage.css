@@ -9,13 +9,12 @@
 }
 
 .draw-board {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  
-  border: solid 2px black;
-  min-height: 350px;
-  width: 100%;
-  border-radius: 5%;
+  margin: 15px;
+  border: solid .25px black;
+  min-height: 50px;
+  /* width: 1350px; */
+  width: 97.5vw;
+  border-radius: .5%;
   grid-row: 1;
 }
 
@@ -52,7 +51,7 @@
   font-size: large;
   display: flex;
   flex-direction: row;
-  margin-bottom: 3em
+  margin: 15px;
 }
 
 .display-word p {
