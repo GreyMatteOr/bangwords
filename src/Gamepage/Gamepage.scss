@@ -1,24 +1,23 @@
 @mixin allDivRules {
-  border: solid .25px black;
-  background-color: whitesmoke;
-  opacity: .8;
+  border: solid 1.75px #282D33;
+  background-color: white;
 }
 
 @mixin bottomDivRules {
   padding-top: 5px;
   padding-bottom: 5px;
-  height: 90%;
-  width: 90%;
-  border-radius: 5%;
-  place-self: center;
+  height: 95%;
+  align-self: center;
+  border-radius: 15px;
   overflow-y: scroll;
   @include allDivRules();
-  box-shadow: 7px 0px 20px 1px #888888;
+  box-shadow: -3px 5px 20px 0px #282D33;
 }
 
 .game-page {
   display: grid;
   grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   height: 85vh;
   color: #282c34
 }
@@ -27,13 +26,15 @@
   margin-left: 15px;
   margin-top: 15px;
   margin-bottom: 15px;
-  width: 97.5vw;
-  border-radius: 1%;
-  min-height: 200px;
-  grid-row: 1;
+  width: 50vw;
+  align-self: center;
+  justify-self: center;
+  border-radius: 15px;
+  height: 15%;
+  grid-column: 2;
   align-items: center;
   @include allDivRules();
-  box-shadow: -1px 10px 20px 3px #888888;
+  box-shadow: -3px 5px 20px 0px #282D33;
 }
 
 .bottom {
@@ -43,33 +44,51 @@
 }
 
 .chat {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  margin-left: 0;
   @include bottomDivRules;
+  margin-top: 20px;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column: 1;
+  margin-left: 0;
+  width: 90%;
+  place-self: center;
 }
 
-.players {
-  grid-column-start: 2;
-  grid-column-end: 2;
+.bottom-mid {
   @include bottomDivRules;
+  grid-row: 2;
+  grid-column: 2;
+  width: 97%;
+  place-self: center;
+  .players {
+    width: 40%;
+    margin-left: 30px;
+    // background-color: white;
+    @include bottomDivRules;
+    float: left;
+  }
+  .guessForm {
+    width: 40%;
+    // background-color: white;
+    @include bottomDivRules;
+    margin-right: 30px;
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    justify-content: flex-end;
+  }
 }
 
 .attempts {
-  grid-column-start: 3;
-  grid-column-end: 3;
+  @include bottomDivRules;
+  margin-top: 20px;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column: 3;
   margin: 0;
-  @include bottomDivRules;
-}
-
-.guessForm {
-  grid-column-start: 4;
-  grid-column-end: 4;
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  justify-content: flex-end;
-  @include bottomDivRules;
+  width: 90%;
+  place-self: center;
 }
 
 .guess-input {
