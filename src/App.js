@@ -127,7 +127,7 @@ export class App extends Component{
             {/* <button
               id='forfeitGame'
               onClick={this.props.forfeitMock || this.forfeitGame}
-              data-testid="reset-test"
+              data-testid="forfeit-test"
             >
               <em>Reset Game</em>
             </button> */}
