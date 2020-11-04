@@ -3,9 +3,13 @@
   font-size: large;
 }
 
-.lobby {
+@mixin flexProperties {
   display: flex;
   flex-direction: column;
+}
+
+.lobby {
+  @include flexProperties;
   min-height: 85vh;
   align-items: center;
   justify-content: center;
@@ -16,8 +20,7 @@
 }
 
 .room-list {
-  display: flex;
-  flex-direction: column;
+  @include flexProperties;
   margin: 1em;
   width: 12.75em
 }

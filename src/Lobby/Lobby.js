@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Lobby.css';
+import './Lobby.scss';
 
 export class Lobby extends Component {
   constructor( props ) {
