@@ -41,24 +41,24 @@ export class Gamepage extends Component {
       return (
         <div className='guessForm'>
           <form className="guess-input">
-          <label>
+            <label>
+              <input
+                type="text"
+                name="word"
+                className="word-input"
+                placeholder="Letter or Word"
+                onChange={this.updateChange}
+                />
+            </label>
             <input
-              type="text"
-              name="word"
-              className="word-input"
-              placeholder="Letter or Word"
-              onChange={this.updateChange}
+              id='guess-button'
+              type="submit"
+              value="Guess"
+              data-testid='word-submit-button'
+              onClick={(e) => this.makeGuess(e)}
               />
-          </label>
-          <input
-            id='guess-button'
-            type="submit"
-            value="Guess"
-            data-testid='word-submit-button'
-            onClick={(e) => this.makeGuess(e)}
-            />
-        </form>
-      </div>
+          </form>
+        </div>
       )
     }
   }
@@ -87,8 +87,8 @@ export class Gamepage extends Component {
   }
 
   render = () => {
-    let playerDisplay = this.props.playerNames.map( name => {
-      let playerInfo = this.props.scores[name]
+    let playerDisplay = this.props.playerNames.map( (name, i) => {
+      let playerInfo = { ...this.props.scores[name], key: i}
       return this.createPlayerCard(name, playerInfo)
     })
     return (
@@ -98,19 +98,20 @@ export class Gamepage extends Component {
           <h3><em>Remaining Guesses: {this.props.remainingGuesses}</em></h3>
           <div className="display-word">{this.splitDisplay()}</div>
         </div>
-        <section className='bottom'>
           <Chat
             className="chat"
             chat={this.props.chat}
             sendMessage={this.props.sendMessage}
           />
-          <div className="players">
-            <h2>
-              <em>Players</em>
-              {playerDisplay}
-            </h2>
-            {this.props.playerNames.map(name => <h3>{name}</h3>)}
-          </div>
+          <section className='bottom-mid'>
+              <div className="players">
+                <h2>
+                  <em>Current Players</em>
+                </h2>
+                {playerDisplay}
+              </div>
+              {this.isGenDisplay()}
+          </section>
           <div className="attempts">
             <h2>
               <em>Attempts</em>
@@ -119,8 +120,6 @@ export class Gamepage extends Component {
               {this.mapAttempts()}
             </div>
           </div>
-          {this.isGenDisplay()}
-        </section>
       </div>
     )
   }
