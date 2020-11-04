@@ -1,15 +1,16 @@
-.hints {
+@mixin hintsAndAttempts {
   margin: 15px;
   width: 250px;
   border: solid 2px black;
   border-radius: 2%;
 }
 
+.hints {
+  @include hintsAndAttempts;
+}
+
 .attempts {
-  margin: 15px;
-  width: 250px;
-  border: solid 2px black;
-  border-radius: 2%;
+  @include hintsAndAttempts;
 }
 
 .draw-board {
@@ -19,7 +20,7 @@
   min-height: 350px;
   width: 100%;
   border-radius: 5%;
-}
+} 
 
 .board form label {
   margin: 10px
@@ -43,19 +44,11 @@
   margin: 5px
 }
 
-#guess-button {
+#guess-button, .Send {
   cursor: pointer;
 }
 
-#guess-button:hover {
-  background-color: #BF8620;
-}
-
-.Send {
-  cursor: pointer;
-}
-
-.Send:hover {
+#guess-button:hover, .Send:hover {
   background-color: #BF8620;
 }
 
