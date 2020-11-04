@@ -23,7 +23,7 @@ Ian Holladay [@holladayian](https://github.com/holladayian)
 ### The _*sauce*_
 ---
 
-`<!-- did we launch this already? -->`
+`<!-- check this again? -->`
 [Link to our app](greymatteor.github.io/bangwords)
 
 [API](https://bangwords-api.herokuapp.com/) 
@@ -61,9 +61,19 @@ We origionally wanted to make an interactive puzzle solving page, but upon revie
 ### Our Rough Draft
 ---
 
+This was our original wireframe. It shows the flow from `Homepage` to `WordSelector` to `Gamepage`.
 <img src='src/assets/wireframe.png' alt='wireframe'/>
+
+
+This was a rendition of what we thoughts hints would look like. We later went with the ability for players to chat instead.
 <img src='src/assets/hints.png' alt='hints section'/>
+
+
+This is a flwochart for how our client and serveer would interact.
 <img src='src/assets/flowchart.png' alt='flowchart'/>
+
+
+This is a representation of the sockets' paths.
 <img src='src/assets/socket-path.png' alt='socket-path'/>
 
 <br><br>
@@ -71,6 +81,14 @@ We origionally wanted to make an interactive puzzle solving page, but upon revie
 ### Our Final Product
 ---
 
+Below is a gif of our lobby in action. (describe whats going on in the gif)
+`<!-- update with gif of lobby -->`
+
+This is a gif of someone chosing to be the generator, and then generating a word for the guesser to choose.
+`<!-- update with gif of WordSelector stuff -->`
+
+This gif represents our game's functionality. It implements a chat feature, counts down the remaining guesses, and updates the DOM when the guesser is correct.
+`<!-- Update with proper gif -->`
 
 
 <br><br>
@@ -86,19 +104,13 @@ We origionally wanted to make an interactive puzzle solving page, but upon revie
 
 <br><br>
 
-### The Necessary Dependencies
----
-
-`<!-- I'm too lazy to look them up right now -->`
-
-<br><br>
-
 ## Technologies
 ---
 ```
 React
 sockets
 Express
+Jest
 ```
 <br><br>
 
