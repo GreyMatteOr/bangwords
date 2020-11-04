@@ -8,6 +8,17 @@
   color: #282c34
 }
 
+.draw-board {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  
+  border: solid 2px black;
+  min-height: 350px;
+  width: 100%;
+  border-radius: 5%;
+  grid-row: 1;
+}
+
 .hints {
   margin: 15px;
   width: 250px;
@@ -24,15 +35,6 @@
 
 .board {
   width: 45%;
-}
-
-.draw-board {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  border: solid 2px black;
-  min-height: 350px;
-  width: 100%;
-  border-radius: 5%;
 }
 
 .board form label {
