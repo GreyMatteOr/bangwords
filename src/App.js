@@ -24,6 +24,7 @@ export class App extends Component{
       isLoading: true,
       isOver: false,
       hasGenerator: null,
+      hasWord: false,
       userName: this.props.userName || 'guest',
       rooms: this.props.rooms || [],
       numOnline: 'calculating the number of',
@@ -191,6 +192,8 @@ export class App extends Component{
               <WordSelector
                 makeWordToGuess={this.sendWordToGuess}
                 isGenerator={this.state.isGenerator}
+                hasGenerator={this.state.hasGenerator}
+                hasWord={this.state.hasWord}
               />
             )
           }}
