@@ -42,24 +42,24 @@ export class Gamepage extends Component {
       return (
         <div className='guessForm'>
           <form className="guess-input">
-          <label>
+            <label>
+              <input
+                type="text"
+                name="word"
+                className="word-input"
+                placeholder="Letter or Word"
+                onChange={this.updateChange}
+                />
+            </label>
             <input
-              type="text"
-              name="word"
-              className="word-input"
-              placeholder="Letter or Word"
-              onChange={this.updateChange}
+              id='guess-button'
+              type="submit"
+              value="Guess"
+              data-testid='word-submit-button'
+              onClick={(e) => this.makeGuess(e)}
               />
-          </label>
-          <input
-            id='guess-button'
-            type="submit"
-            value="Guess"
-            data-testid='word-submit-button'
-            onClick={(e) => this.makeGuess(e)}
-            />
-        </form>
-      </div>
+          </form>
+        </div>
       )
     }
   }
