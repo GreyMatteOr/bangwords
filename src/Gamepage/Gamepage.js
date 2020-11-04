@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import crown from '../assets/crown.png';
 import loading from '../assets/loading.png';
 import lose from '../assets/lose.png';
 import win from '../assets/win.png';
@@ -18,8 +19,9 @@ export class Gamepage extends Component {
   }
 
   createPlayerCard = ( name, { score, attempts, didWin, key } ) => {
-    let image = {true: win, false: lose, null: loading}[didWin]
-    let isSpinning = didWin === null ? 'spin' : ''
+    let image = {true: win, false: lose, null: loading, gen: crown}[didWin]
+    let isSpinning = didWin === null ? 'spin' : '' ;
+    let attemptsText = didWin === 'gen' ? '' : `${attempts} left`
     return (
       <div
         className='player-card'
@@ -27,7 +29,7 @@ export class Gamepage extends Component {
       >
         <p>{name}:</p>
         <p>{score} pts</p>
-        <p>{attempts} left</p>
+        <p>{attemptsText}</p>
         <img
           className={isSpinning}
           src={image}

@@ -142,4 +142,19 @@
   background-color: #BF8620;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .spin {
+    animation: spin-spin infinite 1.1s linear;
+  }
+}
+
+@keyframes spin-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
 /*https://mycolor.space/?hex=%23282D33&sub=1*/
