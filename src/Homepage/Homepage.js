@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './Homepage.css';
+import './Homepage.scss';
 
 export const Homepage = (props) => {
   return (

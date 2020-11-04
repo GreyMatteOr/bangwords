@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import loading from '../assets/loading.png';
 import PropTypes from 'prop-types';
-import './WordSelector.css';
+import './WordSelector.scss';
 
 export class WordSelector extends Component {
   constructor(props) {

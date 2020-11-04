@@ -1,0 +1,70 @@
+@mixin headerButtons {
+  grid-column: 3;
+  width: 100px;
+  height: 35px;
+  background-color: whitesmoke;
+  cursor: pointer;
+  border-width: 1px;
+}
+
+.BangWords {
+  text-align: center;
+  background-color: #C0C6CE;
+  min-height: 100vh;
+}
+
+.BangWords-header {
+  background-color: #282c34;
+  max-height: 11vh;
+  align-content: center;
+  font-size: calc(10px + 2vmin);
+  font-family: 'Bangers', cursive;
+  color: #BF8620;
+  display: grid;
+  grid-template-columns: 3;
+}
+
+#bangHeader {
+  justify-self: left;
+  margin-left: 20px;
+}
+
+.headerCenter {
+  place-self: center;
+}
+
+.loggedInAs {
+  margin: 0;
+  place-self: center;
+}
+
+.playersOnline {
+  margin: 0
+}
+
+.headerRight {
+  grid-column: 3;
+  place-content: center;
+  place-self: center;
+}
+
+#resetGame {
+  margin-right: 10px;
+  @include headerButtons;
+}
+
+#resetGame:hover, #theButton:hover {
+  background-color: #BF8620;
+}
+
+.hidden {
+  display: none;
+}
+
+.leave {
+  @include headerButtons;
+}
+
+.leave:hover {
+  background-color: #BF8620;
+}

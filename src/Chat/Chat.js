@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import './Chat.css';
+import './Chat.scss';
 
 export class Chat extends Component {
   constructor(props) {
@@ -54,6 +54,7 @@ export class Chat extends Component {
             type='submit'
             value='Send'
             data-testid='Send'
+            class='Send'
             onClick={this.sendMessage}
           />
         </form>

@@ -1,14 +1,26 @@
-.lobby {
+@mixin buttonSizes {
+  padding: 3px;
+  font-size: large;
+}
+
+@mixin flexProperties {
   display: flex;
   flex-direction: column;
+}
+
+.lobby {
+  @include flexProperties;
   min-height: 85vh;
   align-items: center;
   justify-content: center;
 }
 
+.username-btn, .new-room-btn, .join-room-btn, .username-btn, .new-room-btn {
+  cursor: pointer;
+}
+
 .room-list {
-  display: flex;
-  flex-direction: column;
+  @include flexProperties;
   margin: 1em;
   width: 12.75em
 }
@@ -18,13 +30,11 @@
 }
 
 .join-room-btn, .username-btn, .new-room-btn {
-  font-size: large;
-  padding: 3px;
+  @include buttonSizes;
   background-color: #282D33;
-  color: #ffb22d
+  color: #ffb22d;
 }
 
 .room-list-select, .username-input, .new-room-input {
-  padding: 3px;
-  font-size: large;
+  @include buttonSizes;
 }

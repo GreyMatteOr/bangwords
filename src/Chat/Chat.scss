@@ -1,28 +1,16 @@
-.game-page {
-  display: flex;
-  flex-direction: row;
-  /* align-items: center; */
-  justify-content: space-between;
-  height: 85vh;
-  color: #282c34
+@mixin hintsAndAttempts {
+  margin: 15px;
+  width: 250px;
+  border: solid 2px black;
+  border-radius: 2%;
 }
 
 .hints {
-  margin: 15px;
-  width: 250px;
-  border: solid 2px black;
-  border-radius: 2%;
+  @include hintsAndAttempts;
 }
 
 .attempts {
-  margin: 15px;
-  width: 250px;
-  border: solid 2px black;
-  border-radius: 2%;
-}
-
-.board {
-  width: 45%;
+  @include hintsAndAttempts;
 }
 
 .draw-board {
@@ -32,7 +20,7 @@
   min-height: 350px;
   width: 100%;
   border-radius: 5%;
-}
+} 
 
 .board form label {
   margin: 10px
@@ -56,16 +44,11 @@
   margin: 5px
 }
 
-.word-input {
-  font-size: large;
-}
-
-#guess-button {
-  font-size: large;
+#guess-button, .Send {
   cursor: pointer;
 }
 
-#guess-button:hover {
+#guess-button:hover, .Send:hover {
   background-color: #BF8620;
 }
 

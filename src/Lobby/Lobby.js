@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Lobby.css';
+import './Lobby.scss';
 
 export class Lobby extends Component {
   constructor( props ) {
@@ -40,21 +40,20 @@ export class Lobby extends Component {
 
     return (
       <div className="lobby" data-testid="lobby">
-        <h1><em>Please select a user name</em></h1>
+        <h1><em>Create a username</em></h1>
         <form>
           <label>
             <input
               className="username-input"
               type="text"
               onChange={(e) => this.setState({newUserName: e.target.value})}
-              placeholder="user name"
+              placeholder="Username"
             />
           </label>
           <input
             className="username-btn"
             type="submit"
             value="Submit"
-            placeholder="Select User Name"
             data-testid='test-username-btn'
             onClick={(e) => {
               e.preventDefault();

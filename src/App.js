@@ -5,7 +5,7 @@ import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
 import  { Lobby }  from '../src/Lobby/Lobby.js';
 import History from './History.js';
-import './App.css';
+import './App.scss';
 
 import ioc from 'socket.io-client';
 
@@ -111,22 +111,27 @@ export class App extends Component{
     return (
       <div className="BangWords">
         <header className="BangWords-header">
-          {/* <h1 id='bangHeader'><em>BangWords</em></h1> */}
           <h1 id='bangHeader'>BangWords</h1>
-          <h3>Logged in as: {this.state.userName}!</h3>
-          <h4>{this.state.numOnline} players online right now</h4>
-          <button
-            id='theButton'
-            onClick={this.props.resetMock || this.resetGame}
-            data-testid="reset-test"
-          >
-            <em>Reset Game</em>
-          </button>
-          <button
-            className={!this.state.inGame ? 'hidden' : ''}
-            onClick={this.leaveRoom}>
-            <em>Leave Game</em>
-          </button>
+          <div className='headerCenter'>
+            <h3 className='loggedInAs'>Logged in as: {this.state.userName}!
+            </h3>
+            <h4 className='playersOnline'>{this.state.numOnline} players online right now
+            </h4>
+          </div>
+          <div className='headerRight'>
+            <button
+              id='resetGame'
+              onClick={this.props.resetMock || this.resetGame}
+              data-testid="reset-test"
+            >
+              <em>Reset Game</em>
+            </button>
+            <button
+              className={!this.state.inGame ? 'hidden' : 'leave'}
+              onClick={this.leaveRoom}>
+              <em>Leave Game</em>
+            </button>
+          </div>
         </header>
 
         <Route
@@ -136,8 +141,6 @@ export class App extends Component{
               <Homepage
                 designateRole={this.props.mockRole || this.setRole}
                 hasGenerator={this.state.hasGenerator}
-            // addGenerator={this.addGenerator}
-            // generatorExists={this.state.generatorExists}
               />
             )
           }}

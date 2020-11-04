@@ -1,0 +1,101 @@
+@mixin allDivRules {
+  border: solid .25px black;
+  background-color: whitesmoke;
+  opacity: .8;
+}
+
+@mixin bottomDivRules {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 90%;
+  width: 90%;
+  border-radius: 5%;
+  place-self: center;
+  overflow-y: scroll;
+  @include allDivRules();
+  box-shadow: 7px 0px 20px 1px #888888;
+}
+
+.game-page {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 85vh;
+  color: #282c34
+}
+
+.draw-board {
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 97.5vw;
+  border-radius: 1%;
+  min-height: 200px;
+  grid-row: 1;
+  align-items: center;
+  @include allDivRules();
+  box-shadow: -1px 10px 20px 3px #888888;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  overflow-y: scroll;
+}
+
+.chat {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  margin-left: 15px;
+  @include bottomDivRules;
+}
+
+.players {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  @include bottomDivRules;
+}
+
+.attempts {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  margin: 0;
+  @include bottomDivRules;
+}
+
+.guessForm {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  @include bottomDivRules;
+}
+
+.hints {
+  margin: 15px;
+  width: 250px;
+  border: solid 2px black;
+  border-radius: 2%;
+}
+
+.board form label {
+  margin: 10px
+}
+
+.display-word {
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
+.display-word p {
+  margin: 5px
+}
+
+#guess-button {
+  cursor: pointer;
+}
+
+#guess-button:hover {
+  background-color: #BF8620;
+}
+
+/*https://mycolor.space/?hex=%23282D33&sub=1*/
