@@ -52,8 +52,18 @@
   background-color: #BF8620;
 }
 
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.chat-text {
+  overflow: scroll;
+}
+
 .chat-form {
-  align-self: baseline;
+  margin-bottom: 1em;
 }
 
 /*https://mycolor.space/?hex=%23282D33&sub=1*/

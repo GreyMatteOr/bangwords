@@ -37,11 +37,12 @@ export class Chat extends Component {
 
   render = () => {
     return (
-      <div className="chat">
-        {this.mapChat()}
+      <div className="chat chat-box">
         <div
+          className="chat-text"
           style={{ float:"bottom", clear: "both" }}
           ref={ this.messagesEnd }>
+          {this.mapChat()}
         </div>
         <form className="chat-form">
           <input
