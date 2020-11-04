@@ -40,10 +40,10 @@ export class Chat extends Component {
       <div className="chat">
         {this.mapChat()}
         <div
-          style={{ float:"left", clear: "both" }}
+          style={{ float:"bottom", clear: "both" }}
           ref={ this.messagesEnd }>
         </div>
-        <form>
+        <form className="chat-form">
           <input
             id="chat-input"
             type="text"
@@ -54,7 +54,7 @@ export class Chat extends Component {
             type='submit'
             value='Send'
             data-testid='Send'
-            class='Send'
+            className='Send'
             onClick={this.sendMessage}
           />
         </form>

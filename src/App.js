@@ -58,6 +58,7 @@ export class App extends Component{
   leaveRoom = () => {
     console.log('hello')
     client.emit('leaveRoom');
+    this.setState({ chat: [] })
   }
 
   makeGuess = (newGuess) => {
