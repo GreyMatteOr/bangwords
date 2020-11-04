@@ -37,13 +37,14 @@ export class Chat extends Component {
 
   render = () => {
     return (
-      <div className="chat">
-        {this.mapChat()}
+      <div className="chat chat-box">
         <div
-          style={{ float:"left", clear: "both" }}
+          className="chat-text"
+          style={{ float:"bottom", clear: "both" }}
           ref={ this.messagesEnd }>
+          {this.mapChat()}
         </div>
-        <form>
+        <form className="chat-form">
           <input
             id="chat-input"
             type="text"
@@ -54,7 +55,7 @@ export class Chat extends Component {
             type='submit'
             value='Send'
             data-testid='Send'
-            class='Send'
+            className='Send'
             onClick={this.sendMessage}
           />
         </form>
