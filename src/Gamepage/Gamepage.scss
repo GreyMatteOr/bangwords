@@ -45,7 +45,7 @@
 .chat {
   grid-column-start: 1;
   grid-column-end: 1;
-  margin-left: 15px;
+  margin-left: 0;
   @include bottomDivRules;
 }
 
