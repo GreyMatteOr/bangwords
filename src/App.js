@@ -85,9 +85,9 @@ export class App extends Component{
     this.setState({ userName })
   }
 
-  resetGame = () => {
-    client.emit('clear')
-  }
+  // forfeitGame = () => {
+  //   client.emit('clear')
+  // }
 
   setHistory() {
     if (!this.state.inRoom && History[History.length -1] !== '/lobby') {
@@ -124,13 +124,13 @@ export class App extends Component{
             </h4>
           </div>
           <div className='headerRight'>
-            <button
-              id='resetGame'
-              onClick={this.props.resetMock || this.resetGame}
+            {/* <button
+              id='forfeitGame'
+              onClick={this.props.forfeitMock || this.forfeitGame}
               data-testid="reset-test"
             >
               <em>Reset Game</em>
-            </button>
+            </button> */}
             <button
               className={!this.state.inRoom ? 'hidden' : 'leave'}
               onClick={this.leaveRoom}>

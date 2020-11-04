@@ -221,7 +221,7 @@ describe('App', () => {
   it('should make sure all lobby buttons are clickable', () => {
     
     mockHistory.push('/lobby');
-    let resetGame = jest.fn();
+    // let forfeitGame = jest.fn();
     let mockSetName = jest.fn();
     let mockJoinRoom = jest.fn();
     let mockCreateRoom = jest.fn();
@@ -229,7 +229,7 @@ describe('App', () => {
     render(
       <Router history={mockHistory}>
         <App 
-          resetMock={resetGame} 
+          // resetMock={forfeitGame} 
           mockSetName={mockSetName} 
           mockJoinRoom={mockJoinRoom} 
           mockCreateRoom={mockCreateRoom}
@@ -250,8 +250,8 @@ describe('App', () => {
     userEvent.click(joinRoomBtn);
     expect(mockJoinRoom).toHaveBeenCalled();
     
-    let resetBtn = screen.queryByTestId('reset-test');
-    userEvent.click(resetBtn);
-    expect(resetGame).toHaveBeenCalled();
+    // let forfeitBtn = screen.queryByTestId('forfeit-test');
+    // userEvent.click(forfeitBtn);
+    // expect(forfeitGame).toHaveBeenCalled();
   })
 })
