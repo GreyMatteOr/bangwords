@@ -43,13 +43,17 @@
   /* justify-self: right; */
   /* align-self: center; */
   margin-right: 10px;
-  
+
   grid-column: 3;
   width: 100px;
   height: 35px;
   background-color: whitesmoke;
   cursor: pointer;
   border-width: 1px;
+}
+
+#resetGame:hover {
+  background-color: #BF8620;
 }
 
 #theButton:hover {
@@ -67,4 +71,8 @@
   background-color: whitesmoke;
   cursor: pointer;
   border-width: 1px;
+}
+
+.leave:hover {
+  background-color: #BF8620;
 }
