@@ -5,7 +5,7 @@ import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
 import  { Lobby }  from '../src/Lobby/Lobby.js';
 import History from './History.js';
-import './App.css';
+import './App.scss';
 
 import ioc from 'socket.io-client';
 

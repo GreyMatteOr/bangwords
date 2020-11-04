@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { Chat } from '../Chat/Chat.js'
-import './Gamepage.css';
+import './Gamepage.scss';
 
 export class Gamepage extends Component {
   constructor(props) {

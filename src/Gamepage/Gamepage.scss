@@ -1,3 +1,9 @@
+@mixin allDivRules {
+  border: solid .25px black;
+  background-color: whitesmoke;
+  opacity: .8;
+}
+
 .game-page {
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -9,15 +15,13 @@
   margin-left: 15px;
   margin-top: 15px;
   margin-bottom: 15px;
-  border: solid .25px black;
-  min-height: 200px;
   width: 97.5vw;
   border-radius: 1%;
+  min-height: 200px;
   grid-row: 1;
-  background-color: whitesmoke;
-  opacity: .8;
-  box-shadow: -1px 10px 20px 3px #888888;
   align-items: center;
+  @include allDivRules();
+  box-shadow: -1px 10px 20px 3px #888888;
 }
 
 .bottom {
@@ -34,30 +38,27 @@
   padding-top: 5px;
   padding-bottom: 5px;
   height: 90%;
-  border: solid .25px black;
-  width: 15vw;
   width: 90%;
   border-radius: 5%;
-  background-color: whitesmoke;
-  opacity: .8;
-  box-shadow: 7px 0px 20px 1px #888888;
   place-self: center;
   overflow-y: scroll;
+
+  @include allDivRules();
+  box-shadow: 7px 0px 20px 1px #888888;
 }
 
 .players {
   grid-column-start: 2;
   grid-column-end: 2;
   
-  border: solid .25px black;
+  
   padding-top: 5px;
   padding-bottom: 5px;
   height: 90%;
   width: 15vw;
   width: 90%;
   border-radius: 5%;
-  background-color: whitesmoke;
-  opacity: .8;
+  @include allDivRules();
   box-shadow: 7px 0px 20px 1px #888888;
   place-self: center;
   overflow-y: scroll;
@@ -67,16 +68,14 @@
   grid-column-start: 3;
   grid-column-end: 3;
   margin: 0;
-  
-  border: solid .25px black;
+
   padding-top: 5px;
   padding-bottom: 5px;
   height: 90%;
   width: 15vw;
   width: 90%;
   border-radius: 5%;
-  background-color: whitesmoke;
-  opacity: .8;
+  @include allDivRules();
   box-shadow: 7px 0px 20px 1px #888888;
   place-self: center;
   overflow-y: scroll;
@@ -85,16 +84,14 @@
 .guessForm {
   grid-column-start: 4;
   grid-column-end: 4;
-
-  border: solid .25px black;
+  
   padding-top: 5px;
   padding-bottom: 5px;
   height: 90%;
   width: 15vw;
   width: 90%;
   border-radius: 5%;
-  background-color: whitesmoke;
-  opacity: .8;
+  @include allDivRules();
   box-shadow: 7px 0px 20px 1px #888888;
   place-self: center;
   overflow-y: scroll;
