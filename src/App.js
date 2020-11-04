@@ -4,6 +4,7 @@ import  { Homepage }  from '../src/Homepage/Homepage.js';
 import  { WordSelector }  from '../src/WordSelector/WordSelector.js';
 import  { Gamepage }  from '../src/Gamepage/Gamepage.js';
 import  { Lobby }  from '../src/Lobby/Lobby.js';
+import  { Footer }  from '../src/Footer/Footer.js';
 import History from './History.js';
 import './App.scss';
 
@@ -190,7 +191,7 @@ export class App extends Component{
             )
           }}
         />
-
+        <Footer/>
       </div>
     );
   }

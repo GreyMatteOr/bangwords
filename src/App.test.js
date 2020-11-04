@@ -5,7 +5,6 @@ import { createMemoryHistory } from 'history';
 import { Router } from "react-router-dom";
 import userEvent from  '@testing-library/user-event';
 import { Socket } from 'socket.io-client';
-// jest.mock('socket.ioa-client');
 
 describe('App', () => {
   
