@@ -1,3 +1,8 @@
+@mixin buttonSizes {
+  padding: 3px;
+  font-size: large;
+}
+
 .lobby {
   display: flex;
   flex-direction: column;
@@ -6,11 +11,7 @@
   justify-content: center;
 }
 
-.username-btn {
-  cursor: pointer;
-}
-
-.new-room-btn {
+.username-btn, .new-room-btn, .join-room-btn, .username-btn, .new-room-btn {
   cursor: pointer;
 }
 
@@ -26,14 +27,11 @@
 }
 
 .join-room-btn, .username-btn, .new-room-btn {
-  font-size: large;
-  padding: 3px;
+  @include buttonSizes;
   background-color: #282D33;
   color: #ffb22d;
-  cursor: pointer
 }
 
 .room-list-select, .username-input, .new-room-input {
-  padding: 3px;
-  font-size: large;
+  @include buttonSizes;
 }

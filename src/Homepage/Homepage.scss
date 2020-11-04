@@ -18,23 +18,15 @@
   margin: 25px;
 }
 
-.generator {
+.generator, .guesser {
   cursor: pointer;
 }
 
-.generator:hover{
+.generator:hover, .guesser:hover{
   background-color: #BF8620;
 }
 
 .generator:disabled {
   background-color: #7b4200;
   color: #404040;
-}
-
-.guesser {
-  cursor: pointer;
-}
-
-.guesser:hover{
-  background-color: #BF8620
 }
