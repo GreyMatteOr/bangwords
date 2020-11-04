@@ -1,3 +1,12 @@
+@mixin headerButtons {
+  grid-column: 3;
+  width: 100px;
+  height: 35px;
+  background-color: whitesmoke;
+  cursor: pointer;
+  border-width: 1px;
+}
+
 .BangWords {
   text-align: center;
   background-color: #C0C6CE;
@@ -40,23 +49,11 @@
 }
 
 #resetGame {
-  /* justify-self: right; */
-  /* align-self: center; */
   margin-right: 10px;
-
-  grid-column: 3;
-  width: 100px;
-  height: 35px;
-  background-color: whitesmoke;
-  cursor: pointer;
-  border-width: 1px;
+  @include headerButtons;
 }
 
-#resetGame:hover {
-  background-color: #BF8620;
-}
-
-#theButton:hover {
+#resetGame:hover, #theButton:hover {
   background-color: #BF8620;
 }
 
@@ -65,12 +62,7 @@
 }
 
 .leave {
-  grid-column: 3;
-  width: 100px;
-  height: 35px;
-  background-color: whitesmoke;
-  cursor: pointer;
-  border-width: 1px;
+  @include headerButtons;
 }
 
 .leave:hover {
