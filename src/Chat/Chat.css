@@ -21,10 +21,6 @@
   border-radius: 2%;
 }
 
-.board {
-  width: 45%;
-}
-
 .draw-board {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -56,12 +52,7 @@
   margin: 5px
 }
 
-.word-input {
-  font-size: large;
-}
-
 #guess-button {
-  font-size: large;
   cursor: pointer;
 }
 
@@ -71,11 +62,6 @@
 
 .Send {
   cursor: pointer;
-
-  /* width: 100px;
-  height: 35px;
-  background-color: whitesmoke;
-  border-width: 1px; */
 }
 
 /*https://mycolor.space/?hex=%23282D33&sub=1*/

@@ -65,14 +65,12 @@ export class Gamepage extends Component {
   render = () => {
     return (
       <div className="game-page" data-testid="game-page">
-        <div className="board">
           <div className="draw-board">
             <h2><em>Draw Board</em></h2>
             <h3><em>Remaining Guesses: {this.props.remainingGuesses}</em></h3>
           <div className="display-word">{this.splitDisplay()}</div>
           </div>
           {this.isGenDisplay()}
-        </div>
         <div className="chat">
           <Chat
             chat={this.props.chat}
