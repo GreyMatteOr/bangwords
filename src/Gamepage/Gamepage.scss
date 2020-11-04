@@ -55,6 +55,30 @@
   @include bottomDivRules;
 }
 
+.player-card {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  background-color: grey;
+  padding: 0 .5em;
+  margin: auto;
+  margin-bottom: .5em;
+  min-width: min-content;
+  max-width: max-content;
+  border-radius: .5em;
+
+  p {
+    margin: 0 .35em;
+    font-size: 14px;
+    justify-self: center;
+  }
+
+  img {
+    height: .75em;
+    width: .75em;
+  }
+}
+
 .attempts {
   grid-column-start: 3;
   grid-column-end: 3;
