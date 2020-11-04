@@ -45,9 +45,6 @@ export class App extends Component{
     client.on( 'result', (state) => {
       console.log('NEW:', state)
       this.setState(state);
-      if (state.isOver) {
-        client.emit('reset')
-      }
     });
 
     this.setState({isLoading: false});
