@@ -33,9 +33,15 @@
   margin: 0
 }
 
-#theButton {
-  justify-self: right;
-  align-self: center;
+.headerRight {
+  grid-column: 3;
+  place-content: center;
+  place-self: center;
+}
+
+#resetGame {
+  /* justify-self: right; */
+  /* align-self: center; */
   margin-right: 20px;
   grid-column: 3;
   width: 100px;
@@ -51,4 +57,14 @@
 
 .hidden {
   display: none;
+}
+
+.leave {
+  /* margin-right: 20px; */
+  grid-column: 3;
+  width: 100px;
+  height: 35px;
+  background-color: whitesmoke;
+  cursor: pointer;
+  border-width: 1px;
 }

@@ -117,18 +117,20 @@ export class App extends Component{
             <h4 className='playersOnline'>{this.state.numOnline} players online right now
             </h4>
           </div>
-          <button
-            id='theButton'
-            onClick={this.props.resetMock || this.resetGame}
-            data-testid="reset-test"
-          >
-            <em>Reset Game</em>
-          </button>
-          <button
-            className={!this.state.inGame ? 'hidden' : ''}
-            onClick={this.leaveRoom}>
-            <em>Leave Game</em>
-          </button>
+          <div className='headerRight'>
+            <button
+              id='resetGame'
+              onClick={this.props.resetMock || this.resetGame}
+              data-testid="reset-test"
+            >
+              <em>Reset Game</em>
+            </button>
+            <button
+              className={!this.state.inGame ? 'hidden' : 'leave'}
+              onClick={this.leaveRoom}>
+              <em>Leave Game</em>
+            </button>
+          </div>
         </header>
 
         <Route

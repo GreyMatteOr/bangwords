@@ -10,6 +10,10 @@
   cursor: pointer;
 }
 
+.new-room-btn {
+  cursor: pointer;
+}
+
 .room-list {
   display: flex;
   flex-direction: column;
