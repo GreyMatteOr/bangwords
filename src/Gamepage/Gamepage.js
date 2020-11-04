@@ -40,7 +40,7 @@ export class Gamepage extends Component {
   isGenDisplay = () => {
     if (!this.props.isGenerator) {
       return (
-        <form>
+        <form className='guessForm'>
         <label>
           <input
             type="text"
@@ -65,32 +65,33 @@ export class Gamepage extends Component {
   render = () => {
     return (
       <div className="game-page" data-testid="game-page">
-          <div className="draw-board">
-            <h2><em>Draw Board</em></h2>
-            <h3><em>Remaining Guesses: {this.props.remainingGuesses}</em></h3>
+        <div className="draw-board">
+          <h2><em>Draw Board</em></h2>
+          <h3><em>Remaining Guesses: {this.props.remainingGuesses}</em></h3>
           <div className="display-word">{this.splitDisplay()}</div>
-          </div>
-          {this.isGenDisplay()}
-        <div className="chat">
+        </div>
+        <section className='bottom'>
           <Chat
+            className="chat"
             chat={this.props.chat}
             sendMessage={this.props.sendMessage}
           />
-        </div>
-        <div className="players">
-          <h2>
-            <em>Current Players</em>
-          </h2>
-          {this.props.playerNames.map(name => <h3>{name}</h3>)}
-        </div>
-        <div className="attempts">
-          <h2>
-            <em>Attempts</em>
-          </h2>
-          <div>
-            {this.mapAttempts()}
+          <div className="players">
+            <h2>
+              <em>Current Players</em>
+            </h2>
+            {this.props.playerNames.map(name => <h3>{name}</h3>)}
           </div>
-        </div>
+          <div className="attempts">
+            <h2>
+              <em>Attempts</em>
+            </h2>
+            <div>
+              {this.mapAttempts()}
+            </div>
+          </div>
+          {this.isGenDisplay()}
+        </section>
       </div>
     )
   }

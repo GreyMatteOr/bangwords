@@ -1,9 +1,6 @@
 .game-page {
-  display: flex;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  flex-direction: row;
-  justify-content: space-between;
   height: 85vh;
   color: #282c34
 }
@@ -20,20 +17,77 @@
   background-color: whitesmoke;
   opacity: .8;
   box-shadow: -1px 10px 20px 3px #888888;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 }
 
-.hints {
-  margin: 15px;
-  width: 250px;
-  border: solid 2px black;
-  border-radius: 2%;
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.chat {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  margin-left: 15px;
+  
+  border: solid .25px black;
+  height: 100%;
+  width: 15vw;
+  width: 90%;
+  border-radius: 1%;
+  background-color: whitesmoke;
+  opacity: .8;
+  box-shadow: -1px 10px 20px 3px #888888;
+  place-self: center;
+}
+
+.players {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  
+  border: solid .25px black;
+  height: 100%;
+  width: 15vw;
+  width: 90%;
+  border-radius: 1%;
+  background-color: whitesmoke;
+  opacity: .8;
+  box-shadow: -1px 10px 20px 3px #888888;
+  place-self: center;
 }
 
 .attempts {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  margin: 0;
+  
+  border: solid .25px black;
+  height: 100%;
+  width: 15vw;
+  width: 90%;
+  border-radius: 1%;
+  background-color: whitesmoke;
+  opacity: .8;
+  box-shadow: -1px 10px 20px 3px #888888;
+  place-self: center;
+}
+
+.guessForm {
+  grid-column-start: 4;
+  grid-column-end: 4;
+
+  border: solid .25px black;
+  height: 100%;
+  width: 15vw;
+  width: 90%;
+  border-radius: 1%;
+  background-color: whitesmoke;
+  opacity: .8;
+  box-shadow: -1px 10px 20px 3px #888888;
+  place-self: center;
+}
+
+.hints {
   margin: 15px;
   width: 250px;
   border: solid 2px black;

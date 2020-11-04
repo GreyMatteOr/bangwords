@@ -1,12 +1,3 @@
-.game-page {
-  display: flex;
-  flex-direction: row;
-  /* align-items: center; */
-  justify-content: space-between;
-  height: 85vh;
-  color: #282c34
-}
-
 .hints {
   margin: 15px;
   width: 250px;
