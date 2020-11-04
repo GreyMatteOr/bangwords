@@ -54,6 +54,7 @@ export class Chat extends Component {
             type='submit'
             value='Send'
             data-testid='Send'
+            className='Send'
             onClick={this.sendMessage}
           />
         </form>

@@ -42,7 +42,8 @@
 #resetGame {
   /* justify-self: right; */
   /* align-self: center; */
-  margin-right: 20px;
+  margin-right: 10px;
+  
   grid-column: 3;
   width: 100px;
   height: 35px;
@@ -60,7 +61,6 @@
 }
 
 .leave {
-  /* margin-right: 20px; */
   grid-column: 3;
   width: 100px;
   height: 35px;

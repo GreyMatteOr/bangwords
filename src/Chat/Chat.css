@@ -69,4 +69,13 @@
   background-color: #BF8620;
 }
 
+.Send {
+  cursor: pointer;
+
+  /* width: 100px;
+  height: 35px;
+  background-color: whitesmoke;
+  border-width: 1px; */
+}
+
 /*https://mycolor.space/?hex=%23282D33&sub=1*/

@@ -29,7 +29,8 @@
   font-size: large;
   padding: 3px;
   background-color: #282D33;
-  color: #ffb22d
+  color: #ffb22d;
+  cursor: pointer
 }
 
 .room-list-select, .username-input, .new-room-input {
