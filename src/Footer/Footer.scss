@@ -1,0 +1,35 @@
+.footer {
+    background-color: #282c34;
+    height: 100px;
+    align-content: center;
+    font-size: calc(10px + 2vmin);
+    font-family: 'Bangers', cursive;
+    color: #BF8620;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-content: center;
+}
+  
+#credits {
+    justify-self: left;
+    place-self: center;
+    margin-left: 20px;
+    cursor: pointer;
+    height: 50px;
+    font-family: 'Bangers', cursive;
+}
+
+#credits:hover {
+    background-color: #BF8620;
+}
+
+.p {
+    margin: 0;
+}
+
+.showNames {
+    place-self: center;
+    text-decoration: underline;
+    color: #BF8620;
+    cursor: pointer;
+}
