@@ -77,14 +77,15 @@ This is a representation of the sockets' paths.
 ### Our Final Product
 ---
 
-Below is a gif of our lobby in action. (describe whats going on in the gif)
-`<!-- update with gif of lobby -->`
+Below is an image of our lobby. Here you can chose a name (or be left as guest), and create or join a room.
+<img src='src/assets/lobby/hints.png' alt='lobby section'/>
 
 This is a gif of someone chosing to be the generator, and then generating a word for the guesser to choose.
 `<!-- update with gif of WordSelector stuff -->`
 
-This gif represents our game's functionality. It implements a chat feature, counts down the remaining guesses, and updates the DOM when the guesser is correct.
-`<!-- Update with proper gif -->`
+This image represents our game's functionality. It implements a chat feature, counts down the remaining guesses, and updates the DOM when the guesser is correct.
+<img src='src/assets/gamepage/hints.png' alt='gamepage section'/>
+<img src='src/assets/winning/hints.png' alt='win'/>
 
 
 <br><br>
