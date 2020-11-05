@@ -48,7 +48,7 @@ export class WordSelector extends Component {
           </form>
         </div>
       )
-    } else if (this.props.isGenerator || !this.props.hasGenerator) {
+    } else if (this.props.isGenerator || !this.props.git ) {
       return (
         <div className="selection-page" data-testid="word-guesser">
           <h2><em>Waiting for other players to join...</em></h2>

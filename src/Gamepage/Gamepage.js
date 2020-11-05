@@ -68,7 +68,7 @@ export class Gamepage extends Component {
                 autoComplete="off"
                 name="word"
                 className="word-input"
-                disabled={this.props.isWon}
+                disabled={this.props.isWon || this.props.isLost}
                 placeholder="Letter or Word"
                 onChange={this.updateChange}
                 />
@@ -78,7 +78,7 @@ export class Gamepage extends Component {
               type="submit"
               value="Guess"
               data-testid='word-submit-button'
-              disabled={this.props.isWon}
+              disabled={this.props.isWon || this.props.isLost}
               onClick={(e) => this.makeGuess(e)}
               />
           </form>
