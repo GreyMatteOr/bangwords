@@ -23,16 +23,16 @@ export class WordSelector extends Component {
   }
 
   render() {
-    if (this.props.isGenerator) {
+    if (this.props.isGenerator && !this.props.hasWord) {
       return (
         <div className="selection-page" data-testid="word-generator">
           <h2><em>Type a word for your opponent to guess!</em></h2>
           <form>
             <label>
-              <input 
-                type="text" 
-                className="set-word" 
-                onChange={this.updateChange} 
+              <input
+                type="text"
+                className="set-word"
+                onChange={this.updateChange}
                 placeholder="Set Word or Phrase"
               />
             </label>
@@ -48,6 +48,13 @@ export class WordSelector extends Component {
           </form>
         </div>
       )
+    } else if (this.props.isGenerator || !this.props.hasGenerator) {
+      return (
+        <div className="selection-page" data-testid="word-guesser">
+          <h2><em>Waiting for other players to join...</em></h2>
+          <img src={loading} alt="Loading image" className='Loading'/>
+        </div>
+      );
     } else {
       return (
         <div className="selection-page" data-testid="word-guesser">
@@ -60,7 +67,9 @@ export class WordSelector extends Component {
 }
 
 
-WordSelector.propType = {
+WordSelector.propTypes = {
+  isGenerator: PropTypes.bool,
+  hasGenerator: PropTypes.bool,
+  hasWord: PropTypes.bool,
   makeWordToGuess: PropTypes.func,
-  isGenerator: PropTypes.bool
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import crown from '../assets/crown.png';
 import loading from '../assets/loading.png';
 import lose from '../assets/lose.png';
 import win from '../assets/win.png';
@@ -18,8 +19,9 @@ export class Gamepage extends Component {
   }
 
   createPlayerCard = ( name, { score, attempts, didWin, key } ) => {
-    let image = {true: win, false: lose, null: loading}[didWin]
-    let isSpinning = didWin === null ? 'spin' : ''
+    let image = {true: win, false: lose, null: loading, gen: crown}[didWin]
+    let isSpinning = didWin === null ? 'spin' : '' ;
+    let attemptsText = didWin === 'gen' ? '' : `${attempts} left`
     return (
       <div
         className='player-card'
@@ -27,13 +29,30 @@ export class Gamepage extends Component {
       >
         <p>{name}:</p>
         <p>{score} pts</p>
-        <p>{attempts} left</p>
+        <p>{attemptsText}</p>
         <img
           className={isSpinning}
           src={image}
         />
       </div>
     )
+  }
+
+  createWinnerMessage = () => {
+    if (this.props.isOver) {
+      let messages = this.props.winners.concat();
+      let wordWas = messages.pop();
+      let innerHTML = messages.map((msg, i) => <p key={i}>{msg}</p>);
+      return(
+        <div className='endgame-overlay'>
+        <h2>GAME!</h2>
+        <h3>The word was: {wordWas}</h3>
+          {innerHTML}
+        </div>
+      )
+    } else {
+      return <div className='hidden'></div>
+    }
   }
 
   isGenDisplay = () => {
@@ -91,8 +110,10 @@ export class Gamepage extends Component {
       let playerInfo = { ...this.props.scores[name], key: i}
       return this.createPlayerCard(name, playerInfo)
     })
+    let endGameOverlay = this.createWinnerMessage();
     return (
       <div className="game-page" data-testid="game-page">
+        {endGameOverlay}
         <div className="draw-board">
           <h2><em>Game Board</em></h2>
           <h3><em>Remaining Guesses: {this.props.attemptsLeft}</em></h3>
@@ -125,9 +146,16 @@ export class Gamepage extends Component {
   }
 }
 
-Gamepage.propType = {
-  makeGuess: PropTypes.func,
+Gamepage.propTypes = {
   attempts: PropTypes.array,
+  attemptsLeft: PropTypes.number, 
+  chat: PropTypes.array,
   display: PropTypes.array,
   isGenerator: PropTypes.bool,
+  isOver: PropTypes.bool,
+  makeGuess: PropTypes.func,
+  playerName: PropTypes.array,
+  scores: PropTypes.object,
+  sendMessage: PropTypes.func,
+  winners: PropTypes.array
 }

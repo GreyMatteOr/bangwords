@@ -89,7 +89,9 @@ export class Lobby extends Component {
   }
 }
 
-
-Lobby.propType = {
-  designateRole: PropTypes.func,
+Lobby.propTypes = {
+  rooms: PropTypes.array,
+  createRoom: PropTypes.func,
+  joinRoom: PropTypes.func,
+  setUserName: PropTypes.func,
 }

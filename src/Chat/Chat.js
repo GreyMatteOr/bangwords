@@ -16,7 +16,7 @@ export class Chat extends Component {
     this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate = () => {
     this.scrollToBottom();
   }
 
@@ -38,11 +38,13 @@ export class Chat extends Component {
   render = () => {
     return (
       <div className="chat chat-box">
-        <div
-          className="chat-text"
-          style={{ float:"bottom", clear: "both" }}
-          ref={ this.messagesEnd }>
+        <div className='chat-messages'>
           {this.mapChat()}
+          <div
+            className="chat-text"
+            style={{ float:"bottom", clear: "both" }}
+            ref={ this.messagesEnd }>
+          </div>
         </div>
         <form className="chat-form">
           <input
@@ -64,9 +66,7 @@ export class Chat extends Component {
   }
 }
 
-Chat.propType = {
+Chat.propTypes = {
   sendMessage: PropTypes.func,
   chat: PropTypes.array
-  // display: PropTypes.array,
-  // isGenerator: PropTypes.bool,
 }
