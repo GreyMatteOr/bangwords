@@ -88,10 +88,6 @@ export class App extends Component{
     this.setState({ userName })
   }
 
-  // forfeitGame = () => {
-  //   client.emit('clear')
-  // }
-
   setHistory() {
     if (!this.state.inRoom && History[History.length -1] !== '/lobby') {
       window.setTimeout(() => History.push('/lobby'), 1);
