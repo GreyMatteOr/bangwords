@@ -45,9 +45,11 @@ export class Gamepage extends Component {
       let innerHTML = messages.map((msg, i) => <p key={i}>{msg}</p>);
       return(
         <div className='endgame-overlay'>
-        <h2>GAME!</h2>
-        <h3>The word was: {wordWas}</h3>
-          {innerHTML}
+          <div className='message-bubble'>
+            <h2>GAME!</h2>
+            <h3>The word was: {wordWas}</h3>
+              {innerHTML}
+          </div>
         </div>
       )
     } else {
@@ -63,6 +65,7 @@ export class Gamepage extends Component {
             <label>
               <input
                 type="text"
+                autocomplete="off"
                 name="word"
                 className="word-input"
                 placeholder="Letter or Word"
@@ -74,6 +77,7 @@ export class Gamepage extends Component {
               type="submit"
               value="Guess"
               data-testid='word-submit-button'
+              disabled={this.props.isWon}
               onClick={(e) => this.makeGuess(e)}
               />
           </form>
