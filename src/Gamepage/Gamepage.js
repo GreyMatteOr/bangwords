@@ -65,9 +65,10 @@ export class Gamepage extends Component {
             <label>
               <input
                 type="text"
-                autocomplete="off"
+                autoComplete="off"
                 name="word"
                 className="word-input"
+                disabled={this.props.isWon}
                 placeholder="Letter or Word"
                 onChange={this.updateChange}
                 />
@@ -152,7 +153,7 @@ export class Gamepage extends Component {
 
 Gamepage.propTypes = {
   attempts: PropTypes.array,
-  attemptsLeft: PropTypes.number, 
+  attemptsLeft: PropTypes.number,
   chat: PropTypes.array,
   display: PropTypes.array,
   isGenerator: PropTypes.bool,
