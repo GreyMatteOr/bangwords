@@ -25,8 +25,6 @@ Ian Holladay [@holladayian](https://github.com/holladayian)
 
 [Link to our app](http://greymatteor.github.io/bangwords)
 
-[API](https://bangwords-api.herokuapp.com/) 
-
 [API Repo Link](https://github.com/GreyMatteOr/bangwords-api) 
 
 <br><br>
