@@ -68,6 +68,8 @@ export class WordSelector extends Component {
 
 
 WordSelector.propType = {
+  isGenerator: PropTypes.bool,
+  hasGenerator: PropTypes.bool,
+  hasWord: PropTypes.bool,
   makeWordToGuess: PropTypes.func,
-  isGenerator: PropTypes.bool
 }

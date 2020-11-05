@@ -13,7 +13,6 @@ export class Lobby extends Component {
   }
 
   render() {
-    console.log("'lobby' this.props", this.props)
     let rooms;
       if (this.props.rooms.length) {
         rooms = (
