@@ -20,7 +20,7 @@
   min-height: 350px;
   width: 100%;
   border-radius: 5%;
-} 
+}
 
 .board form label {
   margin: 10px
@@ -58,8 +58,8 @@
   justify-content: flex-end;
 }
 
-.chat-text {
-  overflow: scroll;
+.chat-messages {
+  overflow-y: auto;
 }
 
 .chat-form {
