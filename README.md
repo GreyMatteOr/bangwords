@@ -41,7 +41,7 @@ This app is a knock off of a very popular childrens game. One person chooses to 
 ### What it does
 ---
 
-The BangWords application connects ^two or more^ players to a server using sockets. Here, a game is run, holding the state of the word, deciding if guesses are correct, and returning verdict back to the clients. The clients then parse this data through React components to display and interact with on the DOM. 
+The BangWords application connects two or more players to a server using sockets. Here, a game is run, holding the state of the word, deciding if guesses are correct, and returning verdict back to the clients. The clients then parse this data through React components to display and interact with on the DOM. 
 
 <br><br>
 
