@@ -118,94 +118,94 @@ export class App extends Component{
     this.setHistory()
     return (
       <>
-      <div className="BangWords">
-        <header className="BangWords-header">
-          <h1 id='bangHeader'>BangWords</h1>
-          <div className='headerCenter'>
-            <h3 className='loggedInAs'>Logged in as: {this.state.userName}!
-            </h3>
-            <h4 className='playersOnline'>{this.state.numOnline} players online right now
-            </h4>
-          </div>
-          <div className='headerRight'>
-            {/* <button
-              id='forfeitGame'
-              onClick={this.props.forfeitMock || this.forfeitGame}
-              data-testid="forfeit-test"
-            >
-              <em>Reset Game</em>
-            </button> */}
-            <button
-              className={!this.state.inRoom ? 'hidden' : 'leave'}
-              onClick={this.leaveRoom}>
-              <em>Leave Game</em>
-            </button>
-          </div>
-        </header>
+        <div className="BangWords">
+          <header className="BangWords-header">
+            <h1 id='bangHeader'>BangWords</h1>
+            <div className='headerCenter'>
+              <h3 className='loggedInAs'>Logged in as: {this.state.userName}!
+              </h3>
+              <h4 className='playersOnline'>{this.state.numOnline} players online right now
+              </h4>
+            </div>
+            <div className='headerRight'>
+              {/* <button
+                id='forfeitGame'
+                onClick={this.props.forfeitMock || this.forfeitGame}
+                data-testid="forfeit-test"
+              >
+                <em>Reset Game</em>
+              </button> */}
+              <button
+                className={!this.state.inRoom ? 'hidden' : 'leave'}
+                onClick={this.leaveRoom}>
+                <em>Leave Game</em>
+              </button>
+            </div>
+          </header>
 
-        <Route
-          exact path='/bangwords'
-          render={() => {
-            return (
-              <Homepage
-                designateRole={this.props.mockRole || this.setRole}
-                hasGenerator={this.state.hasGenerator}
-              />
-            )
-          }}
-        />
+          <Route
+            exact path='/bangwords'
+            render={() => {
+              return (
+                <Homepage
+                  designateRole={this.props.mockRole || this.setRole}
+                  hasGenerator={this.state.hasGenerator}
+                />
+              )
+            }}
+          />
 
-        <Route
-          exact path='/gamepage'
-          render={() => {
-            return (
-              <Gamepage
-                attempts={this.state.attempts}
-                attemptsLeft={this.state.attemptsLeft}
-                chat={this.state.chat}
-                display={this.state.display}
-                isGenerator={this.state.isGenerator}
-                isOver={this.state.isOver}
-                makeGuess={this.props.fakeAGuess || this.makeGuess}
-                playerNames={this.state.playerNames}
-                scores={this.state.scores}
-                sendMessage={this.sendMessage}
-                winners={this.state.winners}
-              />
-            )
-          }}
-        />
+          <Route
+            exact path='/gamepage'
+            render={() => {
+              return (
+                <Gamepage
+                  attempts={this.state.attempts}
+                  attemptsLeft={this.state.attemptsLeft}
+                  chat={this.state.chat}
+                  display={this.state.display}
+                  isGenerator={this.state.isGenerator}
+                  isOver={this.state.isOver}
+                  makeGuess={this.props.fakeAGuess || this.makeGuess}
+                  playerNames={this.state.playerNames}
+                  scores={this.state.scores}
+                  sendMessage={this.sendMessage}
+                  winners={this.state.winners}
+                />
+              )
+            }}
+          />
 
-        <Route
-          exact path='/lobby'
-          render={() => {
-            return (
-              <Lobby
-                createRoom={this.props.mockCreateRoom || this.createRoom}
-                joinRoom={this.props.mockJoinRoom || this.joinRoom}
-                rooms={this.state.rooms}
-                setUserName={this.props.mockSetName || this.setUserName}
-              />
-            )
-          }}
-        />
+          <Route
+            exact path='/lobby'
+            render={() => {
+              return (
+                <Lobby
+                  createRoom={this.props.mockCreateRoom || this.createRoom}
+                  joinRoom={this.props.mockJoinRoom || this.joinRoom}
+                  rooms={this.state.rooms}
+                  setUserName={this.props.mockSetName || this.setUserName}
+                />
+              )
+            }}
+          />
 
-        <Route
-          exact path='/word-selector'
-          render={() => {
-            return (
-              <WordSelector
-                makeWordToGuess={this.sendWordToGuess}
-                isGenerator={this.state.isGenerator}
-                hasGenerator={this.state.hasGenerator}
-                hasWord={this.state.hasWord}
-              />
-            )
-          }}
-        />
-      </div>
+          <Route
+            exact path='/word-selector'
+            render={() => {
+              return (
+                <WordSelector
+                  makeWordToGuess={this.sendWordToGuess}
+                  isGenerator={this.state.isGenerator}
+                  hasGenerator={this.state.hasGenerator}
+                  hasWord={this.state.hasWord}
+                />
+              )
+            }}
+          />
+        </div>
         <Footer/>
-        </>
+      </>
     );
   }
 }
