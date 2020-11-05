@@ -23,13 +23,10 @@ Ian Holladay [@holladayian](https://github.com/holladayian)
 ### The _*sauce*_
 ---
 
-`<!-- check this again? -->`
-[Link to our app](greymatteor.github.io/bangwords)
+[Link to our app](http://greymatteor.github.io/bangwords)
 
 [API](https://bangwords-api.herokuapp.com/) 
 
-
-`<!-- lets put some love into this guy as well -->`
 [API Repo Link](https://github.com/GreyMatteOr/bangwords-api) 
 
 <br><br>
@@ -53,7 +50,6 @@ The BangWords application connects ^two or more^ players to a server using socke
 
 We were given a project and a list of technologies to research. We chose [Building a Backend](https://frontend.turing.io/projects/module-3/stretch.html#building-a-backend). 
 Our goal was simple, create a server with Express, and create an application for users to interact with it. 
-`<!-- do we want to link the Project Aim file? Maybe viewer only -->`
 We origionally wanted to make an interactive puzzle solving page, but upon review from our project managers we decided to make our application a bit more humble. 
 
 <br><br>
