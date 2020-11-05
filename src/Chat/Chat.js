@@ -17,7 +17,6 @@ export class Chat extends Component {
   }
 
   componentDidUpdate = () => {
-    console.log('trigger')
     this.scrollToBottom();
   }
 
@@ -70,6 +69,4 @@ export class Chat extends Component {
 Chat.propType = {
   sendMessage: PropTypes.func,
   chat: PropTypes.array
-  // display: PropTypes.array,
-  // isGenerator: PropTypes.bool,
 }

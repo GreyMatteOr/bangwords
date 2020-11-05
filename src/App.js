@@ -46,7 +46,6 @@ export class App extends Component{
     })
 
     client.on( 'result', (state) => {
-      console.log('NEW:', state)
       this.setState(state);
     });
 
@@ -62,7 +61,6 @@ export class App extends Component{
   }
 
   leaveRoom = () => {
-    console.log('hello')
     client.emit('leaveRoom');
     this.setState({ chat: [] })
   }
@@ -111,7 +109,6 @@ export class App extends Component{
   }
 
   render() {
-    console.log(this.state)
     if (this.state.isLoading) {
       return (<h3>Loading...</h3>);
     }

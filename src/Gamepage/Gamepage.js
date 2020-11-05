@@ -106,6 +106,7 @@ export class Gamepage extends Component {
   }
 
   render = () => {
+    console.log("gamepage this.props", this.props)
     let playerDisplay = this.props.playerNames.map( (name, i) => {
       let playerInfo = { ...this.props.scores[name], key: i}
       return this.createPlayerCard(name, playerInfo)
@@ -147,8 +148,15 @@ export class Gamepage extends Component {
 }
 
 Gamepage.propType = {
-  makeGuess: PropTypes.func,
   attempts: PropTypes.array,
+  attemptsLeft: PropTypes.number, 
+  chat: PropTypes.array,
   display: PropTypes.array,
   isGenerator: PropTypes.bool,
+  isOver: PropTypes.bool,
+  makeGuess: PropTypes.func,
+  playerName: PropTypes.array,
+  scores: PropTypes.object,
+  sendMessage: PropTypes.func,
+  winners: PropTypes.array
 }
