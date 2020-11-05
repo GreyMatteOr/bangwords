@@ -89,7 +89,7 @@ export class Lobby extends Component {
   }
 }
 
-Lobby.propType = {
+Lobby.propTypes = {
   rooms: PropTypes.array,
   createRoom: PropTypes.func,
   joinRoom: PropTypes.func,

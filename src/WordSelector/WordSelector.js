@@ -67,7 +67,7 @@ export class WordSelector extends Component {
 }
 
 
-WordSelector.propType = {
+WordSelector.propTypes = {
   isGenerator: PropTypes.bool,
   hasGenerator: PropTypes.bool,
   hasWord: PropTypes.bool,

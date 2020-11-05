@@ -31,7 +31,7 @@ export const Homepage = (props) => {
 }
 
 
-Homepage.propType = {
+Homepage.propTypes = {
   hasGenerator: PropTypes.bool,
   designateRole: PropTypes.func
 }

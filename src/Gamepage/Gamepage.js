@@ -146,7 +146,7 @@ export class Gamepage extends Component {
   }
 }
 
-Gamepage.propType = {
+Gamepage.propTypes = {
   attempts: PropTypes.array,
   attemptsLeft: PropTypes.number, 
   chat: PropTypes.array,

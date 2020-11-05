@@ -66,7 +66,7 @@ export class Chat extends Component {
   }
 }
 
-Chat.propType = {
+Chat.propTypes = {
   sendMessage: PropTypes.func,
   chat: PropTypes.array
 }
