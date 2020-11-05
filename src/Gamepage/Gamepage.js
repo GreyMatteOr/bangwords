@@ -39,7 +39,6 @@ export class Gamepage extends Component {
   }
 
   createWinnerMessage = () => {
-    console.log(this.props)
     if (this.props.isOver) {
       let messages = this.props.winners.concat();
       let wordWas = messages.pop();

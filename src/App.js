@@ -48,7 +48,6 @@ export class App extends Component{
     })
 
     client.on( 'result', (state) => {
-      console.log('NEW', state)
       this.setState(state);
     });
 
@@ -88,10 +87,6 @@ export class App extends Component{
   setUserName = (userName) => {
     this.setState({ userName })
   }
-
-  // forfeitGame = () => {
-  //   client.emit('clear')
-  // }
 
   setHistory() {
     if (!this.state.inRoom && History[History.length -1] !== '/lobby') {
