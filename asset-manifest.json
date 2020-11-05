@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/bangwords/static/css/main.4e43c136.chunk.css",
-    "main.js": "/bangwords/static/js/main.fc75a10f.chunk.js",
-    "main.js.map": "/bangwords/static/js/main.fc75a10f.chunk.js.map",
+    "main.css": "/bangwords/static/css/main.1d55c9f0.chunk.css",
+    "main.js": "/bangwords/static/js/main.3ae06945.chunk.js",
+    "main.js.map": "/bangwords/static/js/main.3ae06945.chunk.js.map",
     "runtime-main.js": "/bangwords/static/js/runtime-main.62c33c26.js",
     "runtime-main.js.map": "/bangwords/static/js/runtime-main.62c33c26.js.map",
     "static/js/2.82d3e022.chunk.js": "/bangwords/static/js/2.82d3e022.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.fd20393c.chunk.js": "/bangwords/static/js/3.fd20393c.chunk.js",
     "static/js/3.fd20393c.chunk.js.map": "/bangwords/static/js/3.fd20393c.chunk.js.map",
     "index.html": "/bangwords/index.html",
-    "static/css/main.4e43c136.chunk.css.map": "/bangwords/static/css/main.4e43c136.chunk.css.map",
+    "static/css/main.1d55c9f0.chunk.css.map": "/bangwords/static/css/main.1d55c9f0.chunk.css.map",
     "static/js/2.82d3e022.chunk.js.LICENSE.txt": "/bangwords/static/js/2.82d3e022.chunk.js.LICENSE.txt",
     "static/media/crown.0187391f.png": "/bangwords/static/media/crown.0187391f.png",
     "static/media/loading.b33cf617.png": "/bangwords/static/media/loading.b33cf617.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.62c33c26.js",
     "static/js/2.82d3e022.chunk.js",
-    "static/css/main.4e43c136.chunk.css",
-    "static/js/main.fc75a10f.chunk.js"
+    "static/css/main.1d55c9f0.chunk.css",
+    "static/js/main.3ae06945.chunk.js"
   ]
 }
