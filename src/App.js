@@ -115,6 +115,7 @@ export class App extends Component{
     }
     this.setHistory()
     return (
+      <>
       <div className="BangWords">
         <header className="BangWords-header">
           <h1 id='bangHeader'>BangWords</h1>
@@ -196,8 +197,9 @@ export class App extends Component{
             )
           }}
         />
-        <Footer/>
       </div>
+        <Footer/>
+        </>
     );
   }
 }
