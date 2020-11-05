@@ -106,7 +106,6 @@ export class Gamepage extends Component {
   }
 
   render = () => {
-    console.log("gamepage this.props", this.props)
     let playerDisplay = this.props.playerNames.map( (name, i) => {
       let playerInfo = { ...this.props.scores[name], key: i}
       return this.createPlayerCard(name, playerInfo)
