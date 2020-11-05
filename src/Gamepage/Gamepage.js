@@ -38,6 +38,23 @@ export class Gamepage extends Component {
     )
   }
 
+  createWinnerMessage = () => {
+    if (this.props.isOver) {
+      let messages = this.props.winners.concat();
+      let wordWas = messages.pop();
+      let innerHTML = messages.map((msg, i) => <p key={i}>{msg}</p>);
+      return(
+        <div className='endgame-overlay'>
+        <h2>GAME!</h2>
+        <h3>The word was: {wordWas}</h3>
+          {innerHTML}
+        </div>
+      )
+    } else {
+      return <div className='hidden'></div>
+    }
+  }
+
   isGenDisplay = () => {
     if (!this.props.isGenerator) {
       return (
@@ -93,8 +110,10 @@ export class Gamepage extends Component {
       let playerInfo = { ...this.props.scores[name], key: i}
       return this.createPlayerCard(name, playerInfo)
     })
+    let endGameOverlay = this.createWinnerMessage();
     return (
       <div className="game-page" data-testid="game-page">
+        {endGameOverlay}
         <div className="draw-board">
           <h2><em>Draw Board</em></h2>
           <h3><em>Remaining Guesses: {this.props.attemptsLeft}</em></h3>

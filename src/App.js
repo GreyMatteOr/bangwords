@@ -29,7 +29,8 @@ export class App extends Component{
       rooms: this.props.rooms || [],
       numOnline: 'calculating the number of',
       attemptsLeft: 0,
-      playerNames: []
+      playerNames: [],
+      winners:['--REDACTED--']
     }
   }
 
@@ -158,14 +159,16 @@ export class App extends Component{
             return (
               <Gamepage
                 attempts={this.state.attempts}
+                attemptsLeft={this.state.attemptsLeft}
                 chat={this.state.chat}
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
+                isOver={this.state.isOver}
                 makeGuess={this.props.fakeAGuess || this.makeGuess}
                 playerNames={this.state.playerNames}
                 scores={this.state.scores}
                 sendMessage={this.sendMessage}
-                attemptsLeft={this.state.attemptsLeft}
+                winners={this.state.winners}
               />
             )
           }}

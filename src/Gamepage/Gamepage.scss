@@ -10,7 +10,7 @@
   height: 95%;
   align-self: center;
   border-radius: 15px;
-  overflow-y: scroll;
+  overflow-y: auto;
   @include allDivRules();
 }
 
