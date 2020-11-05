@@ -36,8 +36,8 @@ export class App extends Component{
   }
 
   componentDidMount = () => {
-    // client = ioc.connect( "https://bangwords-api.herokuapp.com/");
-    client = ioc.connect( "localhost:3001");
+    client = ioc.connect( "https://bangwords-api.herokuapp.com/");
+    // client = ioc.connect( "localhost:3001");
 
     client.on( 'chatMessage', (message) => {
       let chat = this.state.chat.concat();
