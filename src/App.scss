@@ -21,15 +21,17 @@
   font-family: 'Bangers', cursive;
   color: #BF8620;
   display: grid;
-  grid-template-columns: 3;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 #bangHeader {
+  grid-column: 1;
   justify-self: left;
   margin-left: 20px;
 }
 
 .headerCenter {
+  grid-column: 2;
   place-self: center;
 }
 
@@ -48,12 +50,12 @@
   place-self: center;
 }
 
-#resetGame {
+#forfeitGame {
   margin-right: 10px;
   @include headerButtons;
 }
 
-#resetGame:hover, #theButton:hover {
+#forfeitGame:hover, #theButton:hover {
   background-color: #BF8620;
 }
 

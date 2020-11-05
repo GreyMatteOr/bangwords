@@ -67,25 +67,25 @@ describe('Gamepage', () => {
       />);
       expect(screen.getByPlaceholderText('Chat')).toBeInTheDocument();
     })
-    it('4. should render the `Draw Board` header', () => {
+    // it('4. should render the `Draw Board` header', () => {
 
-      render(
-      <Gamepage 
-      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
-      attempts={['one', 'two', 'three']} 
-      isGenerator={null}
-      playerNames={[]}
-      chat={[]}
-      makeGuess={
-        async (newGuess) => {
-          // const guess = await apiCalls.makeGuess(newGuess)
-          // this.setState({guess})
-          console.log('newGuess', newGuess)
-        }
-      }
-      />);
-      expect(screen.getByText('Draw Board')).toBeInTheDocument();
-    })
+    //   render(
+    //   <Gamepage 
+    //   display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
+    //   attempts={['one', 'two', 'three']} 
+    //   isGenerator={null}
+    //   playerNames={[]}
+    //   chat={[]}
+    //   makeGuess={
+    //     async (newGuess) => {
+    //       // const guess = await apiCalls.makeGuess(newGuess)
+    //       // this.setState({guess})
+    //       console.log('newGuess', newGuess)
+    //     }
+    //   }
+    //   />);
+    //   expect(screen.getByText('Draw Board')).toBeInTheDocument();
+    // })
     it('5. should render the `Attempts` header', () => {
 
       render(

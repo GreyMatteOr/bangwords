@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Chat } from '../Chat/Chat.js'
+import loading from '../assets/loading.png';
+import lose from '../assets/lose.png';
+import win from '../assets/win.png';
+import { Chat } from '../Chat/Chat.js';
 import './Gamepage.scss';
 
 export class Gamepage extends Component {
@@ -14,27 +17,23 @@ export class Gamepage extends Component {
     }
   }
 
-  updateChange = (e) => {
-    e.preventDefault();
-    this.setState({currentGuess: e.target.value})
-  }
-
-  makeGuess = (e) => {
-    e.preventDefault();
-    this.props.makeGuess(this.state.currentGuess)
-    document.querySelector('.word-input').value = '';
-  }
-
-  mapAttempts = () => {
-    return this.props.attempts.map((attempt, i) => {
-      return <p key={i}>{attempt}</p>
-    })
-  }
-
-  splitDisplay = () => {
-    return this.props.display.map((tile, i) => {
-      return <p data-testid={i} key={i}>{tile}</p>
-    })
+  createPlayerCard = ( name, { score, attempts, didWin, key } ) => {
+    let image = {true: win, false: lose, null: loading}[didWin]
+    let isSpinning = didWin === null ? 'spin' : ''
+    return (
+      <div
+        className='player-card'
+        key={key}
+      >
+        <p>{name}:</p>
+        <p>{score} pts</p>
+        <p>{attempts} left</p>
+        <img
+          className={isSpinning}
+          src={image}
+        />
+      </div>
+    )
   }
 
   isGenDisplay = () => {
@@ -64,12 +63,39 @@ export class Gamepage extends Component {
     }
   }
 
+  makeGuess = (e) => {
+    e.preventDefault();
+    this.props.makeGuess(this.state.currentGuess)
+    document.querySelector('.word-input').value = '';
+  }
+
+  mapAttempts = () => {
+    return this.props.attempts.map((attempt, i) => {
+      return <p key={i}>{attempt}</p>
+    })
+  }
+
+  splitDisplay = () => {
+    return this.props.display.map((tile, i) => {
+      return <p data-testid={i} key={i}>{tile}</p>
+    })
+  }
+
+  updateChange = (e) => {
+    e.preventDefault();
+    this.setState({currentGuess: e.target.value})
+  }
+
   render = () => {
+    let playerDisplay = this.props.playerNames.map( (name, i) => {
+      let playerInfo = { ...this.props.scores[name], key: i}
+      return this.createPlayerCard(name, playerInfo)
+    })
     return (
       <div className="game-page" data-testid="game-page">
         <div className="draw-board">
-          <h2><em>Draw Board</em></h2>
-          <h3><em>Remaining Guesses: {this.props.remainingGuesses}</em></h3>
+          <h2><em>Game Board</em></h2>
+          <h3><em>Remaining Guesses: {this.props.attemptsLeft}</em></h3>
           <div className="display-word">{this.splitDisplay()}</div>
         </div>
           <Chat
@@ -82,7 +108,7 @@ export class Gamepage extends Component {
                 <h2>
                   <em>Current Players</em>
                 </h2>
-                {this.props.playerNames.map(name => <h3>{name}</h3>)}
+                {playerDisplay}
               </div>
               {this.isGenDisplay()}
           </section>

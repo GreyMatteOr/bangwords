@@ -19,7 +19,7 @@ export class App extends Component{
       attempts: [],
       chat: [],
       display: [],
-      inGame: this.props.inGame || false,
+      inRoom: this.props.inRoom || false,
       isGameReady: this.props.isGameReady || false,
       isGenerator: this.props.isGenerator || null,
       isLoading: true,
@@ -28,7 +28,7 @@ export class App extends Component{
       userName: this.props.userName || 'guest',
       rooms: this.props.rooms || [],
       numOnline: 'calculating the number of',
-      remainingGuesses: 0,
+      attemptsLeft: 0,
       playerNames: []
     }
   }
@@ -42,9 +42,12 @@ export class App extends Component{
       chat.push(message);
       this.setState({ chat })
     })
+
     client.on( 'result', (state) => {
+      console.log('NEW:', state)
       this.setState(state);
     });
+
     this.setState({isLoading: false});
   }
 
@@ -83,12 +86,12 @@ export class App extends Component{
     this.setState({ userName })
   }
 
-  resetGame = () => {
-    client.emit('clear')
-  }
+  // forfeitGame = () => {
+  //   client.emit('clear')
+  // }
 
   setHistory() {
-    if (!this.state.inGame && History[History.length -1] !== '/lobby') {
+    if (!this.state.inRoom && History[History.length -1] !== '/lobby') {
       window.setTimeout(() => History.push('/lobby'), 1);
     }
 
@@ -106,6 +109,7 @@ export class App extends Component{
   }
 
   render() {
+    console.log(this.state)
     if (this.state.isLoading) {
       return (<h3>Loading...</h3>);
     }
@@ -121,15 +125,15 @@ export class App extends Component{
             </h4>
           </div>
           <div className='headerRight'>
-            <button
-              id='resetGame'
-              onClick={this.props.resetMock || this.resetGame}
-              data-testid="reset-test"
+            {/* <button
+              id='forfeitGame'
+              onClick={this.props.forfeitMock || this.forfeitGame}
+              data-testid="forfeit-test"
             >
               <em>Reset Game</em>
-            </button>
+            </button> */}
             <button
-              className={!this.state.inGame ? 'hidden' : 'leave'}
+              className={!this.state.inRoom ? 'hidden' : 'leave'}
               onClick={this.leaveRoom}>
               <em>Leave Game</em>
             </button>
@@ -159,8 +163,9 @@ export class App extends Component{
                 isGenerator={this.state.isGenerator}
                 makeGuess={this.props.fakeAGuess || this.makeGuess}
                 playerNames={this.state.playerNames}
+                scores={this.state.scores}
                 sendMessage={this.sendMessage}
-                remainingGuesses={this.state.remainingGuesses}
+                attemptsLeft={this.state.attemptsLeft}
               />
             )
           }}
