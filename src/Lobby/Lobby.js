@@ -13,6 +13,7 @@ export class Lobby extends Component {
   }
 
   render() {
+    console.log("'lobby' this.props", this.props)
     let rooms;
       if (this.props.rooms.length) {
         rooms = (
@@ -89,7 +90,9 @@ export class Lobby extends Component {
   }
 }
 
-
 Lobby.propType = {
-  designateRole: PropTypes.func,
+  rooms: PropTypes.array,
+  createRoom: PropTypes.func,
+  joinRoom: PropTypes.func,
+  setUserName: PropTypes.func,
 }
