@@ -23,6 +23,7 @@ export class App extends Component{
       isGenerator: this.props.isGenerator || null,
       isLoading: true,
       isOver: false,
+      isWon: false,
       hasGenerator: null,
       hasWord: false,
       userName: this.props.userName || 'guest',
@@ -164,6 +165,7 @@ export class App extends Component{
                 display={this.state.display}
                 isGenerator={this.state.isGenerator}
                 isOver={this.state.isOver}
+                isWon={this.state.isWon}
                 makeGuess={this.props.fakeAGuess || this.makeGuess}
                 playerNames={this.state.playerNames}
                 scores={this.state.scores}

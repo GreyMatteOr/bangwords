@@ -50,6 +50,27 @@
   @include allDivRules();
 }
 
+.endgame-overlay {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(140, 140, 140, .7);
+}
+
+.message-bubble {
+  height: max-content;
+  width: max-content;
+  background-color: rgba(255,255,255,.4);
+  padding: .75em;
+  margin: auto;
+  border-radius: .5em;
+  align-self: center;
+}
+
 .chat {
   @include chatAndAttempts;
   grid-column: 1;
@@ -155,6 +176,10 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.hidden{
+  display: none;
 }
 
 /*https://mycolor.space/?hex=%23282D33&sub=1*/
