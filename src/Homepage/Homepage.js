@@ -25,7 +25,6 @@ export const Homepage = (props) => {
           Guesser
         </button>
       </div>
-      <h1><em>Score: </em></h1>
     </div>
   )
 }

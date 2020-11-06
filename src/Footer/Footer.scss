@@ -1,6 +1,6 @@
 .footer {
     background-color: #282c34;
-    height: 100px;
+    height: max-content;
     align-content: center;
     font-size: calc(10px + 2vmin);
     font-family: 'Bangers', cursive;
@@ -8,12 +8,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     place-content: center;
+
+    button {
+      width:100%;
+    }
 }
-  
+
 #credits {
     justify-self: left;
     place-self: center;
-    margin-left: 20px;
     cursor: pointer;
     height: 50px;
     font-family: 'Bangers', cursive;
