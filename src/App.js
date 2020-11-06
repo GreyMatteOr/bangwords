@@ -193,8 +193,8 @@ export class App extends Component{
               )
             }}
           />
+          <Footer/>
         </div>
-        <Footer/>
       </>
     );
   }
