@@ -10,13 +10,12 @@
     place-content: center;
 
     button {
-      width:100%;
+      justify-self: flex-start;
+      background-color: transparent;
     }
 }
 
 #credits {
-    justify-self: left;
-    place-self: center;
     cursor: pointer;
     height: 50px;
     font-family: 'Bangers', cursive;
