@@ -127,6 +127,7 @@ export class Gamepage extends Component {
           <Chat
             className="chat"
             chat={this.props.chat}
+            debug={this.props.debug}
             sendMessage={this.props.sendMessage}
           />
           <section className='bottom-mid'>

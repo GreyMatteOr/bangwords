@@ -10,7 +10,7 @@ import './App.scss';
 
 import ioc from 'socket.io-client';
 
-let client;
+export let client;
 
 export class App extends Component{
   constructor(props) {
@@ -38,6 +38,7 @@ export class App extends Component{
   }
 
   componentDidMount = () => {
+    if (this.props.debug) return this.setState({isLoading: false});
     client = ioc.connect( "https://bangwords-api.herokuapp.com/");
     // client = ioc.connect( "localhost:3001");
 
@@ -151,6 +152,7 @@ export class App extends Component{
                   attempts={this.state.attempts}
                   attemptsLeft={this.state.attemptsLeft}
                   chat={this.state.chat}
+                  debug={this.props.debug}
                   display={this.state.display}
                   isGenerator={this.state.isGenerator}
                   isLost={this.state.isLost}
@@ -199,5 +201,3 @@ export class App extends Component{
     );
   }
 }
-
-export default App;

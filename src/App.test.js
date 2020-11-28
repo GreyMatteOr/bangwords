@@ -1,7 +1,5 @@
-// this comment is to test CI is working.
-
 import '@testing-library/jest-dom';
-import { App } from './App.js';
+import { App, client } from './App.js';
 import { screen, render, waitFor } from '@testing-library/react';
 import { createMemoryHistory } from 'history';
 import { Router } from "react-router-dom";
@@ -17,7 +15,7 @@ describe('App', () => {
       mockHistory.push('/lobby');
       render(
         <Router history={mockHistory}>
-        <App />
+        <App debug={true}/>
       </Router>
     );
 
@@ -43,7 +41,7 @@ describe('App', () => {
 
     render(
       <Router history={mockHistory}>
-        <App />
+        <App debug={true}/>
       </Router>
     );
 
@@ -66,7 +64,7 @@ describe('App', () => {
 
     render(
       <Router history={mockHistory}>
-        <App />
+        <App debug={true}/>
       </Router>
     );
 
@@ -88,7 +86,7 @@ describe('App', () => {
 
     render(
       <Router history={mockHistory}>
-        <App/>
+        <App debug={true}/>
       </Router>
     );
 
@@ -109,7 +107,7 @@ describe('App', () => {
 
     render(
       <Router history={mockHistory}>
-        <App inGame={false}/>
+        <App inGame={false} debug={true}/>
       </Router>
     );
 
@@ -123,7 +121,7 @@ describe('App', () => {
 
     render(
       <Router history={mockHistory}>
-        <App inGame={true} />
+        <App inGame={true} debug={true}/>
       </Router>
     );
 
@@ -137,7 +135,7 @@ describe('App', () => {
 
     render(
       <Router history={mockHistory}>
-        <App inGame={true} isGenerator={true}/>
+        <App inGame={true} isGenerator={true} debug={true}/>
       </Router>
     );
 
@@ -151,7 +149,7 @@ describe('App', () => {
 
     render(
       <Router history={mockHistory}>
-        <App inGame={true} isGameReady={true}/>
+        <App inGame={true} isGameReady={true} debug={true}/>
       </Router>
     );
 
@@ -166,7 +164,7 @@ describe('App', () => {
     let genSelect = jest.fn();
     render(
       <Router history={mockHistory}>
-        <App inGame={true} isGenerator={true} mockRole={genSelect}/>
+        <App inGame={true} isGenerator={true} mockRole={genSelect} debug={true}/>
       </Router>
     );
 
@@ -185,7 +183,7 @@ describe('App', () => {
     let fakeAGuess = jest.fn();
     render(
       <Router history={mockHistory}>
-        <App inGame={true} isGameReady={true} isGenerator={false} fakeAGuess={fakeAGuess}/>
+        <App inGame={true} isGameReady={true} isGenerator={false} fakeAGuess={fakeAGuess} debug={true}/>
       </Router>
     );
 
@@ -206,7 +204,7 @@ describe('App', () => {
     mockHistory.push('/lobby');
     render(
       <Router history={mockHistory}>
-        <App userName={'Jeff Leopard'} rooms={['Big Cats', 'Hair Metal']}/>
+        <App userName={'Jeff Leopard'} rooms={['Big Cats', 'Hair Metal']} debug={true}/>
       </Router>
     )
 
@@ -235,6 +233,7 @@ describe('App', () => {
           mockJoinRoom={mockJoinRoom}
           mockCreateRoom={mockCreateRoom}
           rooms={['Big Cats', 'Hair Metal']}
+          debug={true}
         />
       </Router>
     )
