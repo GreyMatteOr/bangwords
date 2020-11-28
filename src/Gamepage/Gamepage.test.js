@@ -7,9 +7,10 @@ describe('Gamepage', () => {
     it('1. should render the `word-input` if `isGenerator is not true`', () => {
 
       render(
-      <Gamepage 
-      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
-      attempts={['one', 'two', 'three']} 
+      <Gamepage
+      debug={true}
+      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']}
+      attempts={['one', 'two', 'three']}
       isGenerator={null}
       playerNames={[]}
       chat={[]}
@@ -27,9 +28,10 @@ describe('Gamepage', () => {
     it('2. should render the `Guess` button if `isGenerator is not true`', () => {
 
       render(
-      <Gamepage 
-      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
-      attempts={['one', 'two', 'three']} 
+      <Gamepage
+      debug={true}
+      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']}
+      attempts={['one', 'two', 'three']}
       isGenerator={null}
       playerNames={[]}
       chat={[]}
@@ -43,7 +45,7 @@ describe('Gamepage', () => {
       />);
       expect(screen.getByTestId('word-submit-button')).toBeInTheDocument();
     })
-  
+
   // expect(screen.getByText('Attempts')).toBeInTheDocument();
   })
 
@@ -51,9 +53,10 @@ describe('Gamepage', () => {
     it('3. should render the `Chat` header', () => {
 
       render(
-      <Gamepage 
-      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
-      attempts={['one', 'two', 'three']} 
+      <Gamepage
+      debug={true}
+      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']}
+      attempts={['one', 'two', 'three']}
       isGenerator={null}
       playerNames={[]}
       chat={[]}
@@ -70,9 +73,9 @@ describe('Gamepage', () => {
     // it('4. should render the `Draw Board` header', () => {
 
     //   render(
-    //   <Gamepage 
-    //   display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
-    //   attempts={['one', 'two', 'three']} 
+    //   <Gamepage
+    //   display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']}
+    //   attempts={['one', 'two', 'three']}
     //   isGenerator={null}
     //   playerNames={[]}
     //   chat={[]}
@@ -89,9 +92,10 @@ describe('Gamepage', () => {
     it('5. should render the `Attempts` header', () => {
 
       render(
-      <Gamepage 
-      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
-      attempts={['one', 'two', 'three']} 
+      <Gamepage
+      debug={true}
+      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']}
+      attempts={['one', 'two', 'three']}
       isGenerator={null}
       playerNames={[]}
       chat={[]}
@@ -111,9 +115,10 @@ describe('Gamepage', () => {
     it('6. should render the `display` prop', () => {
 
       render(
-      <Gamepage 
-      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
-      attempts={['one', 'two', 'three']} 
+      <Gamepage
+      debug={true}
+      display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']}
+      attempts={['one', 'two', 'three']}
       isGenerator={null}
       playerNames={[]}
       chat={[]}
@@ -135,9 +140,10 @@ describe('Gamepage', () => {
     it('6. should display each attempt', () => {
 
       render(
-      <Gamepage 
-        display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']} 
-        attempts={['one', 'two', 'three']} 
+      <Gamepage
+        debug={true}
+        display={['d', '_', '_', 'o', '_', 'a', 'u', 'r']}
+        attempts={['one', 'two', 'three']}
         isGenerator={null}
         playerNames={[]}
         chat={[]}

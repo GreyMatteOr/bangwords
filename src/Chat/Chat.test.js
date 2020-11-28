@@ -1,7 +1,7 @@
 import React from 'react'
 import '@testing-library/jest-dom';
 import { Chat } from './Chat.js';
-import { screen, render} from '@testing-library/react';
+import { screen, render, waitFor} from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 
 describe('Inputs exist', () => {
@@ -11,6 +11,7 @@ describe('Inputs exist', () => {
         let mockFn = jest.fn();
         render(<Chat
             chat={['chris, matt, ian']}
+            debug={true}
             sendMessage={mockFn}
         />);
 
@@ -21,18 +22,20 @@ describe('Inputs exist', () => {
         let mockFn = jest.fn();
         render(<Chat
             chat={['chris, matt, ian']}
+            debug={true}
             sendMessage={mockFn}
         />);
         expect(screen.getByText('Send')).toBeInTheDocument();
     })
   })
 
-  describe('Functionality', () => { 
+  describe('Functionality', () => {
     it('3. should send chats', () => {
 
             let mockFn = jest.fn();
             render(<Chat
                 chat={['chris, matt, ian']}
+                debug={true}
                 sendMessage={mockFn}
             />);
             userEvent.type(screen.getByPlaceholderText('Chat'), 'Chris')
@@ -40,8 +43,8 @@ describe('Inputs exist', () => {
                 userEvent.click(screen.queryByTestId('Send'))
                 setTimeout(() => {
                     expect(screen.getByText('Chris')).toHaveBeenCalledWith('Chris');
-                }, 0)
-            }, 0)
+                }, 1000)
+            }, 1000)
         })
     })
 })

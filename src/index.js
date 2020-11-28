@@ -10,7 +10,7 @@ window.onload = History.push('/lobby')
 
 ReactDOM.render(
   <Router history={History}>
-    <App />
+    <App debug={false}/>
   </Router>,
   document.getElementById('root')
 );

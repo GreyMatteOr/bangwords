@@ -12,12 +12,9 @@ export class Chat extends Component {
     this.messagesEnd = React.createRef()
   }
 
-  scrollToBottom = () => {
-    this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
-  }
-
   componentDidUpdate = () => {
-    this.scrollToBottom();
+    if (this.props.debug) return
+    this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
   }
 
   sendMessage = (e) => {
